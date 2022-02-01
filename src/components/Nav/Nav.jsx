@@ -4,6 +4,7 @@ import {
   Wrapp,
   Logo,
   Text,
+  TextItem,
   Icons
 } from './Nav.styles'
 
@@ -11,9 +12,14 @@ import {
 const Nav = () => {
   return <Cont>
     <Wrapp>
-      <Logo></Logo>
-      <Text></Text>
-      <Icons></Icons>
+      <Logo>PETys</Logo>
+      <Text>
+        <TextItem>About Us</TextItem>
+        <TextItem>Shop</TextItem>
+      </Text>
+      <Icons>
+        
+      </Icons>
     </Wrapp>
   </Cont>;
 };
