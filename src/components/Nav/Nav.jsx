@@ -1,25 +1,33 @@
 import React from 'react';
+import { BsCart4, BsFillPersonFill } from "react-icons/bs";
 import {
   Cont,
   Wrapp,
+  Left,
   Logo,
-  Text,
+  Center,
   TextItem,
-  Icons
+  Right,
+  IconItem,
+  CartNum
 } from './Nav.styles'
-
 
 const Nav = () => {
   return <Cont>
     <Wrapp>
-      <Logo>PETys</Logo>
-      <Text>
+      <Left>
+        <Logo>PETYs</Logo>
+      </Left>
+      <Center>
         <TextItem>About Us</TextItem>
         <TextItem>Shop</TextItem>
-      </Text>
-      <Icons>
-        
-      </Icons>
+      </Center>
+      <Right>
+        <IconItem><BsFillPersonFill /></IconItem>
+        <IconItem>
+          <BsCart4 />
+        </IconItem>
+      </Right>
     </Wrapp>
   </Cont>;
 };
