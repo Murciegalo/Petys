@@ -4,10 +4,10 @@ export const Cont = styled.div`
   width: 100%;
 `
 export const Wrapp = styled.div`
-  width: 90%;
+  width: 80%;
   height: 100%;
   margin: 0 auto;
-  box-shadow: 0 4px #fff;
+  box-shadow: 0 2px #fff;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -22,10 +22,6 @@ export const Left = styled.div`
 `
 
 export const Logo = styled.div`
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  border: 3px solid #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,6 +29,9 @@ export const Logo = styled.div`
   font-size: 24px;
   font-weight: bold;
   padding: 5px;
+  &: hover{
+    cursor: pointer;
+  }
 `
 
 export const Center = styled.div`
@@ -46,6 +45,7 @@ export const TextItem = styled.div`
     color: white;
     font-weight: bold;
     text-decoration: underline;
+    cursor: pointer;
   }
 `
 
@@ -58,6 +58,11 @@ export const IconItem = styled.li`
   display: flex;
   margin-left: 20px;
   color: #FFF;
+  &: hover{
+    svg{
+      cursor: pointer;
+    }
+  }
 `
 export const CartNum = styled.span`
   margin-left: -1px;

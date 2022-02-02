@@ -8,8 +8,7 @@ import {
   Center,
   TextItem,
   Right,
-  IconItem,
-  CartNum
+  IconItem
 } from './Nav.styles'
 
 const Nav = () => {
