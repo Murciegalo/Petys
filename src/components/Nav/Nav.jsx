@@ -15,7 +15,7 @@ const Nav = () => {
   return <Cont>
     <Wrapp>
       <Left>
-        <Logo>PETYs</Logo>
+        <Logo>PEXYs</Logo>
       </Left>
       <Center>
         <TextItem>About Us</TextItem>

@@ -29,8 +29,3 @@ body {
 
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#84FFC9", endColorstr="#AAB2FF", GradientType=1 );
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
