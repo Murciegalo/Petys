@@ -23,8 +23,12 @@ export const Left = styled.div`
 `
 
 export const Header2 = styled.h2`
+  display: block !important;
   padding-bottom: 1.5%;
-  
+  text-align: center;
+  font-size: 3.8rem;
+  font-weight: 100;
+  line-height: 5.9rem;
 `
 
 export const Header4 = styled.h4`

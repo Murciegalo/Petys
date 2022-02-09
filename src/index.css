@@ -1,8 +1,9 @@
 body {
   margin: 0;
   height: 100vh;
-  font-family: 'Roboto', BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu',
+  font-family: 'Redressed', BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu',
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  letter-spacing: 1px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: hsla(154, 100%, 76%, 1);
