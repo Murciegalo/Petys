@@ -1,14 +1,15 @@
 import React from 'react';
 import { 
   Cont, 
+  Row,
   Header2, 
   Header3, 
   Header4, 
   Img, 
   Left, 
   Link, 
-  Right, 
-  Row,
+  Right,
+  ContR, 
   Col,
   
 } from './GridCover.styles';
@@ -25,21 +26,16 @@ const GridCover = () => {
         </Link>
       </Left>
       <Right>
-        <Row>
           <Col>
             <Link>
-              <Img src="*" />
+              <Img src="//cdn.shopify.com/s/files/1/0269/5337/files/jewellery_1024x1024.jpg?v=12945860340118551329" />
               <Header3>Akita</Header3>
             </Link>
-          </Col>
-          <Col>
             <Link>
-              <Img src="*" />
-              <Header3>Akita</Header3>
+              <Img src="//cdn.shopify.com/s/files/1/0269/5337/products/35A9821_1024x1024.jpg?v=1635351128" />
+              <Header3>Pastor Belga</Header3>
             </Link>
           </Col>
-        </Row>
-
       </Right>
     </Row>
   </Cont>;

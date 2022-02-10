@@ -16,10 +16,9 @@ export const Row = styled.div`
 export const Left = styled.div`
   width: 39%;
   padding-top: 5%;
-  text-align: center;
-  // float: left;
-  // min-height: 1px;
-  // position: relative;
+  float: left;
+  min-height: 1px;
+  position: relative;
 `
 
 export const Header2 = styled.h2`
@@ -28,6 +27,7 @@ export const Header2 = styled.h2`
   padding-bottom: 1.5%;
   font-size: 3.8rem;
   font-weight: thin;
+  text-align: center;
   line-height: 5.9rem;
 `
 
@@ -37,6 +37,7 @@ export const Header4 = styled.h4`
   padding-bottom: 5%;
   font-size: 1.8rem;
   font-weight: 100;
+  text-align: center;
 `
 
 export const Link = styled.a`
@@ -51,16 +52,18 @@ export const Img = styled.img`
 export const Header3 = styled.h3`
   font-size: 1.5rem;
   font-weight: 100;
+  text-align: center;
 `
 
 export const Right = styled.div`
   width: 56.5%;
   margin-left: 4.4%;
-  // float: left;
-  // min-height: 1px;
-  // position: relative;
+  padding-top: 4%;
+  float: left;
+  min-height: 1px;
+  position: relative;
 `
 
 export const Col = styled.div`
-
+  width: 54%;
 `
