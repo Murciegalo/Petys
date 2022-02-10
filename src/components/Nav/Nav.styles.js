@@ -25,8 +25,8 @@ export const Logo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #FFF;
-  font-size: 24px;
+  color: #000;
+  font-size: 30px;
   font-weight: bold;
   padding: 5px;
   &: hover{
@@ -38,11 +38,12 @@ export const Center = styled.div`
   flex: 1;
   display: flex;
   justify-content: space-evenly;
-  color: #FFF;
+  font-size: 22px;
+  color: #000;
 `
 export const TextItem = styled.div`
   &: hover{
-    color: white;
+    color: #000;
     font-weight: bold;
     text-decoration: underline;
     cursor: pointer;
@@ -57,7 +58,7 @@ export const Right = styled.ul`
 export const IconItem = styled.li`
   display: flex;
   margin-left: 20px;
-  color: #FFF;
+  color: #000;
   &: hover{
     svg{
       cursor: pointer;
