@@ -20,28 +20,32 @@ const GridCover = () => {
         <Header2>Pexys Shop</Header2>
         <Header4>Most beautiful pexys for you</Header4>
         <Link>
-          <Img src="//cdn.shopify.com/s/files/1/0269/5337/products/35A0332Graded_1024x1024.jpg?v=1615803373" />
+          <Img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.fgjpahvHV2xdUHf65s2-GwHaLH%26pid%3DApi&f=1" />
           <Header3>Lulu de Pomerania</Header3>
         </Link>
       </Left>
       <Right>
           <Col1>
             <Link>
-              <Img src="//cdn.shopify.com/s/files/1/0269/5337/files/jewellery_1024x1024.jpg?v=12945860340118551329" />
+              <Img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.GeAA0FO3BwC_e47_zDJbsgHaEo%26pid%3DApi&f=1" />
               <Header3>Akita</Header3>
             </Link>
             <Link>
-              <Img src="//cdn.shopify.com/s/files/1/0269/5337/products/35A9821_1024x1024.jpg?v=1635351128" />
+              <Img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.U34fzTCuTbxQQEmlkTPjxgHaFj%26pid%3DApi&f=1" />
+              <Header3>Pastor Belga</Header3>
+            </Link>
+            <Link>
+              <Img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.cyRApAS-vvcP4zKyrt6XYgHaEo%26pid%3DApi&f=1" />
               <Header3>Pastor Belga</Header3>
             </Link>
           </Col1>
           <Col2>
              <Link>
-              <Img src="//cdn.shopify.com/s/files/1/0269/5337/products/Sea-Studio-Niall-Meehan-007A-Dalkey-Island_1024x1024.jpg?v=1635866307" />
+              <Img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2Fb0%2F09%2F91%2Fb00991bfdfb9b4a055c0721bcd18b938.jpg&f=1&nofb=1" />
               <Header3>Cocker</Header3>
             </Link>
              <Link>
-              <Img src="//cdn.shopify.com/s/files/1/0269/5337/products/35A3628Graded_1024x1024.jpg?v=1621439986" />
+              <Img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.huskypuppiesinfo.com%2Fwp-content%2Fuploads%2F2018%2F03%2FChoosing-a-Husky-Puppy.jpg%3Fx59932&f=1&nofb=1" />
               <Header3>Bulldog</Header3>
             </Link>
           </Col2>
