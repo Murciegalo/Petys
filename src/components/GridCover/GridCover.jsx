@@ -9,9 +9,8 @@ import {
   Left, 
   Link, 
   Right,
-  ContR, 
-  Col,
-  
+  Col1,
+  Col2
 } from './GridCover.styles';
 
 const GridCover = () => {
@@ -26,7 +25,7 @@ const GridCover = () => {
         </Link>
       </Left>
       <Right>
-          <Col>
+          <Col1>
             <Link>
               <Img src="//cdn.shopify.com/s/files/1/0269/5337/files/jewellery_1024x1024.jpg?v=12945860340118551329" />
               <Header3>Akita</Header3>
@@ -35,7 +34,17 @@ const GridCover = () => {
               <Img src="//cdn.shopify.com/s/files/1/0269/5337/products/35A9821_1024x1024.jpg?v=1635351128" />
               <Header3>Pastor Belga</Header3>
             </Link>
-          </Col>
+          </Col1>
+          <Col2>
+             <Link>
+              <Img src="//cdn.shopify.com/s/files/1/0269/5337/products/Sea-Studio-Niall-Meehan-007A-Dalkey-Island_1024x1024.jpg?v=1635866307" />
+              <Header3>Cocker</Header3>
+            </Link>
+             <Link>
+              <Img src="//cdn.shopify.com/s/files/1/0269/5337/products/35A3628Graded_1024x1024.jpg?v=1621439986" />
+              <Header3>Bulldog</Header3>
+            </Link>
+          </Col2>
       </Right>
     </Row>
   </Cont>;

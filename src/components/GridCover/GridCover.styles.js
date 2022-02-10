@@ -14,7 +14,7 @@ export const Row = styled.div`
 `
 
 export const Left = styled.div`
-  width: 39%;
+  width: 38%;
   padding-top: 5%;
   float: left;
   min-height: 1px;
@@ -56,14 +56,25 @@ export const Header3 = styled.h3`
 `
 
 export const Right = styled.div`
-  width: 56.5%;
-  margin-left: 4.4%;
-  padding-top: 4%;
+  width: 58%;
+  margin-left: 4%;
   float: left;
   min-height: 1px;
   position: relative;
 `
 
-export const Col = styled.div`
-  width: 54%;
+export const Col1 = styled.div`
+  width: 50%;
+  padding-top: 8%;
+  float: left;
+  min-height: 1px;
+  position: relative;
+`
+export const Col2 = styled.div`
+  width: 40%;
+  padding-top: 12%;
+  float: left;
+  min-height: 1px;
+  position: relative;
+  margin-left: 7%;
 `
