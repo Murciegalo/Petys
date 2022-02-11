@@ -11,7 +11,7 @@ import {
   Right,
   Col1,
   Col2
-} from './GridCover.styles';
+} from './FloatCover.styles';
 
 const GridCover = () => {
   // Refactoring into 1 comp. Link/Img/Header3

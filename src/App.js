@@ -1,12 +1,12 @@
 import Nav from "./components/Nav/Nav";
-import GridCover from "./components/GridCover/GridCover";
+import FloatCover from "./components/FloatCover/FloatCover";
 import GiftBoxes from "./components/GiftBoxes/GiftBoxes";
 
 function App() {
   return (
     <div className="App">
       <Nav />
-      <GridCover />
+      <FloatCover />
       <GiftBoxes />
     </div>
   );
