@@ -16,6 +16,7 @@ export const Row = styled.div`
   max-width: 1140px;
   min-width: 727px;
   margin: 0 auto;
+  padding-bottom: 5%;
   display: grid;
   grid-template-columns: repeat( 3 ,1fr);
   column-gap: 2%;
