@@ -12,7 +12,7 @@ import {
 const Stories = () => {
   return (
     <Cont>
-      <Header>Historias Pexys</Header>
+      <Header>Historias PETXys</Header>
       <Row>
         <Wrapper>
           <Link>

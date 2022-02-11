@@ -18,8 +18,8 @@ const GridCover = () => {
   return <Cont>
     <Row>
       <Left>
-        <Header2>Pexys Shop</Header2>
-        <Header4>Most beautiful pexys for you</Header4>
+        <Header2>PETXys Shop</Header2>
+        <Header4>Most beautiful petxys for you</Header4>
         <Link>
           <Img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.fgjpahvHV2xdUHf65s2-GwHaLH%26pid%3DApi&f=1" />
           <Header3>Lulu de Pomerania</Header3>
