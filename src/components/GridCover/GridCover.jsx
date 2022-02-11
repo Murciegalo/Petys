@@ -14,6 +14,7 @@ import {
 } from './GridCover.styles';
 
 const GridCover = () => {
+  // Refactoring into 1 comp. Link/Img/Header3
   return <Cont>
     <Row>
       <Left>

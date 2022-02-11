@@ -11,6 +11,15 @@ export const Row = styled.div`
   max-width: 1140px;
   min-width: 727px;
   margin: 0 auto;
+  &:before {
+    content: "";
+    display: table;
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 `
 
 export const Left = styled.div`
