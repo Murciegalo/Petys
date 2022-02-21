@@ -18,7 +18,8 @@ export const Row = styled.div`
 `
 export const Text = styled.p`
   font-size: 19px;
-  width: 80%;
+  text-align: center;
+  width: 65%;
   margin: 0 auto;
   padding-bottom: 2%;
 `

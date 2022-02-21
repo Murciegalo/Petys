@@ -3,6 +3,7 @@ import FloatCover from "./components/FloatCover/FloatCover";
 import GiftBoxes from "./components/GiftBoxes/GiftBoxes";
 import Stories from "./components/Storiess/Stories";
 import AboutUs from "./components/AboutUs/AboutUs";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <GiftBoxes />
       <Stories />
       <AboutUs />
+      <Footer />
     </div>
   );
 }
