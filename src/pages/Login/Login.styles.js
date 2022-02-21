@@ -64,7 +64,7 @@ export const Btn = styled.button`
 `
 
 export const Text = styled.span`
-  width: 40%;
+  width: auto;
   margin: 0 auto;
   transition: height 0.5s ease-in-out;
   :hover{

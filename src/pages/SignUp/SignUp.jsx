@@ -12,15 +12,14 @@ import {
 const SignUp = () => {
   return (
     <Cont>
-      <Header>Login</Header>
+      <Header>Sign Up</Header>
       <Wrapper>
         <Form>
           <Input placeholder='Full Name' />
           <Input placeholder='Email' />
           <Input placeholder='Password' />
-          <Btn>Sign In</Btn>
-          <Text>Create Account</Text>
-          <Text>Forgot your password?</Text>
+          <Btn>Sign Up</Btn>
+          <Text>Already have an account? Login</Text>
         </Form>
       </Wrapper>
     </Cont>
