@@ -1,18 +1,13 @@
 import Nav from "./components/Nav/Nav";
-import FloatCover from "./components/FloatCover/FloatCover";
-import GiftBoxes from "./components/GiftBoxes/GiftBoxes";
-import Stories from "./components/Storiess/Stories";
-import AboutUs from "./components/AboutUs/AboutUs";
+// import Home from "./pages/Home/Home";
 import Footer from "./components/Footer/Footer";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
     <div className="App">
       <Nav />
-      <FloatCover />
-      <GiftBoxes />
-      <Stories />
-      <AboutUs />
+      <Login />
       <Footer />
     </div>
   );

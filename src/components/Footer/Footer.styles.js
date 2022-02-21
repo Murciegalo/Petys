@@ -5,10 +5,10 @@ export const Cont = styled.div`
   max-width: 1140px;
   min-width: 727px;
   margin: 0 auto;
-  padding-bottom: 5%;
   padding-top: 3%;
+  padding-bottom: 2%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 `
 export const Left = styled.div`
   display: flex;
