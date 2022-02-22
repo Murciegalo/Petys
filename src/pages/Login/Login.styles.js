@@ -36,7 +36,7 @@ export const Input = styled.input`
   outline: none;
   border: none;
   border-bottom: solid 2px #fff;
-  transition: height 0.5s ease-in-out;
+  transition: 0.2s ease-in-out;
 
   :focus{
     color: white;
@@ -54,7 +54,7 @@ export const Btn = styled.button`
   font-size: 1.5rem;
   font-family: inherit;
   border: 2px solid #fff;
-  transition: height 0.5s ease-in-out;
+  transition: 0.2s ease-in-out;
   
   :hover{
     cursor: pointer;
@@ -66,7 +66,7 @@ export const Btn = styled.button`
 export const Text = styled.span`
   width: auto;
   margin: 0 auto;
-  transition: height 0.5s ease-in-out;
+  transition: 0.2s ease-in-out;
   :hover{
     cursor: pointer;
     color: white;

@@ -25,6 +25,11 @@ export const Icons = styled.div`
   & svg{
     font-size: 25px;
     margin: 15px 20px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    :hover{
+      color: white;
+    }
   }
 `
 
