@@ -1,12 +1,24 @@
 import React from 'react'
 import { 
-  Cont 
+  Cont, Filter, Item, ItemsList, WrapperF, WrapperS 
 } from './Shop.styles'
 
 const Shop = () => {
   return (
     <Cont>
-      Shop
+      <WrapperF>
+        <Filter>
+          Raza: 
+        </Filter>
+        <Filter>
+          Color: 
+        </Filter>
+      </WrapperF>
+      <WrapperS>
+        <ItemsList>
+          <Item />
+        </ItemsList>
+      </WrapperS>
     </Cont>
   )
 }
