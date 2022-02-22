@@ -18,18 +18,49 @@ export const giftBoxes = [
 export const storyItems = [
   {
     id: '1',
-    img: "https://hypescience.com/wp-content/uploads/2013/11/313-600x401.jpg"
+    img: "https://hypescience.com/wp-content/uploads/2013/11/313-600x401.jpg",
+    title: "Pickles y el futbol"
   },
   {
     id: '2',
-    img: "https://hypescience.com/wp-content/uploads/2013/11/120-600x398.jpg"
+    img: "https://hypescience.com/wp-content/uploads/2013/11/120-600x398.jpg",
+    title: "Fido y su amor incondicional"
   },
   {
     id: '3',
-    img: "https://hypescience.com/wp-content/uploads/2013/11/613.jpg"
+    img: "https://hypescience.com/wp-content/uploads/2013/11/613.jpg",
+    title: "Salvamento Barry!"
   },
   {
     id: '4',
-    img: "https://hypescience.com/wp-content/uploads/2013/11/812.jpg"
+    img: "https://hypescience.com/wp-content/uploads/2013/11/812.jpg",
+    title: "Los trenes y Bob"
+  }
+]
+
+export const floatCover = [
+  {
+    id: '1',
+    img: ""
+  },
+  {
+    id: '2',
+    img: ""
+  },
+  {
+    id: '3',
+    img: ""
+  },
+  {
+    id: '4',
+    img: ""
+  },
+  {
+    id: '5',
+    img: ""
+  },
+  {
+    id: '6',
+    img: ""
   }
 ]

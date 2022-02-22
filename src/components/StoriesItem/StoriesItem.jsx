@@ -10,7 +10,7 @@ const StoriesItem = ({el}) => {
   return <Wrapper>
     <Link>
       <Img src={el.img} />
-      <Header3>Pickles y el futbol</Header3>
+      <Header3>{el.title}</Header3>
     </Link>
 </Wrapper>
 }
