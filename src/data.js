@@ -14,3 +14,22 @@ export const giftBoxes = [
     img: "//cdn.shopify.com/s/files/1/0269/5337/files/35A9957_1400x1400_88340a46-e7b8-4a9e-a147-60a966e3bc57.jpg?v=4459268868613485212"
   }
 ]
+
+export const storyItems = [
+  {
+    id: '1',
+    img: "https://hypescience.com/wp-content/uploads/2013/11/313-600x401.jpg"
+  },
+  {
+    id: '2',
+    img: "https://hypescience.com/wp-content/uploads/2013/11/120-600x398.jpg"
+  },
+  {
+    id: '3',
+    img: "https://hypescience.com/wp-content/uploads/2013/11/613.jpg"
+  },
+  {
+    id: '4',
+    img: "https://hypescience.com/wp-content/uploads/2013/11/812.jpg"
+  }
+]
