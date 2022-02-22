@@ -1,5 +1,5 @@
 import Nav from "./components/Nav/Nav";
-// import Home from "./pages/Home/Home";
+import Home from "./pages/Home/Home";
 // import SignUp from "./pages/SignUp/SignUp";
 // import Login from "./pages/Login/Login";
 import Footer from "./components/Footer/Footer";
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <Shop />
+      <Home />
       <Footer />
     </div>
   );

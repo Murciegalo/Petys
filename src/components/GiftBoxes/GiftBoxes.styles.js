@@ -21,15 +21,3 @@ export const Row = styled.div`
   grid-template-columns: repeat( 3 ,1fr);
   column-gap: 2%;
 `
-export const Wrapper = styled.div`
-  width: 100%;
-  display: block;
-  height: auto;
-`
-export const Link = styled.a`
-
-`
-export const Img = styled.img`
-  max-width: 100%;
-  height: auto;
-`
