@@ -1,18 +1,13 @@
 import React from 'react'
 import { 
-  Cont, Filter, Item, ItemsList, WrapperF, WrapperS 
+  Cont, Item, ItemsList, WrapperF, WrapperS 
 } from './Shop.styles'
 
 const Shop = () => {
   return (
     <Cont>
       <WrapperF>
-        <Filter>
-          Raza: 
-        </Filter>
-        <Filter>
-          Color: 
-        </Filter>
+        SHOP
       </WrapperF>
       <WrapperS>
         <ItemsList>

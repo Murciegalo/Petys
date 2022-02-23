@@ -4,10 +4,10 @@ export const Cont = styled.div`
   width: 100%;
 `
 export const Wrapp = styled.div`
-  width: 80%;
+  // width: 80%;
   height: 100%;
   margin: 0 auto;
-  box-shadow: 0 2px #fff;
+  box-shadow: 0 1px #fff;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@ export const Logo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #000;
+  color: aliceblue;
   font-size: 30px;
   font-weight: bold;
   padding: 5px;
@@ -39,14 +39,16 @@ export const Center = styled.div`
   display: flex;
   justify-content: space-evenly;
   font-size: 22px;
-  color: #000;
+  color: aliceblue;
 `
 export const TextItem = styled.div`
+  padding: 2%;
   &: hover{
-    color: #000;
+    color: aliceblue;
     font-weight: bold;
-    text-decoration: underline;
     cursor: pointer;
+    border-bottom: 1px solid aliceblue;
+    border-right: 1px solid aliceblue;
   }
 `
 
@@ -58,10 +60,13 @@ export const Right = styled.ul`
 export const IconItem = styled.li`
   display: flex;
   margin-left: 20px;
-  color: #000;
+  color: aliceblue;
+  font-size: 20px;
+
   &: hover{
     svg{
       cursor: pointer;
+      transform: scale(1.5);
     }
   }
 `
@@ -69,5 +74,5 @@ export const CartNum = styled.span`
   margin-left: -1px;
   margin-top: -8px;
   font-size: 12px;
-  color: #FFF;
+  color: aliceblue;
 `
