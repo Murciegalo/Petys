@@ -88,7 +88,7 @@ export const Pomeranian = [
   },
   {
     id: '6',
-    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F4c%2Fe2%2F77%2F4ce2773b32c2a09511ebf49b2129660e.jpg&f=1&nofb=1"
+    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F88%2F3a%2Fa0%2F883aa086e15d97824a00cf20a9ceba1b.jpg&f=1&nofb=1"
   },
   {
     id: '7',
@@ -100,6 +100,6 @@ export const Pomeranian = [
   },
   {
     id: '9',
-    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F88%2F3a%2Fa0%2F883aa086e15d97824a00cf20a9ceba1b.jpg&f=1&nofb=1"
+    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F4c%2Fe2%2F77%2F4ce2773b32c2a09511ebf49b2129660e.jpg&f=1&nofb=1"
   },
 ]

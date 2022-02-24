@@ -4,7 +4,6 @@ export const Cont = styled.div`
   width: 100%;
   display: block;
   height: auto;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,4 +17,5 @@ export const Img = styled.img`
   height: auto;
   border: 4px solid white;
   border-radius: 5px;
+  cursor: pointer;
 `
