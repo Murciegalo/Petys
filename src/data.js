@@ -68,26 +68,38 @@ export const floatCover = [
 export const Pomeranian = [
   {
     id: '1',
-    img: ""
+    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.KewikqxbwjW_XfxidcvxFwHaFj%26pid%3DApi&f=1"
   },
   {
     id: '2',
-    img: ""
+    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uG4VWE0EEdcdAlBvkQxStwHaE8%26pid%3DApi&f=1"
   },
   {
     id: '3',
-    img: ""
+    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Feb%2F36%2Ff7%2Feb36f7cf9062d7f38a311c61a4dff851.jpg&f=1&nofb=1"
   },
   {
     id: '4',
-    img: ""
+    img: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fportalbrasil10.com.br%2Fwp-content%2Fuploads%2F2016%2F03%2Ffoto1.jpg&f=1&nofb=1"
   },
   {
     id: '5',
-    img: ""
+    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2Fd7%2F6e%2F42%2Fd76e429a4630a2c247663a081da55db0.jpg&f=1&nofb=1"
   },
   {
     id: '6',
-    img: ""
-  }
+    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F4c%2Fe2%2F77%2F4ce2773b32c2a09511ebf49b2129660e.jpg&f=1&nofb=1"
+  },
+  {
+    id: '7',
+    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2Fc0%2Fef%2Fcb%2Fc0efcb8fe56b0359879a9bbc427245c4.jpg&f=1&nofb=1"
+  },
+  {
+    id: '8',
+    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2Ff5%2F60%2F75%2Ff5607589846d386a8bb69060ad7e5165.jpg&f=1&nofb=1"
+  },
+  {
+    id: '9',
+    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F88%2F3a%2Fa0%2F883aa086e15d97824a00cf20a9ceba1b.jpg&f=1&nofb=1"
+  },
 ]

@@ -5,6 +5,9 @@ export const Cont = styled.div`
   display: block;
   height: auto;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 export const Link = styled.a`

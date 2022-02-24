@@ -3,7 +3,6 @@ import ShopItem from '../../components/ShopItem/ShopItem'
 import { Pomeranian } from '../../data'
 import { 
   Cont, 
-  ItemsList, 
   WrapperF,
   Link, 
   WrapperS 
