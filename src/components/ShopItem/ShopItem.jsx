@@ -1,9 +1,15 @@
 import React from 'react'
-import { Cont } from './ShopItem.styles'
+import { 
+  Cont,
+  Link,
+  Img 
+} from './ShopItem.styles'
 
-const ShopItem = () => {
+const ShopItem = ({el}) => {
   return <Cont>
-    Shop Item
+    <Link>
+      <Img src={el.img} />
+    </Link>
   </Cont>
 }
 
