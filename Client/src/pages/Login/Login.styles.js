@@ -67,9 +67,16 @@ export const Text = styled.span`
   width: auto;
   margin: 0 auto;
   transition: 0.2s ease-in-out;
+  cursor: pointer;
+  a{
+    text-decoration: none;
+    color: black;
+  }
   :hover{
-    cursor: pointer;
-    color: white;
+    a{
+      cursor: pointer;
+      color: white;
+    }
   }
 `
 

@@ -80,6 +80,10 @@ export const Col1 = styled.div`
   float: left;
   min-height: 1px;
   position: relative;
+
+  a{
+    text-decoration: none !important;
+  }
 `
 export const Col2 = styled.div`
   width: 40%;
@@ -88,4 +92,8 @@ export const Col2 = styled.div`
   min-height: 1px;
   position: relative;
   margin-left: 7%;
+  
+  a{
+    text-decoration: none !important;
+  }
 `

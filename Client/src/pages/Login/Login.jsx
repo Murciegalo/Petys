@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { 
   Btn,
   Cont, Form, Header, Input, Text, Wrapper 
@@ -7,14 +8,22 @@ import {
 const Login = () => {
   return (
     <Cont>
-      <Header>Login</Header>
+      <Header>Sign In</Header>
       <Wrapper>
         <Form>
           <Input placeholder='Email' />
           <Input placeholder='Password' />
           <Btn>Sign In</Btn>
-          <Text>Create Account</Text>
-          <Text>Forgot your password?</Text>
+          <Text>
+            <Link to='/signup'>
+              You don't have an account? SIGN UP
+            </Link>
+          </Text>
+          <Text>
+            <Link to='/forgotPassword'>
+              Forgot your password?
+            </Link>
+          </Text>
         </Form>
       </Wrapper>
     </Cont>

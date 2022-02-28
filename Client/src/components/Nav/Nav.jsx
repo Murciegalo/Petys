@@ -32,12 +32,12 @@ const Nav = () => {
       </Center>
       <Right>
         <IconItem>
-          <Link to='Login'>
+          <Link to='/login'>
             <BsFillPersonFill />
           </Link>
         </IconItem>
         <IconItem>
-          <Link to='Login'>
+          <Link to='/cart'>
             <BsCart4 />
           </Link>
         </IconItem>
