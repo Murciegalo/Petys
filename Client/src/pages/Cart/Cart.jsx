@@ -1,9 +1,15 @@
 import React from 'react'
-import { Cont } from './Cart.styles'
+import { Cont, Header, List, Product, ProductsList } from './Cart.styles'
 
 const Cart = () => {
   return <Cont>
-    Cart
+    <Header>Your Cart</Header>
+    <ProductsList>
+      <Product>Product</Product>    
+      <List>Price</List>
+      <List>Quantity</List>
+      <List>Total</List>
+    </ProductsList>
   </Cont>
 }
 
