@@ -1,5 +1,6 @@
 import React from 'react';
 import { BsCart4, BsFillPersonFill } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 import {
   Cont,
   Wrapp,
@@ -15,16 +16,30 @@ const Nav = () => {
   return <Cont>
     <Wrapp>
       <Left>
-        <Logo>PETXys</Logo>
+        <Logo>
+          <Link to='/'>
+            PETXys
+          </Link>
+        </Logo>
       </Left>
       <Center>
-        <TextItem>About Us</TextItem>
-        <TextItem>Shop</TextItem>
+        {/* <TextItem>About Us</TextItem> */}
+        <TextItem>
+          <Link to='/shop'>
+            Shop
+          </Link>
+        </TextItem>
       </Center>
       <Right>
-        <IconItem><BsFillPersonFill /></IconItem>
         <IconItem>
-          <BsCart4 />
+          <Link to='Login'>
+            <BsFillPersonFill />
+          </Link>
+        </IconItem>
+        <IconItem>
+          <Link to='Login'>
+            <BsCart4 />
+          </Link>
         </IconItem>
       </Right>
     </Wrapp>

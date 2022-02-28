@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 export const Cont = styled.div`
   width: 100%;
 `
@@ -32,23 +31,33 @@ export const Logo = styled.div`
   &: hover{
     cursor: pointer;
   }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
 `
 
 export const Center = styled.div`
   flex: 1;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: end;
   font-size: 22px;
   color: aliceblue;
 `
 export const TextItem = styled.div`
   padding: 2%;
+  
   &: hover{
     color: aliceblue;
     font-weight: bold;
     cursor: pointer;
     border-bottom: 1px solid aliceblue;
     border-right: 1px solid aliceblue;
+  }
+  a {
+    text-decoration: none;
+    color: white;
   }
 `
 
@@ -68,6 +77,10 @@ export const IconItem = styled.li`
       cursor: pointer;
       transform: scale(1.5);
     }
+  }
+  a {
+    text-decoration: none;
+    color: white;
   }
 `
 export const CartNum = styled.span`

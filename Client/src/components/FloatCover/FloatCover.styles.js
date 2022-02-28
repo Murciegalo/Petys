@@ -28,6 +28,9 @@ export const Left = styled.div`
   float: left;
   min-height: 1px;
   position: relative;
+  a{
+    text-decoration: none;
+  }
 `
 
 export const Header2 = styled.h2`
@@ -49,10 +52,6 @@ export const Header4 = styled.h4`
   text-align: center;
 `
 
-export const Link = styled.a`
-
-`
-
 export const Img = styled.img`
   max-width: 100%;
   height: auto;
@@ -64,6 +63,7 @@ export const Header3 = styled.h3`
   font-size: 1.5rem;
   font-weight: 100;
   text-align: center;
+  color: white;
 `
 
 export const Right = styled.div`
