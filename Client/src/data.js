@@ -62,30 +62,6 @@ export const products = [
     price: '150',
     units: '1',
 
-  },
-  {
-    id: '4',
-    img: 'https://cdn.shopify.com/s/files/1/0877/8598/products/tinker-112219_38mm_Gold_Black_medium.jpg?v=1574444688',
-    desc: '38mm Gold / Black Strap',
-    price: '150',
-    units: '1',
-
-  },
-  {
-    id: '5',
-    img: 'https://cdn.shopify.com/s/files/1/0877/8598/products/tinker-112219_38mm_Gold_Black_medium.jpg?v=1574444688',
-    desc: '38mm Gold / Black Strap',
-    price: '150',
-    units: '1',
-
-  },
-  {
-    id: '6',
-    img: 'https://cdn.shopify.com/s/files/1/0877/8598/products/tinker-112219_38mm_Gold_Black_medium.jpg?v=1574444688',
-    desc: '38mm Gold / Black Strap',
-    price: '150',
-    units: '1',
-
   }
 ]
 

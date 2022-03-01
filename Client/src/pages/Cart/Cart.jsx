@@ -1,7 +1,7 @@
 import React from 'react'
 import Cartitem from '../../components/CartItem/Cartitem'
 import { products } from '../../data'
-import { Cont, Header, List, Product, ProductFeatures, ProductList } from './Cart.styles'
+import { Cont, Header, List, Product, ProductFeatures, ProductList, Total, Text, Btn } from './Cart.styles'
 
 const Cart = () => {
   return <Cont>
@@ -17,6 +17,11 @@ const Cart = () => {
         products.map(el => <Cartitem key={el.id} el={el} />)
       }
     </ProductList>
+    <Total>
+      <Text>TOTAL</Text>
+      <Text>300 $</Text>
+    </Total>
+      <Btn>Checkout</Btn>
   </Cont>
 }
 
