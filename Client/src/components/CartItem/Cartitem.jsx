@@ -24,7 +24,9 @@ const Cartitem = ({el}) => {
       </Desc>
     </Product>
     <Price>{el.price}</Price>
-    <Quant>{el.units}</Quant>
+    <Quant>
+      {el.units}
+    </Quant>
     <Total>
       {el.price} 
     </Total>
