@@ -1,15 +1,22 @@
 import React from 'react'
-import { Cont, Header, List, Product, ProductsList } from './Cart.styles'
+import Cartitem from '../../components/CartItem/Cartitem'
+import { products } from '../../data'
+import { Cont, Header, List, Product, ProductFeatures, ProductList } from './Cart.styles'
 
 const Cart = () => {
   return <Cont>
     <Header>Your Cart</Header>
-    <ProductsList>
+    <ProductFeatures>
       <Product>Product</Product>    
       <List>Price</List>
       <List>Quantity</List>
       <List>Total</List>
-    </ProductsList>
+    </ProductFeatures>
+    <ProductList>
+      {
+        products.map(el => <Cartitem key={el.id} el={el} />)
+      }
+    </ProductList>
   </Cont>
 }
 

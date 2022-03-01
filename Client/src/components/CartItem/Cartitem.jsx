@@ -1,23 +1,32 @@
 import React from 'react'
-import { Btn, Cont, ContImg, Desc, Img, Price, Quant, Text, Total } from './CartItem.styles'
+import { 
+  Cont, 
+  Product, 
+  ContImg, 
+  Desc, 
+  Img,
+  Btn,  
+  Price, 
+  Quant, 
+  Text, 
+  Total 
+} from './CartItem.styles'
 
-const Cartitem = () => {
+const Cartitem = ({el}) => {
   return <Cont>
-    <ContImg>
-      <Img src="*" />
-    </ContImg>
-    <Desc>
-      <Text></Text>
-      <Btn>Remove</Btn>
-    </Desc>
-    <Price>
-
-    </Price>
-    <Quant>
-
-    </Quant>
+    <Product>
+      <ContImg>
+        <Img src={el.img} />
+      </ContImg>
+      <Desc>
+        <Text>{el.desc}</Text>
+        <Btn>Remove</Btn>
+      </Desc>
+    </Product>
+    <Price>{el.price}</Price>
+    <Quant>{el.units}</Quant>
     <Total>
-      
+      {el.price} 
     </Total>
   </Cont>
 }
