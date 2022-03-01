@@ -1,11 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { 
   Cont, 
   Header, 
   Wrapper, 
   Form, 
-  BtnII,
   Input,
   Btn
 } from '../../pages/Login/Login.styles'
@@ -19,7 +17,7 @@ const ResetPass = ({setForgot}) => {
           <Input placeholder='Email' />
           <Btn>Reset Password</Btn>
         </Form>
-        <BtnII onClick={() => setForgot(false)}>Back to Login page</BtnII>
+        <Btn onClick={() => setForgot(false)}>Cancel</Btn>
       </Wrapper>
   </Cont>
 }

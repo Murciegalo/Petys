@@ -46,7 +46,6 @@ export const Input = styled.input`
 `
 
 export const Btn = styled.button`
-  // width: 33%;
   min-width: 23.72881%;
   margin: 1rem auto;
   padding: 0.5rem 1rem;
@@ -64,9 +63,9 @@ export const Btn = styled.button`
 export const BtnII = styled.button`
   min-width: 23.72881%;
   margin: 1rem auto;
-  padding: .3rem ;
   background: none;
   border: none;
+  border-radius: 5px;
   font-family: inherit;
   font-size: 14px;
   letter-spacing: 1px;
