@@ -82,6 +82,11 @@ export const IconItem = styled.li`
     text-decoration: none;
     color: white;
   }
+  span {
+    position: absolute;
+    top: -8px;
+    right: -14px;
+  }
 `
 export const CartNum = styled.span`
   margin-left: -1px;

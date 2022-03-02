@@ -40,6 +40,7 @@ const Nav = () => {
           <Link to='/cart'>
             <BsCart4 />
           </Link>
+          <span>2</span>
         </IconItem>
       </Right>
     </Wrapp>
