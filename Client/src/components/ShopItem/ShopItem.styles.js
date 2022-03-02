@@ -9,9 +9,6 @@ export const Cont = styled.div`
   justify-content: center;
 `
 
-export const Link = styled.a`
-`
-
 export const Img = styled.img`
   max-width: 100%;
   height: auto;

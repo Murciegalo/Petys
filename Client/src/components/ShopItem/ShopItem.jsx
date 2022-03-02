@@ -1,13 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { 
   Cont,
-  Link,
   Img 
 } from './ShopItem.styles'
 
 const ShopItem = ({el}) => {
   return <Cont>
-    <Link>
+    <Link to={`${el.id}`}>
       <Img src={el.img} />
     </Link>
   </Cont>

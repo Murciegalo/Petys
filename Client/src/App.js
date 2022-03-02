@@ -10,23 +10,23 @@ const Login = lazy(() => import ("./pages/Login/Login"))
 const Footer = lazy(() => import ("./components/Footer/Footer"))
 const Shop = lazy(() => import ("./pages/Shop/Shop"))
 const Cart = lazy(() => import ("./pages/Cart/Cart"))
+const ProductSpecs = lazy(() => import ('./pages/ProductSpecs/ProductSpecs'))
 
 function App() {
-  return (
-     <div className="App">
+  return <div className="App">
+    <Suspense fallback={<Loading />}>
       <Nav />
-          <Suspense fallback={<Loading />}>
-      <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/signup' element={<SignUp />} />
-            <Route path='/shop' element={<Shop />} />
-            <Route path='/cart' element={<Cart />} />
-      </Routes>
+        <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/signup' element={<SignUp />} />
+              <Route path='/shop' element={<Shop />} />
+              <Route path='/shop:itemId' element={<ProductSpecs />} />
+              <Route path='/cart' element={<Cart />} />
+        </Routes>
       <Footer />
-          </Suspense>
-    </div>
-  );
+    </Suspense>
+  </div>
 }
 
 export default App;

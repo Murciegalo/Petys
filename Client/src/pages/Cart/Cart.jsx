@@ -21,7 +21,7 @@ const Cart = () => {
       <Text>TOTAL</Text>
       <Text>300 $</Text>
     </Total>
-      <Btn>Checkout</Btn>
+      <Btn>Stripe + Payment Methods</Btn>
   </Cont>
 }
 
