@@ -1,19 +1,19 @@
 import styled from 'styled-components'
+
 export const Cont = styled.div`
   width: 100%;
-`
-export const Wrapp = styled.div`
-  // width: 80%;
+  `
+  export const Wrapp = styled.div`
   height: 100%;
   margin: 0 auto;
   box-shadow: 0 1px #fff;
   padding: 20px;
+  position: relative;
   display: flex;
   align-items: center;
   letter-spacing: 3px;
   font-size: 18px;
 `
-
 export const Left = styled.div`
   flex: 1;
   display: flex;
@@ -42,14 +42,13 @@ export const Center = styled.div`
   flex: 1;
   display: flex;
   justify-content: end;
-  font-size: 22px;
   color: aliceblue;
-`
-export const TextItem = styled.div`
+  `
+  export const TextItem = styled.span`
   padding: 2%;
-  
+  font-size: 22px;
   &: hover{
-    color: aliceblue;
+    color: ${({color}) => color };
     font-weight: bold;
     cursor: pointer;
     border-bottom: 1px solid aliceblue;
@@ -69,7 +68,7 @@ export const Right = styled.ul`
 export const IconItem = styled.li`
   display: flex;
   margin-left: 20px;
-  color: aliceblue;
+  color: ${({color}) => color };
   font-size: 20px;
 
   &: hover{
@@ -93,4 +92,46 @@ export const CartNum = styled.span`
   margin-top: -8px;
   font-size: 12px;
   color: aliceblue;
+`
+
+export const Absol = styled.div`
+  position: absolute;
+  padding: 1.4rem;
+  width: calc( 18rem + 5%);
+  min-width: 20rem;
+  right: 0;
+  background-color: white;
+  opacity: .9;
+  z-index: 100;
+`
+
+export const Section = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: ${({justify}) => justify };
+`
+
+export const CheckoutList = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+`
+export const Btn = styled.button`
+  margin: 1rem;
+  padding: 0.5rem;
+  background: none;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 2px solid #000;
+  border-radius: 5px;
+  transition: 0.2s ease-in-out;
+  
+  :hover{
+    cursor: pointer;
+    background-color: black;
+    border: 2px solid #fff;
+    color: white;
+
+  }
 `

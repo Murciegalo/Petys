@@ -1,5 +1,5 @@
 import React from 'react';
-import { BsCart4, BsFillPersonFill } from "react-icons/bs";
+import { BsCart4, BsFillPersonFill, BsXCircleFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import {
   Cont,
@@ -9,7 +9,11 @@ import {
   Center,
   TextItem,
   Right,
-  IconItem
+  IconItem,
+  Absol,
+  Section,
+  CheckoutList,
+  Btn
 } from './Nav.styles'
 
 const Nav = () => {
@@ -31,12 +35,12 @@ const Nav = () => {
         </TextItem>
       </Center>
       <Right>
-        <IconItem>
+        <IconItem color='white'>
           <Link to='/login'>
             <BsFillPersonFill />
           </Link>
         </IconItem>
-        <IconItem>
+        <IconItem color='white'>
           <Link to='/cart'>
             <BsCart4 />
           </Link>
@@ -44,6 +48,24 @@ const Nav = () => {
         </IconItem>
       </Right>
     </Wrapp>
+      <Absol>
+        <Section justify='space-between'>
+          <TextItem>Your Cart</TextItem>
+          <IconItem color='black'><BsXCircleFill /></IconItem>
+        </Section>
+        <CheckoutList>
+            <span>adfasdf</span>
+            <span>adfasdf</span>
+            <span>adfasdf</span>
+        </CheckoutList>
+        <Section justify='space-between'>
+          <TextItem>TOTAL</TextItem>
+          <TextItem>Money</TextItem>
+        </Section>
+        <Section justify='end'>
+          <Btn>Payment</Btn>
+        </Section>
+      </Absol>
   </Cont>;
 };
 
