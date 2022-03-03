@@ -1,6 +1,7 @@
 import {useState} from 'react';
-import { BsCart4, BsFillPersonFill, BsXCircleFill } from "react-icons/bs";
+import { BsCart4, BsFillPersonFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
+import CartMenu from '../CartMenu/CartMenu';
 import {
   Cont,
   Wrapp,
@@ -9,11 +10,7 @@ import {
   Center,
   TextItem,
   Right,
-  IconItem,
-  Absol,
-  Section,
-  CheckoutList,
-  Btn
+  IconItem
 } from './Nav.styles'
 
 const Nav = () => {
@@ -48,31 +45,7 @@ const Nav = () => {
         </IconItem>
       </Right>
     </Wrapp>
-      <Absol display={toogle}>
-        <Section justify='space-between'>
-          <TextItem>Your Cart</TextItem>
-          <IconItem
-            onClick={() => setToogle(!toogle)} 
-            color='black'
-          >
-            <BsXCircleFill />
-          </IconItem>
-        </Section>
-        <CheckoutList>
-            <span>adfasdf</span>
-            <span>adfasdf</span>
-            <span>adfasdf</span>
-        </CheckoutList>
-        <Section justify='space-between'>
-          <TextItem>TOTAL</TextItem>
-          <TextItem>Money</TextItem>
-        </Section>
-        <Section justify='end'>
-          <Btn onClick={() => setToogle(false)}>
-            <Link to='/cart'>Checkout</Link>
-          </Btn>
-        </Section>
-      </Absol>
+      <CartMenu toogle={toogle} setToogle={setToogle} />
   </Cont>;
 };
 
