@@ -1,4 +1,4 @@
-import React from 'react';
+import {useState} from 'react';
 import { BsCart4, BsFillPersonFill, BsXCircleFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import {
@@ -17,6 +17,7 @@ import {
 } from './Nav.styles'
 
 const Nav = () => {
+  const [toogle, setToogle] = useState(false)
   return <Cont>
     <Wrapp>
       <Left>
@@ -27,7 +28,6 @@ const Nav = () => {
         </Logo>
       </Left>
       <Center>
-        {/* <TextItem>About Us</TextItem> */}
         <TextItem>
           <Link to='/shop'>
             Shop
@@ -40,18 +40,23 @@ const Nav = () => {
             <BsFillPersonFill />
           </Link>
         </IconItem>
-        <IconItem color='white'>
-          <Link to='/cart'>
-            <BsCart4 />
-          </Link>
-          <span>2</span>
+        <IconItem
+          onClick={() => setToogle(!toogle)} 
+          color='white'
+        >
+          <BsCart4 />
         </IconItem>
       </Right>
     </Wrapp>
-      <Absol>
+      <Absol display={toogle}>
         <Section justify='space-between'>
           <TextItem>Your Cart</TextItem>
-          <IconItem color='black'><BsXCircleFill /></IconItem>
+          <IconItem
+            onClick={() => setToogle(!toogle)} 
+            color='black'
+          >
+            <BsXCircleFill />
+          </IconItem>
         </Section>
         <CheckoutList>
             <span>adfasdf</span>
@@ -63,7 +68,9 @@ const Nav = () => {
           <TextItem>Money</TextItem>
         </Section>
         <Section justify='end'>
-          <Btn>Payment</Btn>
+          <Btn>
+            <Link to='/cart'>Checkout</Link>
+          </Btn>
         </Section>
       </Absol>
   </Cont>;

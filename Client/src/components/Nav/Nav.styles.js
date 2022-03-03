@@ -99,10 +99,12 @@ export const Absol = styled.div`
   padding: 1.4rem;
   width: calc( 18rem + 5%);
   min-width: 20rem;
-  right: 0;
+  right: 1rem;
   background-color: white;
   opacity: .9;
   z-index: 100;
+  transition: 0.2s ease-in-out;
+  transform: ${({display}) => display ? 'translateX(0)' : 'translateX(25rem)' };
 `
 
 export const Section = styled.div`
@@ -125,13 +127,17 @@ export const Btn = styled.button`
   font-family: inherit;
   border: 2px solid #000;
   border-radius: 5px;
-  transition: 0.2s ease-in-out;
-  
+  transition: 0.4s ease-in-out;
+  a{
+    text-decoration: none;
+    color: black;
+  }
   :hover{
     cursor: pointer;
     background-color: black;
     border: 2px solid #fff;
-    color: white;
-
+    a {
+      color: white;
+    }
   }
 `
