@@ -2,7 +2,7 @@ const express = require('express');
 const {
   getAllTours,
   getTour
-} = require('./../Controllers/Tours');
+} = require('../Controllers/Tours');
 
 
 const router = express.Router();
