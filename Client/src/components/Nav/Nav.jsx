@@ -68,7 +68,7 @@ const Nav = () => {
           <TextItem>Money</TextItem>
         </Section>
         <Section justify='end'>
-          <Btn>
+          <Btn onClick={() => setToogle(false)}>
             <Link to='/cart'>Checkout</Link>
           </Btn>
         </Section>

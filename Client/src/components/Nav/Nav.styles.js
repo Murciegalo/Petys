@@ -103,7 +103,8 @@ export const Absol = styled.div`
   background-color: white;
   opacity: .9;
   z-index: 100;
-  transition: 0.2s ease-in-out;
+  transition: 1s ease-in-out;
+  display: ${({display}) => !display && 'none'  };
   transform: ${({display}) => display ? 'translateX(0)' : 'translateX(25rem)' };
 `
 
