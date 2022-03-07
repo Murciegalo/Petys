@@ -1,15 +1,42 @@
 const Pet = require('../Models/PetModel');
 
-exports.getAllPets = (req, res) => {
-  return res.status(200).json({
-    msg: 'all ok',
-  });
+exports.getAllPets = async (req, res) => {
+  try {
+    const data = await Pet.find();
+
+    res.status(200).json({
+      status: 'success',
+      results: data.length,
+      data,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      error: {
+        code: err.code,
+        key: err.keyValue,
+      },
+    });
+  }
 };
 
-exports.getPet = (req, res) => {
-  return res.status(200).json({
-    msg: 'all ok',
-  });
+exports.getPet = async (req, res) => {
+  try {
+    const pet = await Pet.findById(req.params.id);
+
+    res.status(200).json({
+      status: 'success',
+      pet,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      error: {
+        code: err.code,
+        key: err.keyValue,
+      },
+    });
+  }
 };
 
 exports.createPet = async (req, res) => {
@@ -22,7 +49,7 @@ exports.createPet = async (req, res) => {
     });
 
     res.status(200).json({
-      msg: 'all ok',
+      status: 'success',
       pet: newPet,
     });
   } catch (err) {
@@ -36,14 +63,41 @@ exports.createPet = async (req, res) => {
   }
 };
 
-exports.updatePet = (req, res) => {
-  return res.status(200).json({
-    msg: 'all ok',
-  });
+exports.updatePet = async (req, res) => {
+  try {
+    const pet = await Pet.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+
+    res.status(200).json({
+      status: 'success',
+      pet,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      error: {
+        code: err.code,
+        key: err.keyValue,
+      },
+    });
+  }
 };
 
-exports.deletePet = (req, res) => {
-  return res.status(200).json({
-    msg: 'all ok',
-  });
+exports.deletePet = async (req, res) => {
+  try {
+    const pet = await Pet.findByIdAndDelete(req.params.id);
+    res.status(200).json({
+      status: 'delete completed',
+      pet,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      error: {
+        code: err.code,
+        key: err.keyValue,
+      },
+    });
+  }
 };
