@@ -12,9 +12,12 @@ exports.getAllPets = async (req, res) => {
   } catch (err) {
     res.status(400).json({
       status: 'fail',
+      code: err.code,
+      key: err.keyValue,
+      name: err.name,
+      msg: err.message,
       error: {
-        code: err.code,
-        key: err.keyValue,
+        err,
       },
     });
   }
@@ -31,9 +34,12 @@ exports.getPet = async (req, res) => {
   } catch (err) {
     res.status(400).json({
       status: 'fail',
+      code: err.code,
+      key: err.keyValue,
+      name: err.name,
+      msg: err.message,
       error: {
-        code: err.code,
-        key: err.keyValue,
+        err,
       },
     });
   }
@@ -55,9 +61,12 @@ exports.createPet = async (req, res) => {
   } catch (err) {
     res.status(400).json({
       status: 'fail',
+      code: err.code,
+      key: err.keyValue,
+      name: err.name,
+      msg: err.message,
       error: {
-        code: err.code,
-        key: err.keyValue,
+        err,
       },
     });
   }
@@ -76,9 +85,12 @@ exports.updatePet = async (req, res) => {
   } catch (err) {
     res.status(400).json({
       status: 'fail',
+      code: err.code,
+      key: err.keyValue,
+      name: err.name,
+      msg: err.message,
       error: {
-        code: err.code,
-        key: err.keyValue,
+        err,
       },
     });
   }
@@ -86,17 +98,19 @@ exports.updatePet = async (req, res) => {
 
 exports.deletePet = async (req, res) => {
   try {
-    const pet = await Pet.findByIdAndDelete(req.params.id);
+    await Pet.findByIdAndDelete(req.params.id);
     res.status(200).json({
       status: 'delete completed',
-      pet,
     });
   } catch (err) {
     res.status(400).json({
       status: 'fail',
+      code: err.code,
+      key: err.keyValue,
+      name: err.name,
+      msg: err.message,
       error: {
-        code: err.code,
-        key: err.keyValue,
+        err,
       },
     });
   }

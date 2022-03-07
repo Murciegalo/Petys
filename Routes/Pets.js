@@ -4,6 +4,7 @@ const {
   getPet,
   createPet,
   updatePet,
+  deletePet,
 } = require('../Controllers/Pets');
 
 const router = express.Router();
@@ -19,4 +20,5 @@ router.post('/', createPet);
 
 router.put('/:id', updatePet);
 
+router.delete('/:id', deletePet);
 module.exports = router;
