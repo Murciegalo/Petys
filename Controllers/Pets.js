@@ -1,29 +1,37 @@
 const Pet = require('../Models/PetModel');
 
-exports.getAllPets = (req, res, next) => {
+exports.getAllPets = (req, res) => {
   return res.status(200).json({
     msg: 'all ok',
   });
 };
 
-exports.getPet = (req, res, next) => {
+exports.getPet = (req, res) => {
   return res.status(200).json({
     msg: 'all ok',
   });
 };
 
 exports.createPet = async (req, res) => {
+  const { name, pedigree, price } = req.body;
   try {
-    const newPet = await Pet.create(req.body);
+    const newPet = await Pet.create({
+      name,
+      pedigree,
+      price,
+    });
 
-    return res.status(200).json({
+    res.status(200).json({
       msg: 'all ok',
       pet: newPet,
     });
   } catch (err) {
-    return res.status(400).json({
+    res.status(400).json({
       status: 'fail',
-      msg: err.msg,
+      error: {
+        code: err.code,
+        key: err.keyValue,
+      },
     });
   }
 };
