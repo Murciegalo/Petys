@@ -7,8 +7,13 @@ exports.getAllPets = async (req, res) => {
     const excludedFields = ['page', 'sort', 'limit', 'fields'];
     excludedFields.forEach((el) => delete queryObj[el]);
 
+    // ADVANCED FILTERING
+    let queryStr = JSON.stringify(queryObj);
+    queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
+    // console.log(JSON.parse(queryStr));
+
     // EXECUTE QUERY
-    const data = await Pet.find(queryObj);
+    const data = await Pet.find(JSON.parse(queryStr));
 
     res.status(200).json({
       status: 'success',
@@ -32,7 +37,6 @@ exports.getAllPets = async (req, res) => {
 exports.getPet = async (req, res) => {
   try {
     const pet = await Pet.findById(req.params.id);
-
     res.status(200).json({
       status: 'success',
       pet,
