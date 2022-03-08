@@ -7,14 +7,12 @@ const petSchema = new mongoose.Schema({
     trim: true,
   },
   pedigreeM: {
-    type: Number,
+    type: String,
     required: [true, 'A pet needs a pedigree'],
-    unique: true,
   },
   pedigreeF: {
-    type: Number,
+    type: String,
     required: [true, 'A pet needs a pedigree'],
-    unique: true,
   },
   description: {
     type: String,
@@ -25,9 +23,16 @@ const petSchema = new mongoose.Schema({
     type: Number,
     required: [true, 'A pet needs a price'],
   },
-  priceDiscount: Number,
+  priceDiscount: {
+    type: Number,
+  },
+  supplier: {
+    type: String,
+    required: [true, 'A pet needs a seller'],
+  },
   imgCover: {
     type: String,
+    trim: true,
     required: [true, 'A pet needs an image cover'],
   },
   imgs: [
@@ -35,10 +40,7 @@ const petSchema = new mongoose.Schema({
       type: String,
     },
   ],
-  supplier: {
-    type: String,
-    required: [true, 'A pet needs a seller'],
-  },
+
   ratingsAvrgSupplier: {
     type: Number,
     default: 4.5,

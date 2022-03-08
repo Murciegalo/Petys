@@ -8,7 +8,6 @@ const {
 } = require('../Controllers/Pets');
 
 const router = express.Router();
-
 // MIDDLEWARES
 // router.param('id', checkID);
 
