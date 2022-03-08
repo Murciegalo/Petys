@@ -2,7 +2,13 @@ const Pet = require('../Models/PetModel');
 
 exports.getAllPets = async (req, res) => {
   try {
-    const data = await Pet.find();
+    // BUILD QUERY
+    const queryObj = { ...req.query };
+    const excludedFields = ['page', 'sort', 'limit', 'fields'];
+    excludedFields.forEach((el) => delete queryObj[el]);
+
+    // EXECUTE QUERY
+    const data = await Pet.find(queryObj);
 
     res.status(200).json({
       status: 'success',
@@ -48,7 +54,6 @@ exports.getPet = async (req, res) => {
 exports.createPet = async (req, res) => {
   try {
     const newPet = await Pet.create(req.body);
-
     res.status(200).json({
       status: 'success',
       pet: newPet,

@@ -1,6 +1,5 @@
 const express = require('express');
 const morgan = require('morgan');
-const bodyParser = require('body-parser');
 //ROUTERS
 const petRouter = require('./Routes/Pets');
 const userRouter = require('./Routes/user');
