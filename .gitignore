@@ -3,6 +3,8 @@
 /.pnp
 .pnp.js
 /config.env
+/data/data.json
+
 # testing
 /coverage
 
