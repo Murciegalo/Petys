@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const petSchema = new mongoose.Schema(
   {
@@ -7,13 +8,16 @@ const petSchema = new mongoose.Schema(
       required: [true, 'A pet needs a name'],
       trim: true,
     },
+    slug: String,
     pedigreeM: {
       type: String,
       required: [true, 'A pet needs a pedigree'],
+      unique: true,
     },
     pedigreeF: {
       type: String,
       required: [true, 'A pet needs a pedigree'],
+      unique: true,
     },
     description: {
       type: String,
@@ -63,6 +67,12 @@ const petSchema = new mongoose.Schema(
 );
 petSchema.virtual('totalDiscount').get(function () {
   return this.price * this.priceDiscount;
+});
+
+//DOCUMENT MIDDLEWARE: save() create()
+petSchema.pre('save', function (next) {
+  this.slug = slugify(this.name, { lower: true });
+  next();
 });
 
 const Pet = mongoose.model('Pet', petSchema);
