@@ -1,5 +1,10 @@
 const Pet = require('../Models/PetModel');
-const { fullFilter, sorting } = require('../utils');
+const {
+  fullFilter,
+  sorting,
+  fieldsLimiting,
+  pagination,
+} = require('../utils/apiFeatures');
 
 // MIDDLEWARE
 exports.aliasTopPets = (req, res, next) => {
@@ -15,32 +20,16 @@ exports.getAllPets = async (req, res) => {
     let query = Pet.find(JSON.parse(queryFilter));
 
     //SORTING
-    if (req.query.sort) {
-      const sortBy = req.query.sort.split(',').join(' ');
-      query = query.sort(sortBy);
-    } else {
-      query = query.sort('-price');
-    }
-    // FIELD LIMITING
-    if (req.query.fields) {
-      const fields = req.query.fields.split(',').join(' ');
-      query = query.select(`${fields} -__v`);
-    } else {
-      query = query.select('-__v');
-    }
+    let querySort = sorting(req.query.sort, query);
+
+    //FIELD LIMITING
+    let queryLimit = fieldsLimiting(req.query.fields, querySort);
+
     // PAGINATION
-    const page = req.query.page * 1 || 1;
-    const limit = req.query.limit * 1 || 100;
-    const skip = (page - 1) * limit;
+    let queryPg = pagination(req.query.page, req.query.limit, queryLimit);
 
-    query.skip(skip).limit(limit);
-
-    if (req.query.page) {
-      const numPets = await Pet.countDocuments();
-      if (skip >= numPets) throw new Error('This pg does not exist');
-    }
     // EXECUTE QUERY
-    const data = await query;
+    const data = await queryPg;
     res.status(200).json({
       status: 'success',
       results: data.length,
