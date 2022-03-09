@@ -134,3 +134,45 @@ exports.deletePet = async (req, res) => {
     });
   }
 };
+
+exports.getPetStats = async (req, res) => {
+  try {
+    const stats = await Pet.aggregate([
+      {
+        $match: { ratingsAvrgSupplier: { $gte: 4 } },
+      },
+      {
+        $group: {
+          _id: null, //Classify them by categories out of Model for Pet supplier, ...
+          numPets: { $sum: 1 },
+          numRatings: { $sum: '$ratingsQuantity' },
+          avgRating: { $avg: '$ratingsAvrgSupplier' },
+          avgPrice: { $avg: '$price' },
+          minPrice: { $min: '$price' },
+          maxPrice: { $max: '$price' },
+        },
+      },
+      // {
+      //   $sort: { avgRating: 1 },
+      // },
+      // {
+      //   $match: { _id: { $ne: 'Criadero Fernandez' } },
+      // },
+    ]);
+    res.status(200).json({
+      status: 'success',
+      stats,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      code: err.code,
+      key: err.keyValue,
+      name: err.name,
+      msg: err.message,
+      error: {
+        err,
+      },
+    });
+  }
+};
