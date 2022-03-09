@@ -1,6 +1,13 @@
 const Pet = require('../Models/PetModel');
 const { fullFilter, sorting } = require('../utils');
 
+// MIDDLEWARE
+exports.aliasTopPets = (req, res, next) => {
+  req.query.limit = '5';
+  req.query.sort = 'price';
+  next();
+};
+
 exports.getAllPets = async (req, res) => {
   try {
     // FILTER

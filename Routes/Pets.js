@@ -1,5 +1,6 @@
 const express = require('express');
 const {
+  aliasTopPets,
   getAllPets,
   getPet,
   createPet,
@@ -10,6 +11,9 @@ const {
 const router = express.Router();
 // MIDDLEWARES
 // router.param('id', checkID);
+
+// TOP CHEAP
+router.get('/top-cheap', aliasTopPets, getAllPets);
 
 // TOURS
 router.get('/', getAllPets);
