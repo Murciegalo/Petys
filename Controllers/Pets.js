@@ -176,3 +176,26 @@ exports.getPetStats = async (req, res) => {
     });
   }
 };
+
+// exports.getMonthlyStats = async (req, res) => {
+//   try {
+//     const year = req.params.year * 1;
+
+//     const monthlyStats = await Pet.aggregate([]);
+//     res.status(200).json({
+//       status: 'success',
+//       monthlyStats,
+//     });
+//   } catch (err) {
+//     res.status(400).json({
+//       status: 'fail',
+//       code: err.code,
+//       key: err.keyValue,
+//       name: err.name,
+//       msg: err.message,
+//       error: {
+//         err,
+//       },
+//     });
+//   }
+// };

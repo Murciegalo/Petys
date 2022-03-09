@@ -7,6 +7,7 @@ const {
   updatePet,
   deletePet,
   getPetStats,
+  getMonthlyStats,
 } = require('../Controllers/Pets');
 
 const router = express.Router();
@@ -18,6 +19,8 @@ router.get('/top-cheap', aliasTopPets, getAllPets);
 
 // STATS
 router.get('/stats', getPetStats);
+
+// router.get('/monthly-stats/:year', getMonthlyStats);
 
 // TOURS
 router.get('/', getAllPets);
