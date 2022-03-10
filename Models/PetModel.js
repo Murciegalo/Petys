@@ -69,12 +69,22 @@ petSchema.virtual('totalDiscount').get(function () {
   return this.price * this.priceDiscount;
 });
 
-//DOCUMENT MIDDLEWARE: save() create()
+//DOCUMENT MIDDLEWARE: save() create() => pre/post
 petSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });
   next();
 });
 
+// QUERY MIDDLEWARE
+// petSchema.pre(/^find/, function (next) {
+//   next();
+// });
+
+// AGGREGATION MIDDLEWARE
+// petSchema.pre('aggregate', function (next) {
+//   this.pipeline().unshift({ $match: { secretPet: { $ne: true } } });
+//   next();
+// });
 const Pet = mongoose.model('Pet', petSchema);
 
 module.exports = Pet;
