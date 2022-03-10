@@ -10,17 +10,20 @@ const petSchema = new mongoose.Schema(
       trim: true,
       maxlength: [40, 'Please provide a shorter name'],
       minlength: [4, 'Please provider a longer name'],
-      validate: [validator.isAlpha, 'Please input only characters'],
+      validate: [
+        validator.isAlpha,
+        'Please input only characters on your pet name',
+      ],
     },
     slug: String,
     pedigreeM: {
       type: String,
-      required: [true, 'A pet needs a pedigree'],
+      required: [true, 'Please, make sure your pedigree is allright'],
       unique: true,
     },
     pedigreeF: {
       type: String,
-      required: [true, 'A pet needs a pedigree'],
+      required: [true, 'Please, make sure your pedigree is allright'],
       unique: true,
     },
     description: {

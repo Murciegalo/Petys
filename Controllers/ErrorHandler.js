@@ -13,6 +13,13 @@ exports.catchError = (err, res, msg) => {
         msg: `Sorry, duplicate field value: ${msg[0]}, please modify it.`,
       });
     }
+    if (err.name === 'ValidationError') {
+      let value = Object.values(err.errors).map((el) => el.message);
+      return res.status(404).json({
+        status: 'fail',
+        msg: `Invalid input data. ${value.join('/ ')}`,
+      });
+    }
   }
   return res.status(404).json({
     status: 'fail',
@@ -20,6 +27,7 @@ exports.catchError = (err, res, msg) => {
     key: err.keyValue,
     name: err.name,
     msg: err.message,
+    validationErrors: err.errors,
     error: {
       err,
     },
