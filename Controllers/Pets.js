@@ -5,6 +5,7 @@ const {
   fieldsLimiting,
   pagination,
 } = require('../utils/apiFeatures');
+const { catchError } = require('./ErrorHandler');
 
 // MIDDLEWARE
 exports.aliasTopPets = (req, res, next) => {
@@ -36,37 +37,22 @@ exports.getAllPets = async (req, res) => {
       data,
     });
   } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      code: err.code,
-      key: err.keyValue,
-      name: err.name,
-      msg: err.message,
-      error: {
-        err,
-      },
-    });
+    catchError(err, res, 'Sorry, you left our web. Please come back, xDD');
   }
 };
 
 exports.getPet = async (req, res) => {
   try {
     const pet = await Pet.findById(req.params.id);
+    if (pet === null) {
+      throw Error('Sorry, item not found with that ID');
+    }
     res.status(200).json({
       status: 'success',
       pet,
     });
   } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      code: err.code,
-      key: err.keyValue,
-      name: err.name,
-      msg: err.message,
-      error: {
-        err,
-      },
-    });
+    catchError(err, res, 'Sorry, you left our web. Please come back, xDD');
   }
 };
 
@@ -103,36 +89,25 @@ exports.updatePet = async (req, res) => {
       pet,
     });
   } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      code: err.code,
-      key: err.keyValue,
-      name: err.name,
-      msg: err.message,
-      error: {
-        err,
-      },
-    });
+    catchError(
+      err,
+      res,
+      'Sorry, we could not find that item. Update not completed'
+    );
   }
 };
 
 exports.deletePet = async (req, res) => {
   try {
-    await Pet.findByIdAndDelete(req.params.id);
+    let delet = await Pet.findByIdAndDelete(req.params.id);
+    if (delet === null) {
+      throw Error('Sorry, item not found with that ID');
+    }
     res.status(200).json({
       status: 'delete completed',
     });
   } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      code: err.code,
-      key: err.keyValue,
-      name: err.name,
-      msg: err.message,
-      error: {
-        err,
-      },
-    });
+    catchError(err, res, 'Sorry, we could not find that item');
   }
 };
 
@@ -153,28 +128,17 @@ exports.getPetStats = async (req, res) => {
           maxPrice: { $max: '$price' },
         },
       },
-      // {
-      //   $sort: { avgRating: 1 },
-      // },
-      // {
-      //   $match: { _id: { $ne: 'Criadero Fernandez' } },
-      // },
     ]);
     res.status(200).json({
       status: 'success',
       stats,
     });
   } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      code: err.code,
-      key: err.keyValue,
-      name: err.name,
-      msg: err.message,
-      error: {
-        err,
-      },
-    });
+    catchError(
+      err,
+      res,
+      'There is type error in your aggregation, please check'
+    );
   }
 };
 
