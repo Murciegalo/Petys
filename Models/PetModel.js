@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
+const validator = require('validator');
 
 const petSchema = new mongoose.Schema(
   {
@@ -7,6 +8,9 @@ const petSchema = new mongoose.Schema(
       type: String,
       required: [true, 'A pet needs a name'],
       trim: true,
+      maxlength: [40, 'Please provide a shorter name'],
+      minlength: [4, 'Please provider a longer name'],
+      validate: [validator.isAlpha, 'Please input only characters'],
     },
     slug: String,
     pedigreeM: {
@@ -30,10 +34,20 @@ const petSchema = new mongoose.Schema(
     },
     priceDiscount: {
       type: Number,
+      validate: {
+        // validator gets applied on NEW doc creation
+        validator: function (valueInput) {
+          return valueInput < this.price;
+        },
+        message:
+          'Please, discount price ({VALUE}) must be lower than regular price',
+      },
     },
     supplier: {
       type: String,
       required: [true, 'A pet needs a seller'],
+      maxlength: [40, 'Please provide a shorter name'],
+      minlength: [5, 'Please provider a longer name'],
     },
     imgCover: {
       type: String,
@@ -49,6 +63,8 @@ const petSchema = new mongoose.Schema(
     ratingsAvrgSupplier: {
       type: Number,
       default: 4.5,
+      min: [1, 'Sorry, minimum rate is 1'],
+      max: [5, 'Sorry, maximum rate is 5'],
     },
     ratingsQuantity: {
       type: Number,

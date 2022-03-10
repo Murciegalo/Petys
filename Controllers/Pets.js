@@ -95,6 +95,7 @@ exports.updatePet = async (req, res) => {
   try {
     const pet = await Pet.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
+      runValidators: true,
     });
 
     res.status(200).json({
