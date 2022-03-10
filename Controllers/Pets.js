@@ -64,16 +64,8 @@ exports.createPet = async (req, res) => {
       pet: newPet,
     });
   } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      code: err.code,
-      key: err.keyValue,
-      name: err.name,
-      msg: err.message,
-      error: {
-        err,
-      },
-    });
+    // console.log('CREATE PET', err);
+    catchError(err, res);
   }
 };
 
