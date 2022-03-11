@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 //ROUTERS
-const petRouter = require('./Routes/Pets');
+const petRouter = require('./Routes/pets');
 const userRouter = require('./Routes/user');
 
 const app = express();

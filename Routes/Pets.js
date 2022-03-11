@@ -8,7 +8,7 @@ const {
   deletePet,
   getPetStats,
   getMonthlyStats,
-} = require('../Controllers/Pets');
+} = require('../Controllers/pet');
 
 const router = express.Router();
 // MIDDLEWARES

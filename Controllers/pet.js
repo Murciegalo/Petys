@@ -5,7 +5,7 @@ const {
   fieldsLimiting,
   pagination,
 } = require('../utils/apiFeatures');
-const { catchError } = require('./ErrorHandler');
+const { catchError } = require('./errorHandler');
 
 // MIDDLEWARE
 exports.aliasTopPets = (req, res, next) => {
