@@ -6,16 +6,17 @@ const {
   updateUser,
   deleteUser,
 } = require('../Controllers/user');
+const { signup } = require('../Controllers/auth');
 
 const router = express.Router();
 
-// TOURS
-router.get('/', getAllUsers);
-router.get('/:id', getUser);
+router.post('/signup', signup);
 
+router.get('/', getAllUsers);
 router.post('/', createUser);
 
+router.get('/:id', getUser);
 router.put('/:id', updateUser);
-
 router.delete('/:id', deleteUser);
+
 module.exports = router;
