@@ -20,6 +20,18 @@ exports.catchError = (err, res, msg) => {
         msg: `Invalid input data. ${value.join('/ ')}`,
       });
     }
+    if (err.name === 'JsonWebTokenError') {
+      return res.status(401).json({
+        status: 'fail',
+        msg: 'Invalid token, please sign in again.',
+      });
+    }
+    if (err.name === 'TokenExpiredError') {
+      return res.status(401).json({
+        status: 'fail',
+        msg: 'Session ended, please sign in again',
+      });
+    }
   }
   return res.status(401).json({
     status: 'fail',
