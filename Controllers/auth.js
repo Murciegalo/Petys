@@ -1,6 +1,12 @@
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const User = require('../Models/UserModel');
 const { catchError } = require('./errorHandler');
+
+const signToken = (id) =>
+  jwt.sign({ id }, process.env.S, {
+    expiresIn: process.env.ET,
+  });
 
 exports.signup = async (req, res, next) => {
   try {
@@ -10,9 +16,7 @@ exports.signup = async (req, res, next) => {
       password: req.body.password,
       passwordConfirm: req.body.passwordConfirm,
     });
-    const token = jwt.sign({ id: newUser._id }, process.env.S, {
-      expiresIn: process.env.ET,
-    });
+    const token = signToken(newUser._id);
     res.status(201).json({
       status: 'success',
       token,
@@ -25,31 +29,25 @@ exports.signup = async (req, res, next) => {
 
 exports.signin = async (req, res) => {
   try {
-    const user = await User.findOne({
-      where: {
-        name: req.body.name,
-      },
-    });
-    if (!user) {
-      return res.status(404).send({ message: 'User Not found.' });
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ msg: 'Please provide email and password' });
     }
-    const passwordIsValid = bcrypt.compareSync(
-      req.body.password,
-      user.password
-    );
-    if (!passwordIsValid) {
-      return res.status(401).send({
-        message: 'Invalid Password!',
-      });
-    }
-    const token = jwt.sign({ id: user.id }, config.secret, {
-      expiresIn: 86400, // 24 hours
-    });
+    const user = await User.findOne({ email }).select('+password');
 
-    req.session.token = token;
+    if (!user || !(await user.correctPassword(password, user.password))) {
+      return res
+        .status(404)
+        .send({ msg: 'User Not found or Invalid Password!' });
+    }
+
+    const token = signToken(user._id);
+
+    // req.session.token = token;
     return res.status(200).json({
       status: 'success',
       user,
+      token,
     });
   } catch (err) {
     catchError(err, res);

@@ -1,3 +1,4 @@
+const { catchError } = require('./errorHandler');
 const User = require('../Models/UserModel');
 
 exports.getAllUsers = async (req, res) => {
