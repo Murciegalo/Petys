@@ -1,4 +1,5 @@
 const User = require('../Models/UserModel');
+const { catchError } = require('./errorHandler');
 
 exports.signup = async (req, res, next) => {
   try {
