@@ -21,7 +21,7 @@ exports.catchError = (err, res, msg) => {
       });
     }
   }
-  return res.status(404).json({
+  return res.status(401).json({
     status: 'fail',
     code: err.code,
     key: err.keyValue,

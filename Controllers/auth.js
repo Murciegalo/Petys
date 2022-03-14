@@ -1,5 +1,5 @@
+const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
 const User = require('../Models/UserModel');
 const { catchError } = require('./errorHandler');
 
@@ -49,6 +49,27 @@ exports.signin = async (req, res) => {
       user,
       token,
     });
+  } catch (err) {
+    catchError(err, res);
+  }
+};
+
+exports.protect = async (req, res, next) => {
+  try {
+    let token;
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.startsWith('Auth')
+    ) {
+      token = req.headers.authorization.split(' ')[1];
+    }
+    if (!token) {
+      res.status(401).json({ msg: 'Please sign into your account, thanks' });
+      next();
+    }
+    const decoded = await promisify(jwt.verify)(token, process.env.S);
+    console.log(decoded);
+    return next();
   } catch (err) {
     catchError(err, res);
   }
