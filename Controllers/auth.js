@@ -92,7 +92,18 @@ exports.protect = async (req, res, next) => {
   }
 };
 
-exports.restrictTo = async (req, res) => {
-  try {
-  } catch (err) {}
-};
+exports.restrictTo =
+  (...roles) =>
+  (req, res, next) => {
+    try {
+      if (!roles.includes(req.user.role)) {
+        res
+          .status(403)
+          .json({ msg: 'Sorry, you need permission to continue..' });
+      }
+      next();
+    } catch (err) {
+      catchError(err, res);
+      next();
+    }
+  };

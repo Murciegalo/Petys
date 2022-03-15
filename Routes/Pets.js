@@ -1,5 +1,5 @@
 const express = require('express');
-// const { protect } = require('../Controllers/auth');
+const { restrictTo, protect } = require('../Controllers/auth');
 const {
   aliasTopPets,
   getAllPets,
@@ -31,5 +31,6 @@ router.post('/', createPet);
 
 router.put('/:id', updatePet);
 
-router.delete('/:id', deletePet);
+router.delete('/:id', protect, restrictTo('admin', 'seller'), deletePet);
 module.exports = router;
+// restrictTo('admin', 'seller'),

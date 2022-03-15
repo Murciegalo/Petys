@@ -6,7 +6,7 @@ const {
   updateUser,
   deleteUser,
 } = require('../Controllers/user');
-const { signup, signin } = require('../Controllers/auth');
+const { signup, signin, protect, restrictTo } = require('../Controllers/auth');
 
 const router = express.Router();
 
@@ -18,6 +18,6 @@ router.post('/', createUser);
 
 router.get('/:id', getUser);
 router.put('/:id', updateUser);
-router.delete('/:id', deleteUser);
+router.delete('/:id', protect, restrictTo('admin'), deleteUser);
 
 module.exports = router;
