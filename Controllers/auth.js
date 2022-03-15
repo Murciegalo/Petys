@@ -64,8 +64,9 @@ exports.protect = async (req, res, next) => {
       token = req.headers.authorization.split(' ')[1];
     }
     if (!token) {
-      res.status(401).json({ msg: 'Please sign into your account, thanks' });
-      next();
+      return res
+        .status(401)
+        .json({ msg: 'Please sign into your account, thanks' });
     }
     const decoded = await promisify(jwt.verify)(token, process.env.S);
 
@@ -73,8 +74,13 @@ exports.protect = async (req, res, next) => {
     if (!user) {
       return res.status(401).json({ msg: "Sorry, user don't exist anymore" });
     }
-
-    return next();
+    if (user.changedPasswordAfter(decoded.iat)) {
+      return res
+        .status(401)
+        .json({ msg: 'Password recently changed, please sign in again' });
+    }
+    req.user = user;
+    next();
   } catch (err) {
     catchError(err, res);
   }
