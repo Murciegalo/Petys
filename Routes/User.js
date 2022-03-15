@@ -21,7 +21,7 @@ router.post('/signup', signup);
 router.post('/signin', signin);
 
 router.post('/forgotPassword', forgotPassword);
-router.post('/resetPassword', resetPassword);
+router.patch('/resetPassword/:token', resetPassword);
 
 router.get('/', protect, restrictTo('admin'), getAllUsers);
 router.post('/', createUser);
