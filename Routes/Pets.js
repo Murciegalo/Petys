@@ -1,5 +1,5 @@
 const express = require('express');
-const { protect } = require('../Controllers/auth');
+// const { protect } = require('../Controllers/auth');
 const {
   aliasTopPets,
   getAllPets,
@@ -24,7 +24,7 @@ router.get('/stats', getPetStats);
 // router.get('/monthly-stats/:year', getMonthlyStats);
 
 // TOURS
-router.get('/', protect, getAllPets);
+router.get('/', getAllPets);
 router.get('/:id', getPet);
 
 router.post('/', createPet);

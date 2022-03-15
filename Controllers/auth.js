@@ -8,8 +8,14 @@ const signToken = (id) =>
     expiresIn: process.env.ET,
   });
 
-exports.signup = async (req, res, next) => {
+exports.signup = async (req, res) => {
   try {
+    const user = await User.findOne({ email: req.body.email });
+    if (user) {
+      return res
+        .status(401)
+        .json({ msg: 'Sorry, name or email already in use' });
+    }
     const newUser = await User.create({
       name: req.body.name,
       email: req.body.email,
@@ -59,7 +65,7 @@ exports.protect = async (req, res, next) => {
     let token;
     if (
       req.headers.authorization &&
-      req.headers.authorization.startsWith('Auth')
+      req.headers.authorization.startsWith('Bearer')
     ) {
       token = req.headers.authorization.split(' ')[1];
     }
@@ -84,4 +90,9 @@ exports.protect = async (req, res, next) => {
   } catch (err) {
     catchError(err, res);
   }
+};
+
+exports.restrictTo = async (req, res) => {
+  try {
+  } catch (err) {}
 };
