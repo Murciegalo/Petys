@@ -19,7 +19,7 @@ const router = express.Router();
 router.get('/top-cheap', aliasTopPets, getAllPets);
 
 // STATS
-router.get('/stats', getPetStats);
+router.get('/stats', protect, restrictTo('admin'), getPetStats);
 
 // router.get('/monthly-stats/:year', getMonthlyStats);
 
@@ -27,9 +27,9 @@ router.get('/stats', getPetStats);
 router.get('/', getAllPets);
 router.get('/:id', getPet);
 
-router.post('/', createPet);
+router.post('/', protect, restrictTo('seller'), createPet);
 
-router.put('/:id', updatePet);
+router.put('/:id', protect, restrictTo('seller'), updatePet);
 
 router.delete('/:id', protect, restrictTo('admin', 'seller'), deletePet);
 module.exports = router;

@@ -107,3 +107,25 @@ exports.restrictTo =
       next();
     }
   };
+
+exports.forgotPassword = async (req, res, next) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) {
+      return res
+        .status(404)
+        .json({ msg: 'Sorry, not account registered under this email' });
+    }
+    const resetToken = user.randomTokenResetPassword();
+    await user.save({ validateBeforeSave: false });
+  } catch (err) {
+    catchError(err, res);
+  }
+};
+
+exports.resetPassword = async (req, res, next) => {
+  try {
+  } catch (err) {
+    catchError(err, res);
+  }
+};
