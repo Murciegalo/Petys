@@ -97,7 +97,7 @@ exports.restrictTo =
   (req, res, next) => {
     try {
       if (!roles.includes(req.user.role)) {
-        res
+        return res
           .status(403)
           .json({ msg: 'Sorry, you need permission to continue..' });
       }
