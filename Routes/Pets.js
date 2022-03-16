@@ -24,7 +24,7 @@ router.get('/stats', protect, restrictTo('admin'), getPetStats);
 // router.get('/monthly-stats/:year', getMonthlyStats);
 
 // TOURS
-router.get('/', getAllPets);
+router.get('/', protect, getAllPets);
 router.get('/:id', getPet);
 
 router.post('/', protect, restrictTo('seller'), createPet);

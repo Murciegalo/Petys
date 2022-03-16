@@ -8,3 +8,13 @@ exports.db = async () => {
     console.log(err);
   }
 };
+
+exports.filterObj = (obj, ...str) => {
+  const formatBody = {};
+  Object.keys(obj).forEach((el) => {
+    if (str.includes(el)) {
+      formatBody[el] = obj[el];
+    }
+  });
+  return formatBody;
+};

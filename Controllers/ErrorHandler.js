@@ -15,7 +15,7 @@ exports.catchError = (err, res, msg) => {
     }
     if (err.name === 'ValidationError') {
       let value = Object.values(err.errors).map((el) => el.message);
-      return res.status(404).json({
+      return res.status(500).json({
         status: 'fail',
         msg: `Invalid input data. ${value.join('/ ')}`,
       });

@@ -45,6 +45,7 @@ const userSchema = new mongoose.Schema({
   passwordResetExpires: Date,
 });
 //THEY DON'T WORK on findbyIdAndUpdate().. . Use one SAVE or CREATE
+// 1
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) {
     return next();
@@ -53,13 +54,12 @@ userSchema.pre('save', async function (next) {
   this.passwordConfirm = undefined;
   next();
 });
-//THEY DON'T WORK on findbyIdAndUpdate().. . Use one SAVE or CREATE
+// 2
 userSchema.pre('save', function (next) {
   if (!this.isModified('password') || this.isNew) return next();
-  this.passwordChangedAt = Date.now() - 1500;
+  this.passwordChangedAt = Date.now() - 1000;
   next();
 });
-//------------------------------------------------
 
 //INSTANT METHODS
 // 1
@@ -69,6 +69,7 @@ userSchema.methods.correctPassword = async function (
 ) {
   return await bcrypt.compare(inputPassword, userPassword);
 };
+
 // 2
 userSchema.methods.changedPasswordAfter = function (jwtTimeStamp) {
   if (this.passwordChangedAt) {
@@ -80,6 +81,7 @@ userSchema.methods.changedPasswordAfter = function (jwtTimeStamp) {
   }
   return false;
 };
+
 // 3
 userSchema.methods.randomTokenResetPassword = function () {
   const token = crypto.randomBytes(32).toString('hex');

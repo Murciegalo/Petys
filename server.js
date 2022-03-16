@@ -1,4 +1,4 @@
-const { db } = require('./utils/db');
+const { db } = require('./utils/tools');
 const dotenv = require('dotenv');
 
 process.on('uncaughtException', (err) => {
