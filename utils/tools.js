@@ -29,6 +29,8 @@ exports.sendToken = (token, user, statusCode, res) => {
   if (process.env.NODE_ENV == 'production') {
     cookieOptions.secure = true;
   }
+  //REMOVE pass from response obj
+  user.password = undefined;
   res.cookie('jwt', token, cookieOptions);
   res.status(statusCode).json({
     status: 'success',
