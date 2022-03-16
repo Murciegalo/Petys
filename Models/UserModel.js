@@ -43,8 +43,13 @@ const userSchema = new mongoose.Schema({
   passwordChangedAt: Date,
   passwordResetToken: String,
   passwordResetExpires: Date,
+  active: {
+    type: Boolean,
+    default: true,
+    select: false,
+  },
 });
-//THEY DON'T WORK on findbyIdAndUpdate().. . Use one SAVE or CREATE
+//DOCUMENT Middleware DON'T WORK on findbyIdAndUpdate()|Only SAVE/CREATE
 // 1
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) {
@@ -60,7 +65,11 @@ userSchema.pre('save', function (next) {
   this.passwordChangedAt = Date.now() - 1000;
   next();
 });
-
+// QUERY Middleware
+userSchema.pre(/^find/, function (next) {
+  this.find({ active: { $ne: false } });
+  next();
+});
 //INSTANT METHODS
 // 1
 userSchema.methods.correctPassword = async function (

@@ -39,6 +39,18 @@ exports.updateMe = async (req, res) => {
     catchError(err, res);
   }
 };
+
+exports.deleteMe = async (req, res) => {
+  try {
+    await User.findByIdAndUpdate(req.user.id, { active: false });
+    res.status(204).json({
+      status: 'success',
+    });
+  } catch (err) {
+    catchError(err, res);
+  }
+};
+
 exports.getUser = async (req, res) => {
   try {
     const user = await Pet.findById(req.params.id);
