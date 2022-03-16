@@ -13,6 +13,7 @@ const {
   restrictTo,
   forgotPassword,
   resetPassword,
+  updatePassword,
 } = require('../Controllers/auth');
 
 const router = express.Router();
@@ -22,6 +23,8 @@ router.post('/signin', signin);
 
 router.post('/forgotPassword', forgotPassword);
 router.patch('/resetPassword/:token', resetPassword);
+
+router.patch('/updateMyPassword', protect, updatePassword);
 
 router.get('/', protect, restrictTo('admin'), getAllUsers);
 router.post('/', createUser);

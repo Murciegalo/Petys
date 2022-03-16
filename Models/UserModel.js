@@ -44,6 +44,7 @@ const userSchema = new mongoose.Schema({
   passwordResetToken: String,
   passwordResetExpires: Date,
 });
+//THEY DON'T WORK on findbyIdAndUpdate().. . Use one SAVE or CREATE
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) {
     return next();
@@ -52,12 +53,14 @@ userSchema.pre('save', async function (next) {
   this.passwordConfirm = undefined;
   next();
 });
-
+//THEY DON'T WORK on findbyIdAndUpdate().. . Use one SAVE or CREATE
 userSchema.pre('save', function (next) {
   if (!this.isModified('password') || this.isNew) return next();
   this.passwordChangedAt = Date.now() - 1500;
   next();
 });
+//------------------------------------------------
+
 //INSTANT METHODS
 // 1
 userSchema.methods.correctPassword = async function (

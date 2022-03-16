@@ -45,3 +45,10 @@ exports.catchError = (err, res, msg) => {
     },
   });
 };
+
+exports.humanErrors = (res, statusCode, status, msg) => {
+  return res.status(statusCode).json({
+    status,
+    msg,
+  });
+};

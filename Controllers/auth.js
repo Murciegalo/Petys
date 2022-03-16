@@ -62,54 +62,6 @@ exports.signin = async (req, res) => {
   }
 };
 
-exports.protect = async (req, res, next) => {
-  try {
-    let token;
-    if (
-      req.headers.authorization &&
-      req.headers.authorization.startsWith('Bearer')
-    ) {
-      token = req.headers.authorization.split(' ')[1];
-    }
-    if (!token) {
-      return res
-        .status(401)
-        .json({ msg: 'Please sign into your account, thanks' });
-    }
-    const decoded = await promisify(jwt.verify)(token, process.env.S);
-
-    const user = await User.findById(decoded.id);
-    if (!user) {
-      return res.status(401).json({ msg: "Sorry, user don't exist anymore" });
-    }
-    if (user.changedPasswordAfter(decoded.iat)) {
-      return res
-        .status(401)
-        .json({ msg: 'Password recently changed, please sign in again' });
-    }
-    req.user = user;
-    next();
-  } catch (err) {
-    catchError(err, res);
-  }
-};
-
-exports.restrictTo =
-  (...roles) =>
-  (req, res, next) => {
-    try {
-      if (!roles.includes(req.user.role)) {
-        return res
-          .status(403)
-          .json({ msg: 'Sorry, you need permission to continue..' });
-      }
-      next();
-    } catch (err) {
-      catchError(err, res);
-      next();
-    }
-  };
-
 exports.forgotPassword = async (req, res, next) => {
   try {
     //Check user exist
@@ -177,6 +129,82 @@ exports.resetPassword = async (req, res, next) => {
 
     const token = signToken(user._id);
     res.status(201).json({
+      status: 'success',
+      token,
+      user,
+    });
+  } catch (err) {
+    catchError(err, res);
+  }
+};
+
+exports.protect = async (req, res, next) => {
+  try {
+    let token;
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.startsWith('Bearer')
+    ) {
+      token = req.headers.authorization.split(' ')[1];
+    }
+    if (!token) {
+      return res
+        .status(401)
+        .json({ msg: 'Please sign into your account, thanks' });
+    }
+    const decoded = await promisify(jwt.verify)(token, process.env.S);
+
+    const user = await User.findById(decoded.id);
+    if (!user) {
+      return res.status(401).json({ msg: "Sorry, user don't exist anymore" });
+    }
+    if (user.changedPasswordAfter(decoded.iat)) {
+      return res
+        .status(401)
+        .json({ msg: 'Password recently changed, please sign in again' });
+    }
+    req.user = user;
+    next();
+  } catch (err) {
+    catchError(err, res);
+  }
+};
+
+exports.restrictTo =
+  (...roles) =>
+  (req, res, next) => {
+    try {
+      if (!roles.includes(req.user.role)) {
+        return res
+          .status(403)
+          .json({ msg: 'Sorry, you need permission to continue..' });
+      }
+      next();
+    } catch (err) {
+      catchError(err, res);
+      next();
+    }
+  };
+
+exports.updatePassword = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+    if (!user) {
+      return res.status(404).json({
+        msg: `Sorry, user does not exist anymore`,
+      });
+    }
+    if (!user.correctPassword(req.body.currentPassword, user.password)) {
+      return res.status(401).json({
+        msg: `Sorry, user password is wrong`,
+      });
+    }
+    user.password = req.body.password;
+    user.passwordConfirm = req.body.passwordConfirm;
+    await user.save(); //User.findbyIdAndUpdate()
+
+    const token = signToken(user._id);
+    res.status(200).json({
       status: 'success',
       token,
       user,
