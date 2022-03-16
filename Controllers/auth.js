@@ -3,6 +3,7 @@ const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 const User = require('../Models/UserModel');
 const { catchError } = require('./errorHandler');
+const { sendToken } = require('../utils/tools');
 const sendEmail = require('../utils/email');
 
 const signToken = (id) =>
@@ -25,11 +26,7 @@ exports.signup = async (req, res) => {
       passwordConfirm: req.body.passwordConfirm,
     });
     const token = signToken(newUser._id);
-    res.status(201).json({
-      status: 'success',
-      token,
-      newUser,
-    });
+    sendToken(token, newUser, 201, res);
   } catch (err) {
     catchError(err, res);
   }
@@ -50,13 +47,7 @@ exports.signin = async (req, res) => {
     }
 
     const token = signToken(user._id);
-
-    // req.session.token = token;
-    return res.status(200).json({
-      status: 'success',
-      user,
-      token,
-    });
+    sendToken(token, user, 201, res);
   } catch (err) {
     catchError(err, res);
   }
@@ -128,11 +119,7 @@ exports.resetPassword = async (req, res, next) => {
     await user.save();
 
     const token = signToken(user._id);
-    res.status(201).json({
-      status: 'success',
-      token,
-      user,
-    });
+    sendToken(token, user, 201, res);
   } catch (err) {
     catchError(err, res);
   }
@@ -188,13 +175,16 @@ exports.restrictTo =
 
 exports.updatePassword = async (req, res) => {
   try {
-    const user = await User.findById(req.user._id);
+    const user = await User.findById(req.user._id).select('+password');
     if (!user) {
       return res.status(404).json({
         msg: `Sorry, user does not exist anymore`,
       });
     }
-    if (!user.correctPassword(req.body.currentPassword, user.password)) {
+
+    if (
+      !(await user.correctPassword(req.body.currentPassword, user.password))
+    ) {
       return res.status(401).json({
         msg: `Sorry, user password is wrong`,
       });
@@ -204,11 +194,7 @@ exports.updatePassword = async (req, res) => {
     await user.save(); //User.findbyIdAndUpdate()
 
     const token = signToken(user._id);
-    res.status(200).json({
-      status: 'success',
-      token,
-      user,
-    });
+    sendToken(token, user, 200, res);
   } catch (err) {
     catchError(err, res);
   }
