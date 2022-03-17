@@ -8,7 +8,7 @@ const hpp = require('hpp');
 //ROUTERS
 const petRouter = require('./Routes/pets');
 const userRouter = require('./Routes/user');
-
+const reviewRouter = require('./Routes/review');
 const app = express();
 
 //GLOBAL MIDDLEWARES
@@ -40,5 +40,6 @@ app.use(
 
 app.use('/api/v1/pets', petRouter);
 app.use('/api/v1/user', userRouter);
+app.use('/api/v1/review', reviewRouter);
 
 module.exports = app;
