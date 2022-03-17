@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
-const validator = require('validator');
-
+// const validator = require('validator');
 const petSchema = new mongoose.Schema(
   {
     name: {
@@ -10,10 +9,6 @@ const petSchema = new mongoose.Schema(
       trim: true,
       maxlength: [40, 'Please provide a shorter name'],
       minlength: [4, 'Please provider a longer name'],
-      validate: [
-        validator.isAlpha,
-        'Please input only characters on your pet name',
-      ],
     },
     slug: String,
     pedigreeM: {
@@ -46,12 +41,7 @@ const petSchema = new mongoose.Schema(
           'Please, discount price ({VALUE}) must be lower than regular price',
       },
     },
-    supplier: {
-      type: String,
-      required: [true, 'A pet needs a seller'],
-      maxlength: [40, 'Please provide a shorter name'],
-      minlength: [5, 'Please provider a longer name'],
-    },
+    seller: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
     imgCover: {
       type: String,
       trim: true,
@@ -62,8 +52,7 @@ const petSchema = new mongoose.Schema(
         type: String,
       },
     ],
-
-    ratingsAvrgSupplier: {
+    ratingsAvrgSeller: {
       type: Number,
       default: 4.5,
       min: [1, 'Sorry, minimum rate is 1'],
@@ -93,12 +82,20 @@ petSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });
   next();
 });
-
-// QUERY MIDDLEWARE
-// petSchema.pre(/^find/, function (next) {
+//DOCUMENT QUERY
+petSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'seller',
+    select: '-__v',
+  });
+  next();
+});
+// Embedding Referencing
+// petSchema.pre('save', async function (next) {
+//   const sellers = this.seller.map(async (id) => await User.findById(id));
+//   this.seller = await Promise.all(sellers);
 //   next();
 // });
-
 // AGGREGATION MIDDLEWARE
 // petSchema.pre('aggregate', function (next) {
 //   this.pipeline().unshift({ $match: { secretPet: { $ne: true } } });

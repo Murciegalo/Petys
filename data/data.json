@@ -13,8 +13,8 @@
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.KewikqxbwjW_XfxidcvxFwHaFj%26pid%3DApi&f=1",
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uG4VWE0EEdcdAlBvkQxStwHaE8%26pid%3DApi&f=1"
     ],
-    "supplier": "Criadero Fernandez",
-    "ratingsAvrgSupplier": 5,
+    "seller": "Criadero Fernandez",
+    "ratingsAvrgSeller": 5,
     "ratingsQuantity": 20
   },
   {
@@ -31,8 +31,8 @@
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uG4VWE0EEdcdAlBvkQxStwHaE8%26pid%3DApi&f=1",
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uG4VWE0EEdcdAlBvkQxStwHaE8%26pid%3DApi&f=1"
     ],
-    "supplier": "Criadero Bella",
-    "ratingsAvrgSupplier": 3,
+    "seller": "Criadero Bella",
+    "ratingsAvrgSeller": 3,
     "ratingsQuantity": 13
   },
   {
@@ -49,8 +49,8 @@
       "https:rnal-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Feb%2F36%2Ff7%2Feb36f7cf9062d7f38a311c61a4dff851.jpg&f=1&ofb=1",
       "https:rnal-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Feb%2F36%2Ff7%2Feb36f7cf9062d7f38a311c61a4dff851.jpg&f=1&ofb=1"
     ],
-    "supplier": "Criadero Lulu",
-    "ratingsAvrgSupplier": 4,
+    "seller": "Criadero Lulu",
+    "ratingsAvrgSeller": 4,
     "ratingsQuantity": 20
   },
   {
@@ -67,8 +67,8 @@
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.cVQMHukHF3Lq4w8M0_f4ewHaH4%26pid%3DApi&f=1",
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.ZoidtHWIeU6cqhnWvrphVgHaH3%26pid%3DApi&f=1"
     ],
-    "supplier": "Criadero Shih Tzu",
-    "ratingsAvrgSupplier": 4.5,
+    "seller": "Criadero Shih Tzu",
+    "ratingsAvrgSeller": 4.5,
     "ratingsQuantity": 20
   },
   {
@@ -85,8 +85,8 @@
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.cVQMHukHF3Lq4w8M0_f4ewHaH4%26pid%3DApi&f=1",
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.ZoidtHWIeU6cqhnWvrphVgHaH3%26pid%3DApi&f=1"
     ],
-    "supplier": "La casa de Shih Tzu",
-    "ratingsAvrgSupplier": 5,
+    "seller": "La casa de Shih Tzu",
+    "ratingsAvrgSeller": 5,
     "ratingsQuantity": 15
   },
   {
@@ -103,8 +103,8 @@
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.S13Spkpdv9XhlEUwds5LOgHaE8%26pid%3DApi&f=1",
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.WDu4ZCwJaz7awxoigkXnZwHaE8%26pid%3DApi&f=1"
     ],
-    "supplier": "Cachorros felices",
-    "ratingsAvrgSupplier": 5,
+    "seller": "Cachorros felices",
+    "ratingsAvrgSeller": 5,
     "ratingsQuantity": 7
   },
   {
@@ -121,8 +121,8 @@
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.YWtkqMg4vzueCL2sdxUbagHaJ4%26pid%3DApi&f=1",
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.a3IliFP9vz2T90nbKxAX0gHaFj%26pid%3DApi&f=1"
     ],
-    "supplier": "La francesa",
-    "ratingsAvrgSupplier": 4.7,
+    "seller": "La francesa",
+    "ratingsAvrgSeller": 4.7,
     "ratingsQuantity": 2
   }
 ]
