@@ -9,11 +9,11 @@ const {
 } = require('../Controllers/review');
 
 const router = express.Router();
-
-router.get('/', protect, restrictTo('admin'), getAllReviews);
+// restrictTo('admin')
+router.get('/', protect, getAllReviews);
 router.get('/:id', getReview);
 
-router.post('/', protect, createReview);
+router.post('/', protect, restrictTo('user'), createReview);
 router.put('/:id', protect, updateReview);
 router.delete('/:id', protect, deleteReview);
 

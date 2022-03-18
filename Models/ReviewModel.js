@@ -20,6 +20,7 @@ const reviewSchema = new mongoose.Schema(
     petReviewed: {
       type: mongoose.Schema.ObjectId,
       ref: 'Pet',
+      required: true,
     },
     userReview: {
       type: mongoose.Schema.ObjectId,
@@ -32,6 +33,17 @@ const reviewSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   }
 );
+//DOCUMENT QUERY
+reviewSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'petReviewed',
+    select: 'seller name imgCover',
+  }).populate({
+    path: 'userReview',
+    select: 'name foto',
+  });
+  next();
+});
 
 const Review = mongoose.model('Review', reviewSchema);
 
