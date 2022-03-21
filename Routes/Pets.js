@@ -8,19 +8,14 @@ const {
   updatePet,
   deletePet,
   getPetStats,
-  getMonthlyStats,
 } = require('../Controllers/pet');
+const { createReview } = require('../Controllers/review');
 
 const router = express.Router();
-// MIDDLEWARES
-// router.param('id', checkID);
-
-// TOP CHEAP
-router.get('/top-cheap', aliasTopPets, getAllPets);
 
 // STATS
+router.get('/top-cheap', aliasTopPets, getAllPets);
 router.get('/stats', protect, restrictTo('admin'), getPetStats);
-
 // router.get('/monthly-stats/:year', getMonthlyStats);
 
 // TOURS
@@ -32,5 +27,6 @@ router.post('/', protect, createPet);
 router.put('/:id', protect, restrictTo('seller'), updatePet);
 
 router.delete('/:id', protect, restrictTo('admin', 'seller'), deletePet);
+
+router.post('/:petId/reviews', protect, restrictTo('user'), createReview);
 module.exports = router;
-// restrictTo('admin', 'seller'),

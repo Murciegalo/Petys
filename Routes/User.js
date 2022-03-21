@@ -33,8 +33,8 @@ router.delete('/deleteMe', protect, deleteMe);
 router.get('/', protect, restrictTo('admin'), getAllUsers);
 router.post('/', createUser);
 
-router.get('/:id', getUser);
-router.put('/:id', updateUser);
+router.get('/:id', protect, getUser);
+router.put('/:id', protect, updateUser);
 router.delete('/:id', protect, restrictTo('admin'), deleteUser);
 
 module.exports = router;

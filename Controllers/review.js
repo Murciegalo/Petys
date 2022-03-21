@@ -56,6 +56,8 @@ exports.getReview = async (req, res) => {
 };
 
 exports.createReview = async (req, res) => {
+  if (!req.body.petReviewed) req.body.petReviewed = req.params.petId;
+  if (!req.body.userReview) req.body.userReview = req.user.id;
   try {
     const newReview = await Review.create(req.body);
     res.status(200).json({
