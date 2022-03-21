@@ -8,7 +8,7 @@ const {
   deleteReview,
 } = require('../Controllers/review');
 
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 // restrictTo('admin')
 router.get('/', protect, getAllReviews);
 router.get('/:id', getReview);

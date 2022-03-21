@@ -9,9 +9,11 @@ const {
   deletePet,
   getPetStats,
 } = require('../Controllers/pet');
-const { createReview } = require('../Controllers/review');
+const reviewRouter = require('../Routes/review');
 
 const router = express.Router();
+
+router.use('/:petId/reviews', reviewRouter);
 
 // STATS
 router.get('/top-cheap', aliasTopPets, getAllPets);
@@ -28,5 +30,4 @@ router.put('/:id', protect, restrictTo('seller'), updatePet);
 
 router.delete('/:id', protect, restrictTo('admin', 'seller'), deletePet);
 
-router.post('/:petId/reviews', protect, restrictTo('user'), createReview);
 module.exports = router;

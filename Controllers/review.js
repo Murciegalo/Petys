@@ -3,8 +3,10 @@ const Review = require('../Models/ReviewModel');
 const { filterObj } = require('../utils/tools');
 
 exports.getAllReviews = async (req, res) => {
+  let filter = {};
+  if (req.params.petId) filter = { petReviewed: req.params.petId };
   try {
-    const reviews = await Review.find();
+    const reviews = await Review.find(filter);
     res.status(200).json({
       status: 'success',
       results: reviews.length,
