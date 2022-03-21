@@ -43,7 +43,7 @@ exports.getAllPets = async (req, res) => {
 
 exports.getPet = async (req, res) => {
   try {
-    const pet = await Pet.findById(req.params.id);
+    const pet = await Pet.findById(req.params.id).populate('reviews');
     if (pet === null) {
       throw Error('Sorry, item not found with that ID');
     }

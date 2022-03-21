@@ -52,16 +52,16 @@ const petSchema = new mongoose.Schema(
         type: String,
       },
     ],
-    ratingsAvrgSeller: {
-      type: Number,
-      default: 4.5,
-      min: [1, 'Sorry, minimum rate is 1'],
-      max: [5, 'Sorry, maximum rate is 5'],
-    },
-    ratingsQuantity: {
-      type: Number,
-      default: 0,
-    },
+    // ratingsAvrgSeller: {
+    //   type: Number,
+    //   default: 4.5,
+    //   min: [1, 'Sorry, minimum rate is 1'],
+    //   max: [5, 'Sorry, maximum rate is 5'],
+    // },
+    // ratingsQuantity: {
+    //   type: Number,
+    //   default: 0,
+    // },
     createdAt: {
       type: Date,
       default: Date.now(),
@@ -77,6 +77,11 @@ petSchema.virtual('totalDiscount').get(function () {
   return this.price * this.priceDiscount;
 });
 
+petSchema.virtual('reviews', {
+  ref: 'Review',
+  foreignField: 'petReviewed',
+  localField: '_id',
+});
 //DOCUMENT MIDDLEWARE: save() create() => pre/post
 petSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });
