@@ -18,16 +18,12 @@ router.use('/:petId/reviews', reviewRouter);
 // STATS
 router.get('/top-cheap', aliasTopPets, getAllPets);
 router.get('/stats', protect, restrictTo('admin'), getPetStats);
-// router.get('/monthly-stats/:year', getMonthlyStats);
 
-// TOURS
-router.get('/', protect, getAllPets);
+//App
+router.get('/', getAllPets);
 router.get('/:id', getPet);
-
 router.post('/', protect, restrictTo('seller', 'admin'), createPet);
-//
 router.put('/:id', protect, restrictTo('seller', 'admin'), updatePet);
-
 router.delete('/:id', protect, restrictTo('admin', 'seller'), deletePet);
 
 module.exports = router;

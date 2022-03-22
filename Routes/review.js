@@ -10,11 +10,12 @@ const {
 
 const router = express.Router({ mergeParams: true });
 
-router.get('/', protect, restrictTo('admin'), getAllReviews);
-router.get('/:id', getReview);
+router.use(protect);
 
+router.get('/', getAllReviews);
+router.get('/:id', getReview);
 router.post('/', protect, restrictTo('user'), createReview);
 router.put('/:id', protect, restrictTo('user', 'admin'), updateReview);
-router.delete('/:id', protect, restrictTo('admin'), deleteReview);
+router.delete('/:id', protect, restrictTo('use', 'admin'), deleteReview);
 
 module.exports = router;
