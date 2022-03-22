@@ -9,9 +9,10 @@ const {
   getAll,
 } = require('./handlerFactory');
 
-exports.getAllUsers = getAll(User);
-
-exports.getUser = getOne(User);
+exports.getMe = async (req, res, next) => {
+  req.params.id = req.user.id;
+  next();
+};
 
 exports.updateMe = async (req, res) => {
   try {
@@ -49,6 +50,8 @@ exports.deleteMe = async (req, res) => {
 };
 
 // ADMIN
+exports.getAllUsers = getAll(User);
+exports.getUser = getOne(User);
 exports.createUser = createOne(User);
 exports.updateUser = updateOne(User);
 exports.deleteUser = deleteOne(User);
