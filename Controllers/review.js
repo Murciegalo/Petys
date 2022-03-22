@@ -1,6 +1,7 @@
 const { catchError, humanErrors } = require('./errorHandler');
 const Review = require('../Models/ReviewModel');
 const { filterObj } = require('../utils/tools');
+const { deleteOne, getOne } = require('./handlerFactory');
 
 exports.getAllReviews = async (req, res) => {
   let filter = {};
@@ -16,6 +17,8 @@ exports.getAllReviews = async (req, res) => {
     catchError(err, res, 'Sorry, you left our web. Please come back, xDD');
   }
 };
+
+exports.getReview = getOne(Review);
 
 exports.updateReview = async (req, res) => {
   try {
@@ -42,21 +45,6 @@ exports.updateReview = async (req, res) => {
   }
 };
 
-exports.getReview = async (req, res) => {
-  try {
-    const review = await Review.findById(req.params.id);
-    if (review === null) {
-      humanErrors(res, 404, 'fail', 'Sorry, review not found');
-    }
-    res.status(200).json({
-      status: 'success',
-      review,
-    });
-  } catch (err) {
-    catchError(err, res, 'Sorry, you left our web. Please come back, xDD');
-  }
-};
-
 exports.createReview = async (req, res) => {
   if (!req.body.petReviewed) req.body.petReviewed = req.params.petId;
   if (!req.body.userReview) req.body.userReview = req.user.id;
@@ -71,16 +59,4 @@ exports.createReview = async (req, res) => {
   }
 };
 
-exports.deleteReview = async (req, res) => {
-  try {
-    let delet = await User.findByIdAndDelete(req.params.id);
-    if (delet === null) {
-      humanErrors(res, 404, 'fail', 'Sorry, we cannot find a review');
-    }
-    res.status(200).json({
-      status: 'delete completed',
-    });
-  } catch (err) {
-    catchError(err, res, 'Sorry, we could not find any user');
-  }
-};
+exports.deleteReview = deleteOne(Review);

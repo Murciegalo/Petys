@@ -5,7 +5,8 @@ const {
   fieldsLimiting,
   pagination,
 } = require('../utils/apiFeatures');
-const { catchError } = require('./errorHandler');
+const { catchError, humanErrors } = require('./errorHandler');
+const { deleteOne, updateOne, createOne } = require('./handlerFactory');
 
 // MIDDLEWARE
 exports.aliasTopPets = (req, res, next) => {
@@ -45,7 +46,7 @@ exports.getPet = async (req, res) => {
   try {
     const pet = await Pet.findById(req.params.id).populate('reviews');
     if (pet === null) {
-      throw Error('Sorry, item not found with that ID');
+      humanErrors(res, 404, 'fail', 'Sorry, item not found with that ID');
     }
     res.status(200).json({
       status: 'success',
@@ -56,52 +57,11 @@ exports.getPet = async (req, res) => {
   }
 };
 
-exports.createPet = async (req, res) => {
-  try {
-    const newPet = await Pet.create(req.body);
-    res.status(200).json({
-      status: 'success',
-      pet: newPet,
-    });
-  } catch (err) {
-    // console.log('CREATE PET', err);
-    catchError(err, res);
-  }
-};
+exports.createPet = createOne(Pet);
 
-exports.updatePet = async (req, res) => {
-  try {
-    const pet = await Pet.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
+exports.updatePet = updateOne(Pet);
 
-    res.status(200).json({
-      status: 'success',
-      pet,
-    });
-  } catch (err) {
-    catchError(
-      err,
-      res,
-      'Sorry, we could not find that item. Update not completed'
-    );
-  }
-};
-
-exports.deletePet = async (req, res) => {
-  try {
-    let delet = await Pet.findByIdAndDelete(req.params.id);
-    if (delet === null) {
-      throw Error('Sorry, item not found with that ID');
-    }
-    res.status(200).json({
-      status: 'delete completed',
-    });
-  } catch (err) {
-    catchError(err, res, 'Sorry, we could not find that item');
-  }
-};
+exports.deletePet = deleteOne(Pet);
 
 exports.getPetStats = async (req, res) => {
   try {
@@ -133,26 +93,3 @@ exports.getPetStats = async (req, res) => {
     );
   }
 };
-
-// exports.getMonthlyStats = async (req, res) => {
-//   try {
-//     const year = req.params.year * 1;
-
-//     const monthlyStats = await Pet.aggregate([]);
-//     res.status(200).json({
-//       status: 'success',
-//       monthlyStats,
-//     });
-//   } catch (err) {
-//     res.status(400).json({
-//       status: 'fail',
-//       code: err.code,
-//       key: err.keyValue,
-//       name: err.name,
-//       msg: err.message,
-//       error: {
-//         err,
-//       },
-//     });
-//   }
-// };

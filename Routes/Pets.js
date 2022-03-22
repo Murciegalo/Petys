@@ -23,10 +23,10 @@ router.get('/stats', protect, restrictTo('admin'), getPetStats);
 // TOURS
 router.get('/', protect, getAllPets);
 router.get('/:id', getPet);
-// restrictTo('seller'),
-router.post('/', protect, createPet);
 
-router.put('/:id', protect, restrictTo('seller'), updatePet);
+router.post('/', protect, restrictTo('seller', 'admin'), createPet);
+//
+router.put('/:id', protect, restrictTo('seller', 'admin'), updatePet);
 
 router.delete('/:id', protect, restrictTo('admin', 'seller'), deletePet);
 

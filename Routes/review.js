@@ -9,12 +9,12 @@ const {
 } = require('../Controllers/review');
 
 const router = express.Router({ mergeParams: true });
-// restrictTo('admin')
-router.get('/', protect, getAllReviews);
+
+router.get('/', protect, restrictTo('admin'), getAllReviews);
 router.get('/:id', getReview);
 
 router.post('/', protect, restrictTo('user'), createReview);
-router.put('/:id', protect, updateReview);
-router.delete('/:id', protect, deleteReview);
+router.put('/:id', protect, restrictTo('user', 'admin'), updateReview);
+router.delete('/:id', protect, restrictTo('admin'), deleteReview);
 
 module.exports = router;
