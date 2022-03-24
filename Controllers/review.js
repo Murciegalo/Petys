@@ -49,6 +49,10 @@ exports.createReview = async (req, res) => {
   if (!req.body.petReviewed) req.body.petReviewed = req.params.petId;
   if (!req.body.userReview) req.body.userReview = req.user.id;
   try {
+    const review = await Review.findById(req.params.id);
+    if (!review) {
+      return humanErrors(res, 403, 'fail', 'Sorry, you already wrote a review');
+    }
     const newReview = await Review.create(req.body);
     res.status(200).json({
       status: 'success',

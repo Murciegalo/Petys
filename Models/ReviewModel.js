@@ -56,10 +56,17 @@ reviewSchema.statics.calcAvgRatings = async function (petId) {
       },
     },
   ]);
-  await Pet.findByIdAndUpdate(petId, {
-    ratingsAvrgSeller: stats[0].avgRatings,
-    ratingsQuantity: stats[0].numRatings,
-  });
+  if (stats.length > 0) {
+    await Pet.findByIdAndUpdate(petId, {
+      ratingsAvrgSeller: stats[0].avgRatings,
+      ratingsQuantity: stats[0].numRatings,
+    });
+  } else {
+    await Pet.findByIdAndUpdate(petId, {
+      ratingsAvrgSeller: 4.5,
+      ratingsQuantity: 0,
+    });
+  }
 };
 // Doc. Middleware
 reviewSchema.post('save', function () {
@@ -67,9 +74,13 @@ reviewSchema.post('save', function () {
 });
 // Query Middle
 reviewSchema.pre(/^findOneAnd/, async function (next) {
-  const r = await this.findOne();
-  console.log(r);
+  this.r = await this.findOne().clone();
   next();
+});
+
+reviewSchema.post(/^findOneAnd/, async function () {
+  console.log('ID', this.r.petReviewed);
+  await this.r.constructor.calcAvgRatings(this.r.petReviewed);
 });
 
 const Review = mongoose.model('Review', reviewSchema);
