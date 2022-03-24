@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Pet = require('../Models/PetModel');
 
 const reviewSchema = new mongoose.Schema(
   {
@@ -40,6 +41,30 @@ reviewSchema.pre(/^find/, function (next) {
     select: 'name foto',
   });
   next();
+});
+//STATIC Method => Model
+reviewSchema.statics.calcAvgRatings = async function (petId) {
+  const stats = await this.aggregate([
+    {
+      $match: { petReviewed: petId },
+    },
+    {
+      $group: {
+        _id: '$petReviewed',
+        numRatings: { $sum: 1 },
+        avgRatings: { $avg: '$rating' },
+      },
+    },
+  ]);
+  console.log('STATS', stats);
+  await Pet.findByIdAndUpdate(petId, {
+    ratingsAvrgSeller: stats[0].numRatings,
+    ratingsQuantity: stats[0].avgRatings,
+  });
+};
+// Doc. Middleware
+reviewSchema.post('save', function () {
+  this.constructor.calcAvgRatings(this.petReviewed);
 });
 
 const Review = mongoose.model('Review', reviewSchema);

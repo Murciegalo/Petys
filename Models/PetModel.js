@@ -52,16 +52,16 @@ const petSchema = new mongoose.Schema(
         type: String,
       },
     ],
-    // ratingsAvrgSeller: {
-    //   type: Number,
-    //   default: 4.5,
-    //   min: [1, 'Sorry, minimum rate is 1'],
-    //   max: [5, 'Sorry, maximum rate is 5'],
-    // },
-    // ratingsQuantity: {
-    //   type: Number,
-    //   default: 0,
-    // },
+    ratingsAvrgSeller: {
+      type: Number,
+      default: 4.5,
+      min: [1, 'Sorry, minimum rate is 1'],
+      max: [5, 'Sorry, maximum rate is 5'],
+    },
+    ratingsQuantity: {
+      type: Number,
+      default: 0,
+    },
     createdAt: {
       type: Date,
       default: Date.now(),
