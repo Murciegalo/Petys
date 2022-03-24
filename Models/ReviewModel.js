@@ -34,6 +34,7 @@ const reviewSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   }
 );
+reviewSchema.index({ petReviewed: 1, userReview: 1 }, { unique: true });
 //DOCUMENT QUERY
 reviewSchema.pre(/^find/, function (next) {
   this.populate({

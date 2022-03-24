@@ -2,15 +2,17 @@ const { humanErrors, catchError } = require('./errorHandler');
 
 exports.deleteOne = (Model) => async (req, res) => {
   try {
-    let doc = await Model.findByIdAndDelete(req.params.id);
-    if (doc === null) {
+    const review = await Model.findById(req.params.id);
+    if (!review) {
       return humanErrors(
         res,
-        404,
+        403,
         'fail',
-        'Sorry, item not found with that ID'
+        'Sorry, deletion was already completed'
       );
     }
+    await Model.findByIdAndDelete(req.params.id);
+
     res.status(204).json({
       status: 'success',
     });
