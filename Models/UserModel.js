@@ -49,7 +49,7 @@ const userSchema = new mongoose.Schema({
     select: false,
   },
 });
-//DOCUMENT Middleware DON'T WORK on findbyIdAndUpdate()|Only SAVE/CREATE
+//DOC Middleware DON'T WORK on findbyIdAndUpdate()|Only SAVE/CREATE
 // 1
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) {

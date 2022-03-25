@@ -79,6 +79,7 @@ const petSchema = new mongoose.Schema(
   }
 );
 petSchema.index({ price: 1, name: 1 });
+petSchema.index({ location: 1 });
 petSchema.virtual('totalDiscount').get(function () {
   return this.price * this.priceDiscount;
 });
