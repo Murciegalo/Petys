@@ -11,6 +11,10 @@ const petSchema = new mongoose.Schema(
       minlength: [4, 'Please provider a longer name'],
     },
     slug: String,
+    location: {
+      type: String,
+      required: true,
+    },
     pedigreeM: {
       type: String,
       required: [true, 'Please, make sure your pedigree is allright'],
@@ -97,17 +101,7 @@ petSchema.pre(/^find/, function (next) {
   });
   next();
 });
-// Embedding Referencing
-// petSchema.pre('save', async function (next) {
-//   const sellers = this.seller.map(async (id) => await User.findById(id));
-//   this.seller = await Promise.all(sellers);
-//   next();
-// });
-// AGGREGATION MIDDLEWARE
-// petSchema.pre('aggregate', function (next) {
-//   this.pipeline().unshift({ $match: { secretPet: { $ne: true } } });
-//   next();
-// });
+
 const Pet = mongoose.model('Pet', petSchema);
 
 module.exports = Pet;

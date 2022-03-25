@@ -57,6 +57,29 @@ exports.getPet = async (req, res) => {
   }
 };
 
+exports.getPetByLocation = async (req, res) => {
+  try {
+    const pet = await Pet.find({ location: req.params.location }).populate(
+      'reviews'
+    );
+    if (pet == null || pet.length == 0) {
+      return humanErrors(
+        res,
+        404,
+        'fail',
+        'Sorry, pet not available in current location'
+      );
+    }
+    res.status(200).json({
+      status: 'success',
+      results: pet.length,
+      pet,
+    });
+  } catch (err) {
+    catchError(err, res, 'Sorry, you left our web. Please come back, xDD');
+  }
+};
+
 exports.createPet = createOne(Pet);
 
 exports.updatePet = updateOne(Pet);

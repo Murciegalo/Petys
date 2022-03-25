@@ -8,6 +8,7 @@ const {
   updatePet,
   deletePet,
   getPetStats,
+  getPetByLocation,
 } = require('../Controllers/pet');
 const reviewRouter = require('../Routes/review');
 
@@ -15,15 +16,20 @@ const router = express.Router();
 
 router.use('/:petId/reviews', reviewRouter);
 
-// STATS
-router.get('/top-cheap', aliasTopPets, getAllPets);
-router.get('/stats', protect, restrictTo('admin'), getPetStats);
-
 //App
 router.get('/', getAllPets);
+
+router.use(protect);
+
 router.get('/:id', getPet);
-router.post('/', protect, restrictTo('seller', 'admin'), createPet);
-router.put('/:id', protect, restrictTo('seller', 'admin'), updatePet);
-router.delete('/:id', protect, restrictTo('admin', 'seller'), deletePet);
+router.get('/loc/:location', getPetByLocation);
+router.post('/', restrictTo('seller', 'admin'), createPet);
+router.put('/:id', restrictTo('seller', 'admin'), updatePet);
+router.delete('/:id', restrictTo('seller', 'admin'), deletePet);
+
+// STATS
+router.use(restrictTo('admin'));
+router.get('/top-cheap', aliasTopPets, getAllPets);
+router.get('/stats', getPetStats);
 
 module.exports = router;
