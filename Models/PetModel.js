@@ -34,17 +34,6 @@ const petSchema = new mongoose.Schema(
       type: Number,
       required: [true, 'A pet needs a price'],
     },
-    priceDiscount: {
-      type: Number,
-      validate: {
-        // validator gets applied on NEW doc creation
-        validator: function (valueInput) {
-          return valueInput < this.price;
-        },
-        message:
-          'Please, discount price ({VALUE}) must be lower than regular price',
-      },
-    },
     seller: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
     imgCover: {
       type: String,
@@ -80,10 +69,6 @@ const petSchema = new mongoose.Schema(
 );
 petSchema.index({ price: 1, name: 1 });
 petSchema.index({ location: 1 });
-petSchema.virtual('totalDiscount').get(function () {
-  return this.price * this.priceDiscount;
-});
-
 petSchema.virtual('reviews', {
   ref: 'Review',
   foreignField: 'petReviewed',

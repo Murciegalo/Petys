@@ -38,3 +38,18 @@ exports.sendToken = (token, user, statusCode, res) => {
     user,
   });
 };
+
+// priceDiscount: {
+//   type: Number,
+//   validate: {
+//     // validator gets applied on NEW doc creation
+//     validator: function (valueInput) {
+//       return valueInput < this.price;
+//     },
+//     message:
+//       'Please, discount price ({VALUE}) must be lower than regular price',
+//   },
+// },
+// petSchema.virtual('totalDiscount').get(function () {
+//   return this.price * this.priceDiscount;
+// });
