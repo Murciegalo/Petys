@@ -10,8 +10,8 @@ export const Absol = styled.div`
   opacity: 0.9;
   z-index: 100;
   transition: 1s ease-in-out;
-  display: ${(props) => !props.$display && 'none'};
-  transform: ${(props) => (props.$display ? 'translateX(0)' : 'translateX(25rem)')};
+  display: ${({ $display }) => !$display && 'none'};
+  transform: ${({ $display }) => ($display ? 'translateX(0)' : 'translateX(25rem)')};
 `;
 
 export const Section = styled.div`

@@ -17,11 +17,11 @@ const CartMenu = ({ toogle, setToogle }) => {
         <span>adfasdf</span>
         <span>adfasdf</span>
       </CheckoutList>
-      <Section justify="space-between">
+      <Section $justify="space-between">
         <TextItem>TOTAL</TextItem>
         <TextItem>Money</TextItem>
       </Section>
-      <Section justify="end">
+      <Section $justify="end">
         <Btn onClick={() => setToogle(false)}>
           <Link to="/cart">Checkout</Link>
         </Btn>
