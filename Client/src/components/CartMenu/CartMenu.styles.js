@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Absol = styled.div`
@@ -64,7 +65,7 @@ export const CheckoutList = styled.div`
   padding-top: 1rem;
   padding-bottom: 1rem;
 `;
-export const Btn = styled.button`
+export const Btn = styled(Link)`
   margin: 1rem;
   padding: 0.5rem;
   background: none;
@@ -72,17 +73,13 @@ export const Btn = styled.button`
   font-family: inherit;
   border: 2px solid #000;
   border-radius: 5px;
-  transition: 0.4s ease-in-out;
-  a {
-    text-decoration: none;
-    color: black;
-  }
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+  color: black;
   :hover {
     cursor: pointer;
     background-color: black;
     border: 2px solid #fff;
-    a {
-      color: white;
-    }
+    color: white;
   }
 `;

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { BsXCircleFill } from 'react-icons/bs';
-import { Absol, Section, TextItem, IconItem, CheckoutList, Btn } from './CartMenu.styles';
+import { Absol, Section, TextItem, IconItem, CheckoutList } from './CartMenu.styles';
+import { Button, TypeBtn } from '../Button/Button';
 
 const CartMenu = ({ toogle, setToogle }) => {
   return (
@@ -22,9 +22,9 @@ const CartMenu = ({ toogle, setToogle }) => {
         <TextItem>Money</TextItem>
       </Section>
       <Section $justify="end">
-        <Btn onClick={() => setToogle(false)}>
-          <Link to="/cart">Checkout</Link>
-        </Btn>
+        <Button to="/cart" btnType={TypeBtn.cart} onClick={() => setToogle(false)}>
+          Checkout
+        </Button>
       </Section>
     </Absol>
   );

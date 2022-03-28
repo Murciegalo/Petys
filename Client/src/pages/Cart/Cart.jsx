@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, TypeBtn } from '../../components/Button/Button';
 import Cartitem from '../../components/CartItem/Cartitem';
 import { products } from '../../data';
 import {
@@ -10,7 +11,6 @@ import {
   ProductList,
   Total,
   Text,
-  Btn,
 } from './Cart.styles';
 
 const Cart = () => {
@@ -32,7 +32,9 @@ const Cart = () => {
         <Text>TOTAL</Text>
         <Text>300 $</Text>
       </Total>
-      <Btn>Stripe + Payment Methods</Btn>
+      <Button to="#" btnType={TypeBtn.signInUp}>
+        Stripe + Payment Methods
+      </Button>
     </Cont>
   );
 };

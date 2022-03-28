@@ -1,5 +1,6 @@
 import React from 'react';
-import { Cont, Header, Wrapper, Form, Input, Btn, Text } from '../Login/Login.styles';
+import { Cont, Header, Wrapper, Form, Input, Text } from '../Login/Login.styles';
+import { Button, TypeBtn } from '../../components/Button/Button';
 
 const SignUp = () => {
   return (
@@ -10,7 +11,9 @@ const SignUp = () => {
           <Input placeholder="Full Name" />
           <Input placeholder="Email" />
           <Input placeholder="Password" />
-          <Btn>Sign Up</Btn>
+          <Button to="#" btnType={TypeBtn.signInUp}>
+            Sign Up
+          </Button>
           <Text to="/login">Already have an account? Login</Text>
         </Form>
       </Wrapper>

@@ -1,36 +1,26 @@
-import React from 'react'
-import { 
-  Cont, 
-  Product, 
-  ContImg, 
-  Desc, 
-  Img,
-  Btn,  
-  Price, 
-  Quant, 
-  Text, 
-  Total 
-} from './CartItem.styles'
+import React from 'react';
+import { Button, TypeBtn } from '../Button/Button';
+import { Cont, Product, ContImg, Desc, Img, Price, Quant, Text, Total } from './CartItem.styles';
 
-const Cartitem = ({el}) => {
-  return <Cont>
-    <Product>
-      <ContImg>
-        <Img src={el.img} />
-      </ContImg>
-      <Desc>
-        <Text>{el.desc}</Text>
-        <Btn>Remove</Btn>
-      </Desc>
-    </Product>
-    <Price>{el.price}</Price>
-    <Quant>
-      {el.units}
-    </Quant>
-    <Total>
-      {el.price} 
-    </Total>
-  </Cont>
-}
+const Cartitem = ({ el }) => {
+  return (
+    <Cont>
+      <Product>
+        <ContImg>
+          <Img src={el.img} />
+        </ContImg>
+        <Desc>
+          <Text>{el.desc}</Text>
+          <Button to="#" btnType={TypeBtn.cart}>
+            Remove
+          </Button>
+        </Desc>
+      </Product>
+      <Price>{el.price}</Price>
+      <Quant>{el.units}</Quant>
+      <Total>{el.price}</Total>
+    </Cont>
+  );
+};
 
-export default Cartitem
+export default Cartitem;

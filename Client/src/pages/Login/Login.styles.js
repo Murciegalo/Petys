@@ -46,22 +46,6 @@ export const Input = styled.input`
   }
 `;
 
-export const Btn = styled.button`
-  min-width: 23.72881%;
-  margin: 1rem auto;
-  padding: 0.5rem 1rem;
-  background: none;
-  font-size: 1.5rem;
-  font-family: inherit;
-  border: 2px solid #fff;
-  transition: 0.2s ease-in-out;
-
-  :hover {
-    cursor: pointer;
-    background-color: white;
-  }
-`;
-
 export const Text = styled(Link)`
   width: auto;
   margin: 0 auto;
