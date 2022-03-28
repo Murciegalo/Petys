@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Cont = styled.div`
@@ -20,21 +21,17 @@ export const Left = styled.div`
   justify-content: center;
 `;
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: aliceblue;
   font-size: 30px;
   font-weight: bold;
+  color: aliceblue;
+  text-decoration: none;
   padding: 5px;
   &: hover {
     cursor: pointer;
-  }
-
-  a {
-    text-decoration: none;
-    color: white;
   }
 `;
 

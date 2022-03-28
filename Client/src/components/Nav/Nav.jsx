@@ -10,9 +10,7 @@ const Nav = () => {
     <Cont>
       <Wrapp>
         <Left>
-          <Logo>
-            <Link to="/">PETXys</Link>
-          </Logo>
+          <Logo to="/">PETXys</Logo>
         </Left>
         <Center>
           <TextItem>
