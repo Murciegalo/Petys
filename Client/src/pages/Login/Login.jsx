@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ResetPass from '../../components/ResetPass/ResetPass';
-import { Cont, Header, Wrapper, Form, Input, Btn, BtnII, Text } from './Login.styles';
+import { Cont, Header, Wrapper, Form, Input, Btn, Text } from './Login.styles';
 
 const Login = () => {
   const [forgot, setForgot] = useState(false);
@@ -16,10 +16,10 @@ const Login = () => {
           <Input placeholder="Email" />
           <Input placeholder="Password" />
           <Btn>Sign In</Btn>
-          <Text>
-            <Link to="/signup">You don't have an account? SIGN UP</Link>
+          <Text to="/signup">You don't have an account? SIGN UP</Text>
+          <Text to="#" onClick={() => setForgot(true)}>
+            Forgot your password?
           </Text>
-          <BtnII onClick={() => setForgot(true)}>Forgot your password?</BtnII>
         </Form>
       </Wrapper>
     </Cont>

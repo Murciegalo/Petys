@@ -62,7 +62,7 @@ export const Right = styled.ul`
   list-style: none;
   flex: 0.5;
 `;
-export const IconItem = styled.li`
+export const IconItem = styled(Link)`
   display: flex;
   margin-left: 20px;
   color: ${({ color }) => color};

@@ -1,14 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { 
-  Cont,
-  Header,
-  Wrapper,
-  Form,
-  Input,
-  Btn,
-  Text 
-} from '../Login/Login.styles'
+import React from 'react';
+import { Cont, Header, Wrapper, Form, Input, Btn, Text } from '../Login/Login.styles';
 
 const SignUp = () => {
   return (
@@ -16,19 +7,15 @@ const SignUp = () => {
       <Header>Sign Up</Header>
       <Wrapper>
         <Form>
-          <Input placeholder='Full Name' />
-          <Input placeholder='Email' />
-          <Input placeholder='Password' />
+          <Input placeholder="Full Name" />
+          <Input placeholder="Email" />
+          <Input placeholder="Password" />
           <Btn>Sign Up</Btn>
-          <Text>
-            <Link to='/login'>
-              Already have an account? Login
-            </Link>
-          </Text>
+          <Text to="/login">Already have an account? Login</Text>
         </Form>
       </Wrapper>
     </Cont>
-  )
-}
+  );
+};
 
-export default SignUp
+export default SignUp;

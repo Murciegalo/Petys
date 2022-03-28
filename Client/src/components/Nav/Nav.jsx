@@ -18,12 +18,10 @@ const Nav = () => {
           </TextItem>
         </Center>
         <Right>
-          <IconItem color="white">
-            <Link to="/login">
-              <BsFillPersonFill />
-            </Link>
+          <IconItem to="/login" color="white">
+            <BsFillPersonFill />
           </IconItem>
-          <IconItem onClick={() => setToogle(!toogle)} color="white">
+          <IconItem to="#" onClick={() => setToogle(!toogle)} color="white">
             <BsCart4 />
           </IconItem>
         </Right>
