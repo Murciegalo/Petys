@@ -1,12 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ResetPass from '../../components/ResetPass/ResetPass';
-import { UserContext } from '../../context/user.context';
 import { Cont, Header, Wrapper, Form, Input, Btn, BtnII, Text } from './Login.styles';
 
 const Login = () => {
   const [forgot, setForgot] = useState(false);
-  const { setCurrentUser } = useContext(UserContext);
 
   return forgot ? (
     <ResetPass setForgot={setForgot} />

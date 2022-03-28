@@ -1,12 +1,10 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { BsCart4, BsFillPersonFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../context/user.context';
 import CartMenu from '../CartMenu/CartMenu';
 import { Cont, Wrapp, Left, Logo, Center, TextItem, Right, IconItem } from './Nav.styles';
 
 const Nav = () => {
-  const { currentUser } = useContext(UserContext);
   const [toogle, setToogle] = useState(false);
   return (
     <Cont>

@@ -1,30 +1,29 @@
 import styled from 'styled-components';
 
-
 export const Absol = styled.div`
   position: absolute;
   padding: 1.4rem;
-  width: calc( 18rem + 5%);
+  width: calc(18rem + 5%);
   min-width: 20rem;
   right: 1rem;
   background-color: white;
-  opacity: .9;
+  opacity: 0.9;
   z-index: 100;
   transition: 1s ease-in-out;
-  display: ${({display}) => !display && 'none'  };
-  transform: ${({display}) => display ? 'translateX(0)' : 'translateX(25rem)' };
-`
+  display: ${(props) => !props.$display && 'none'};
+  transform: ${(props) => (props.$display ? 'translateX(0)' : 'translateX(25rem)')};
+`;
 
 export const Section = styled.div`
   display: flex;
   align-items: center;
-  justify-content: ${({justify}) => justify };
-`
+  justify-content: ${(props) => props.$justify};
+`;
 export const TextItem = styled.span`
   padding: 2%;
   font-size: 22px;
-  &: hover{
-    color: ${({color}) => color };
+  &: hover {
+    color: ${({ color }) => color};
     font-weight: bold;
     cursor: pointer;
     border-bottom: 1px solid aliceblue;
@@ -34,16 +33,16 @@ export const TextItem = styled.span`
     text-decoration: none;
     color: white;
   }
-`
+`;
 
 export const IconItem = styled.li`
   display: flex;
   margin-left: 20px;
-  color: ${({color}) => color };
+  color: ${({ color }) => color};
   font-size: 20px;
 
-  &: hover{
-    svg{
+  &: hover {
+    svg {
       cursor: pointer;
       transform: scale(1.5);
     }
@@ -57,14 +56,14 @@ export const IconItem = styled.li`
     top: -8px;
     right: -14px;
   }
-`
+`;
 
 export const CheckoutList = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 1rem;
   padding-bottom: 1rem;
-`
+`;
 export const Btn = styled.button`
   margin: 1rem;
   padding: 0.5rem;
@@ -74,11 +73,11 @@ export const Btn = styled.button`
   border: 2px solid #000;
   border-radius: 5px;
   transition: 0.4s ease-in-out;
-  a{
+  a {
     text-decoration: none;
     color: black;
   }
-  :hover{
+  :hover {
     cursor: pointer;
     background-color: black;
     border: 2px solid #fff;
@@ -86,4 +85,4 @@ export const Btn = styled.button`
       color: white;
     }
   }
-`
+`;
