@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Cont, Header, Wrapper, Form, Input, Text } from '../../pages/Login/Login.styles';
-import { Button, TypeBtn } from '../Button/Button';
+import { Button, TypeBtn } from '../../components/Button/Button';
 
-const ResetPass = ({ setForgot }) => {
+const ForgotPassword = () => {
   const [email, setEmail] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -10,7 +10,7 @@ const ResetPass = ({ setForgot }) => {
   };
   return (
     <Cont>
-      <Header>Sign In</Header>
+      <Header>Forgot Password</Header>
       <Wrapper>
         <span>Please input your email and we will send you a new password</span>
         <Form onSubmit={handleSubmit}>
@@ -26,12 +26,10 @@ const ResetPass = ({ setForgot }) => {
             Reset Password
           </Button>
         </Form>
-        <Text to="#" onClick={() => setForgot(false)}>
-          Cancel
-        </Text>
+        <Text to="/login">Cancel</Text>
       </Wrapper>
     </Cont>
   );
 };
 
-export default ResetPass;
+export default ForgotPassword;
