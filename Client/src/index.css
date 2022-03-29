@@ -1,6 +1,10 @@
 body {
   box-sizing: border-box;
   margin: 0;
+  max-width: 1140px;
+  width: 100%;
+  min-width: 727px;
+  margin: 0 auto;
   height: 100vh;
   font-family: BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
     'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -26,10 +30,4 @@ body {
   background: -webkit-linear-gradient(45deg, hsla(154, 100%, 76%, 1) 0%, rgb(255, 201, 201) 100%);
 
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#84FFC9", endColorstr="#AAB2FF", GradientType=1 );
-}
-.App {
-  width: 100%;
-  max-width: 1140px;
-  min-width: 727px;
-  margin: 0 auto;
 }
