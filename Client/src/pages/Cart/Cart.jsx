@@ -32,9 +32,7 @@ const Cart = () => {
         <Text>TOTAL</Text>
         <Text>300 $</Text>
       </Total>
-      <Button to="#" btnType={TypeBtn.signInUp}>
-        Stripe + Payment Methods
-      </Button>
+      <Button btnType={TypeBtn.signInUp}>Pay</Button>
     </Cont>
   );
 };

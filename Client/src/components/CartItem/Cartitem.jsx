@@ -11,9 +11,7 @@ const Cartitem = ({ el }) => {
         </ContImg>
         <Desc>
           <Text>{el.desc}</Text>
-          <Button to="#" btnType={TypeBtn.cart}>
-            Remove
-          </Button>
+          <Button btnType={TypeBtn.cart}>Remove</Button>
         </Desc>
       </Product>
       <Price>{el.price}</Price>

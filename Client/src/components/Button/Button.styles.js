@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const BaseBtn = styled(Link)`
+export const BaseBtn = styled.button`
   padding: 0.5rem 1rem;
   background: none;
   font-family: inherit;

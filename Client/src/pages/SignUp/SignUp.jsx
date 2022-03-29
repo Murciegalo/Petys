@@ -11,9 +11,7 @@ const SignUp = () => {
           <Input placeholder="Full Name" />
           <Input placeholder="Email" />
           <Input placeholder="Password" />
-          <Button to="#" btnType={TypeBtn.signInUp}>
-            Sign Up
-          </Button>
+          <Button btnType={TypeBtn.signInUp}>Sign Up</Button>
           <Text to="/login">Already have an account? Login</Text>
         </Form>
       </Wrapper>
