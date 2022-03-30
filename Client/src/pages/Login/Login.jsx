@@ -7,7 +7,7 @@ import { Signin } from '../../components/SignIn/Signin';
 import Spinner from '../../components/spinner/Spinner.component';
 
 const Login = ({ isAuth, loading, login }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 

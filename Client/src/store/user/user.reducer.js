@@ -4,7 +4,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  SET_LOADING_FALSE,
+  LOGIN_STARTS,
   // GET_PROFILE,
   // PROFILE_ERROR,
   // UPDATE_PROFILE,
@@ -23,6 +23,11 @@ export const userReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
 
   switch (type) {
+    case LOGIN_STARTS:
+      return {
+        ...state,
+        loading: true,
+      };
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
       return {
@@ -30,11 +35,6 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         currentUser: payload.data.user,
         token: payload.data.token,
         isAuth: true,
-        loading: true,
-      };
-    case SET_LOADING_FALSE:
-      return {
-        ...state,
         loading: false,
       };
     case LOGIN_FAIL:

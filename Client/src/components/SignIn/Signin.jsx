@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cont, Header, Wrapper, Form, Input, Text } from './Login.styles';
+import { Cont, Header, Wrapper, Form, Input, Text } from './Sign.styles';
 import { Button, TypeBtn } from '../../components/Button/Button';
 
 export const Signin = ({ handleLogin, email, setEmail, password, setPassword }) => {

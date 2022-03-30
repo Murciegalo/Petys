@@ -1,10 +1,10 @@
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
+  LOGIN_STARTS,
   LOGIN_FAIL,
   LOGIN_SUCCESS,
   LOGOUT,
-  SET_LOADING_FALSE,
 } from './types';
 import axios from 'axios';
 
@@ -34,7 +34,6 @@ export const register =
 
 // LOGIN AN USER
 export const login = (email, password) => async (dispatch) => {
-  console.log('running login');
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -42,19 +41,12 @@ export const login = (email, password) => async (dispatch) => {
   };
   const body = JSON.stringify({ email, password });
   try {
+    dispatch({ type: LOGIN_STARTS });
     const res = await axios.post('http://localhost:4500/api/v1/user/signin', body, config);
-    console.log(res);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res,
     });
-    setTimeout(
-      () =>
-        dispatch({
-          type: SET_LOADING_FALSE,
-        }),
-      1000,
-    );
   } catch (error) {
     dispatch({
       type: LOGIN_FAIL,
