@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { Button, TypeBtn } from '../../components/Button/Button';
+import { login } from '../../store/user/user.actions';
 import { Cont, Header, Wrapper, Form, Input, Text } from './Login.styles';
 
-const Login = () => {
+const Login = ({ isAuth, login }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log('Link worked on Submit');
+    login(email, password);
+    isAuth && navigate('/me');
   };
   return (
     <Cont>
@@ -41,4 +47,13 @@ const Login = () => {
   );
 };
 
-export default Login;
+Login.propTypes = {
+  login: PropTypes.func.isRequired,
+  isAuth: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  isAuth: state.user.isAuth,
+});
+
+export default connect(mapStateToProps, { login })(Login);
