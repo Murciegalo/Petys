@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cont, Header, Wrapper, Form, Input, Text } from '../Login/Login.styles';
+import { Cont, Header, Wrapper, Form, Input, Text } from '../../components/SignIn/Login.styles';
 import { Button, TypeBtn } from '../../components/Button/Button';
 
 const SignUp = () => {

@@ -1,4 +1,11 @@
-import { REGISTER_SUCCESS, REGISTER_FAIL, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT } from './types';
+import {
+  REGISTER_SUCCESS,
+  REGISTER_FAIL,
+  LOGIN_FAIL,
+  LOGIN_SUCCESS,
+  LOGOUT,
+  SET_LOADING_FALSE,
+} from './types';
 import axios from 'axios';
 
 // REGISTER AN USER
@@ -41,6 +48,13 @@ export const login = (email, password) => async (dispatch) => {
       type: LOGIN_SUCCESS,
       payload: res,
     });
+    setTimeout(
+      () =>
+        dispatch({
+          type: SET_LOADING_FALSE,
+        }),
+      1000,
+    );
   } catch (error) {
     dispatch({
       type: LOGIN_FAIL,

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Cont, Header, Wrapper, Form, Input, Text } from '../../pages/Login/Login.styles';
+import { Cont, Header, Wrapper, Form, Input, Text } from '../../components/SignIn/Login.styles';
 import { Button, TypeBtn } from '../../components/Button/Button';
 
 const ForgotPassword = () => {

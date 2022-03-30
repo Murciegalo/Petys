@@ -4,6 +4,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  SET_LOADING_FALSE,
   // GET_PROFILE,
   // PROFILE_ERROR,
   // UPDATE_PROFILE,
@@ -14,7 +15,7 @@ const INITIAL_STATE = {
   currentUser: null,
   token: '',
   isAuth: false,
-  loading: true,
+  loading: false,
   error: '',
 };
 
@@ -29,6 +30,11 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         currentUser: payload.data.user,
         token: payload.data.token,
         isAuth: true,
+        loading: true,
+      };
+    case SET_LOADING_FALSE:
+      return {
+        ...state,
         loading: false,
       };
     case LOGIN_FAIL:
