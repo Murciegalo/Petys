@@ -1,8 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const Cont = styled.div`
-  
-`
+export const Cont = styled.div``;
 
 export const WrapperF = styled.div`
   display: flex;
@@ -11,32 +9,25 @@ export const WrapperF = styled.div`
   padding-bottom: 1%;
   border-bottom: 1px solid aliceblue;
   color: aliceblue;
-`
+`;
 
 export const Link = styled.a`
   text-decoration: none;
   font-size: 23px;
-  padding: .5%;
+  padding: 0.5%;
   cursor: pointer;
-  &: hover{
+  &: hover {
     font-weight: bold;
     cursor: pointer;
     border-bottom: 1px solid aliceblue;
     border-right: 1px solid aliceblue;
   }
-`
+`;
 
-export const WrapperS = styled.div`
+export const WrapperS = styled.ul`
   display: grid;
-  grid-template-columns: repeat( 4 ,1fr);
+  list-style: none;
+  grid-template-columns: repeat(4, 1fr);
   column-gap: 2%;
   padding: 2%;
-`
-
-export const ItemsList = styled.div`
-
-`
-
-export const Item = styled.div`
-
-`
+`;

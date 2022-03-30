@@ -1,10 +1,8 @@
-import React from 'react'
-import { Cont } from './Me.styles'
+import React from 'react';
+import { Cont } from './Me.styles';
 
 const Me = () => {
-  return (
-    <Cont>Me</Cont>
-  )
-}
+  return <Cont>ME PAGE</Cont>;
+};
 
-export default Me
+export default Me;

@@ -12,7 +12,7 @@ import {
 } from './types';
 
 const INITIAL_STATE = {
-  currentUser: null,
+  data: null,
   token: '',
   isAuth: false,
   loading: false,

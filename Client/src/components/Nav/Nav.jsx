@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { BsCart4, BsFillPersonFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import CartMenu from '../CartMenu/CartMenu';
@@ -6,6 +7,17 @@ import { Cont, Wrapp, Left, Logo, Center, TextItem, Right, IconItem } from './Na
 
 const Nav = () => {
   const [toogle, setToogle] = useState(false);
+  const { currentUser } = useSelector((state) => state.user);
+  const loginIcons = currentUser ? (
+    <TextItem>
+      <img src={`${currentUser.photo}`} alt="profile" />
+      <Link to="/me">{currentUser.name}</Link>
+    </TextItem>
+  ) : (
+    <IconItem to="/login" color="white">
+      <BsFillPersonFill />
+    </IconItem>
+  );
   return (
     <Cont>
       <Wrapp>
@@ -18,9 +30,7 @@ const Nav = () => {
           </TextItem>
         </Center>
         <Right>
-          <IconItem to="/login" color="white">
-            <BsFillPersonFill />
-          </IconItem>
+          {loginIcons}
           <IconItem to="#" onClick={() => setToogle(!toogle)} color="white">
             <BsCart4 />
           </IconItem>

@@ -60,13 +60,14 @@ export const TextItem = styled.span`
 export const Right = styled.ul`
   display: flex;
   list-style: none;
-  flex: 0.5;
+  flex: 1;
 `;
 export const IconItem = styled(Link)`
   display: flex;
+  align-items: center;
   margin-left: 20px;
   color: ${({ color }) => color};
-  font-size: 20px;
+  font-size: 25px;
 
   &: hover {
     svg {
@@ -85,6 +86,8 @@ export const IconItem = styled(Link)`
   }
 `;
 export const CartNum = styled.span`
+  display: flex;
+  align-items: center;
   margin-left: -1px;
   margin-top: -8px;
   font-size: 12px;
