@@ -13,12 +13,11 @@ const SignUp = ({ isAuth, loading, register }) => {
   const [confirmPass, setConfirmPass] = useState('');
 
   const handleSubmit = (e) => {
-    if (password === confirmPass) {
-      return;
+    e.preventDefault();
+    if (password !== confirmPass) {
+      return alert(`Sorry, passwords don't match`);
     }
     register(name, email, password);
-    e.preventDefault();
-    console.log('submit');
   };
   return (
     <Cont>
@@ -30,6 +29,7 @@ const SignUp = ({ isAuth, loading, register }) => {
             type="name"
             placeholder="Full Name"
             value={name}
+            minLength="3"
             required
           />
           <Input
@@ -44,6 +44,7 @@ const SignUp = ({ isAuth, loading, register }) => {
             type="password"
             placeholder="Password"
             value={password}
+            minLength="8"
             required
           />
           <Input
@@ -73,3 +74,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { register })(SignUp);
+
+// return onLoading ? <Spinner /> :
+// !onLoading && isAuth && !error ? <Redirect to='/me'/> :

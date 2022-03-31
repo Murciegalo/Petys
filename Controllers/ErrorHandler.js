@@ -1,4 +1,5 @@
 exports.catchError = (err, res, msg) => {
+  console.log('ERROR', err.name);
   if (process.env.NODE_ENV === 'development') {
     if (err.name === 'CastError') {
       return res.status(404).json({
@@ -15,7 +16,7 @@ exports.catchError = (err, res, msg) => {
     }
     if (err.name === 'ValidationError') {
       let value = Object.values(err.errors).map((el) => el.message);
-      return res.status(500).json({
+      return res.status(500).send({
         status: 'fail',
         msg: `Invalid input data. ${value.join('/ ')}`,
       });

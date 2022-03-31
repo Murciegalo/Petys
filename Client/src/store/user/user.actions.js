@@ -1,6 +1,7 @@
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
+  REGISTER_STARTS,
   LOGIN_STARTS,
   LOGIN_FAIL,
   LOGIN_SUCCESS,
@@ -18,8 +19,10 @@ export const register =
       },
     };
     const body = JSON.stringify({ name, email, password });
+    console.log('REQ BODY', body);
     try {
-      const res = await axios.post('/api/users', body, config);
+      dispatch({ type: REGISTER_STARTS });
+      const res = await axios.post('http://localhost:4500/api/v1/user/signup', body, config);
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data.token,
@@ -27,7 +30,7 @@ export const register =
     } catch (error) {
       dispatch({
         type: REGISTER_FAIL,
-        payload: error,
+        payload: error.response,
       });
     }
   };

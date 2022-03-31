@@ -5,6 +5,7 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   LOGIN_STARTS,
+  REGISTER_STARTS,
   // GET_PROFILE,
   // PROFILE_ERROR,
   // UPDATE_PROFILE,
@@ -16,7 +17,7 @@ const INITIAL_STATE = {
   token: '',
   isAuth: false,
   loading: false,
-  error: '',
+  error: null,
 };
 
 export const userReducer = (state = INITIAL_STATE, action) => {
@@ -24,6 +25,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
 
   switch (type) {
     case LOGIN_STARTS:
+    case REGISTER_STARTS:
       return {
         ...state,
         loading: true,
