@@ -1,25 +1,31 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { register } from '../../store/user/user.actions';
-// import { Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Spinner from '../../components/spinner/Spinner.component';
 import { Cont, Header, Wrapper, Form, Input, Text } from '../../components/SignIn/Sign.styles';
 import { Button, TypeBtn } from '../../components/Button/Button';
 
-const SignUp = ({ isAuth, loading, register }) => {
+const SignUp = ({ loading, isAuth, err, register }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPass, setConfirmPass] = useState('');
+  const [passwordConfirm, setpasswordConfirm] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password !== confirmPass) {
+    if (password !== passwordConfirm) {
       return alert(`Sorry, passwords don't match`);
     }
-    register(name, email, password);
+    register(name, email, password, passwordConfirm);
   };
-  return (
+
+  return loading ? (
+    <Spinner />
+  ) : isAuth && !err ? (
+    <Navigate to="/me" />
+  ) : (
     <Cont>
       <Header>Sign Up</Header>
       <Wrapper>
@@ -48,10 +54,10 @@ const SignUp = ({ isAuth, loading, register }) => {
             required
           />
           <Input
-            onChange={(e) => setConfirmPass(e.target.value)}
+            onChange={(e) => setpasswordConfirm(e.target.value)}
             type="password"
             placeholder="Confirm password"
-            value={confirmPass}
+            value={passwordConfirm}
             required
           />
           <Button type="submit" btnType={TypeBtn.signInUp}>
@@ -67,13 +73,12 @@ SignUp.propTypes = {
   register: PropTypes.func.isRequired,
   isAuth: PropTypes.bool,
   loading: PropTypes.bool,
+  err: PropTypes.object,
 };
 const mapStateToProps = (state) => ({
-  isAuth: state.user.isAuth,
   loading: state.user.loading,
+  isAuth: state.user.isAuth,
+  err: state.user.error,
 });
 
 export default connect(mapStateToProps, { register })(SignUp);
-
-// return onLoading ? <Spinner /> :
-// !onLoading && isAuth && !error ? <Redirect to='/me'/> :

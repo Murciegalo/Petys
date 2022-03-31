@@ -10,20 +10,20 @@ import {
 import axios from 'axios';
 
 // REGISTER AN USER
-export const register = (name, email, password) => async (dispatch) => {
+export const register = (name, email, password, passwordConfirm) => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
     },
   };
-  const body = JSON.stringify({ name, email, password });
+  const body = JSON.stringify({ name, email, password, passwordConfirm });
   console.log('REQ BODY', body);
   try {
     dispatch({ type: REGISTER_STARTS });
     const res = await axios.post('http://localhost:4500/api/v1/user/signup', body, config);
     dispatch({
       type: REGISTER_SUCCESS,
-      payload: res.data.token,
+      payload: res,
     });
   } catch (error) {
     dispatch({
