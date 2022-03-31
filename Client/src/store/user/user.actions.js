@@ -10,30 +10,28 @@ import {
 import axios from 'axios';
 
 // REGISTER AN USER
-export const register =
-  ({ name, email, password }) =>
-  async (dispatch) => {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
-    const body = JSON.stringify({ name, email, password });
-    console.log('REQ BODY', body);
-    try {
-      dispatch({ type: REGISTER_STARTS });
-      const res = await axios.post('http://localhost:4500/api/v1/user/signup', body, config);
-      dispatch({
-        type: REGISTER_SUCCESS,
-        payload: res.data.token,
-      });
-    } catch (error) {
-      dispatch({
-        type: REGISTER_FAIL,
-        payload: error.response,
-      });
-    }
+export const register = (name, email, password) => async (dispatch) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
   };
+  const body = JSON.stringify({ name, email, password });
+  console.log('REQ BODY', body);
+  try {
+    dispatch({ type: REGISTER_STARTS });
+    const res = await axios.post('http://localhost:4500/api/v1/user/signup', body, config);
+    dispatch({
+      type: REGISTER_SUCCESS,
+      payload: res.data.token,
+    });
+  } catch (error) {
+    dispatch({
+      type: REGISTER_FAIL,
+      payload: error.response,
+    });
+  }
+};
 
 // LOGIN AN USER
 export const login = (email, password) => async (dispatch) => {
