@@ -1,7 +1,13 @@
-import { GET_ALL_PETS_SUCCESS, GET_ALL_PETS_FAIL, GET_ALL_PETS_STARTS } from './types';
+import {
+  GET_ALL_PETS_SUCCESS,
+  GET_ALL_PETS_FAIL,
+  GET_ALL_PETS_STARTS,
+  GET_PET_STARTS,
+  GET_PET_SUCCESS,
+  GET_PET_FAIL,
+} from './types';
 import axios from 'axios';
 
-// REGISTER AN USER
 export const getAllPets = () => async (dispatch) => {
   try {
     dispatch({ type: GET_ALL_PETS_STARTS });
@@ -13,6 +19,22 @@ export const getAllPets = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: GET_ALL_PETS_FAIL,
+      payload: error.response,
+    });
+  }
+};
+
+export const getPet = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: GET_PET_STARTS });
+    const res = await axios.get(`http://localhost:4500/api/v1/pets/${id}`);
+    dispatch({
+      type: GET_PET_SUCCESS,
+      payload: res,
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_PET_FAIL,
       payload: error.response,
     });
   }

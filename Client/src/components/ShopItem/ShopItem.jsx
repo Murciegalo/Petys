@@ -3,8 +3,8 @@ import { Cont, Img } from './ShopItem.styles';
 
 const ShopItem = ({ el }) => {
   return (
-    <Cont to={`${el.id}`}>
-      <Img src={el.img} />
+    <Cont to={`${el._id}`}>
+      <Img src={el.imgCover} />
     </Cont>
   );
 };
