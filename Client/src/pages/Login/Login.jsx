@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Navigate } from 'react-router-dom';
 import { login } from '../../store/user/user.actions';
 import { Signin } from '../../components/SignIn/Signin';
 import Spinner from '../../components/spinner/Spinner.component';
