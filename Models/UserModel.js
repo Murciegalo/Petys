@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
     maxlength: [30, 'Please provide a shorter name'],
     minlength: [3, 'Please provider a longer name'],
     trim: true,
-    validate: [validator.isAlpha, 'Please input only characters on your name'],
+    // validate: [validator.isAlpha, 'Please input only characters on your name'],
   },
   email: {
     type: String,
