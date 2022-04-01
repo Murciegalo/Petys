@@ -21,12 +21,13 @@ export const petsReducer = (state = INITIAL_STATE, action) => {
     case GET_ALL_PETS_STARTS:
       // case GET_PET_STARTS:
       return {
-        ...state,
+        pets: null,
+        pet: null,
+        error: null,
         loading: true,
       };
     case GET_ALL_PETS_SUCCESS:
       return {
-        ...state,
         pets: payload,
         loading: false,
         pet: null,
@@ -41,7 +42,6 @@ export const petsReducer = (state = INITIAL_STATE, action) => {
     case GET_ALL_PETS_FAIL:
       // case GET_PET_FAIL:
       return {
-        ...state,
         error: payload,
         loading: false,
         pets: null,

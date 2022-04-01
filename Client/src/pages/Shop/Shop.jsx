@@ -28,7 +28,7 @@ const Shop = ({ pets, loading, getAllPets }) => {
   );
 };
 Shop.propTypes = {
-  pets: PropTypes.object,
+  pets: PropTypes.array,
   loading: PropTypes.bool,
   getAllPets: PropTypes.func.isRequired,
 };
