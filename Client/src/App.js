@@ -11,7 +11,7 @@ const ForgotPassword = lazy(() => import('./pages/ForgotPassword/ForgotPassword'
 const Footer = lazy(() => import('./components/Footer/Footer'));
 const Shop = lazy(() => import('./pages/Shop/Shop'));
 const Cart = lazy(() => import('./pages/Cart/Cart'));
-const ProductSpecs = lazy(() => import('./pages/ProductSpecs/ProductSpecs'));
+const SingleProduct = lazy(() => import('./pages/SingleProduct/SingleProduct'));
 
 function App() {
   return (
@@ -19,14 +19,14 @@ function App() {
       <Suspense fallback={<Loading />}>
         <Nav />
         <Routes>
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/me" element={<Me />} />
-          <Route path="/forgotPassword" element={<ForgotPassword />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/shop/:itemId" element={<ProductSpecs />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route exact path="/signup" element={<SignUp />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/me" element={<Me />} />
+          <Route exact path="/forgotPassword" element={<ForgotPassword />} />
+          <Route exact path="/shop" element={<Shop />} />
+          <Route exact path="/shop/:itemId" element={<SingleProduct />} />
+          <Route exact path="/cart" element={<Cart />} />
         </Routes>
         <Footer />
       </Suspense>

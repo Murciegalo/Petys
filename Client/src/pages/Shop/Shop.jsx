@@ -9,8 +9,7 @@ import Spinner from '../../components/spinner/Spinner.component';
 const Shop = ({ pets, loading, getAllPets }) => {
   useEffect(() => {
     getAllPets();
-    //eslint-disable-next-line
-  }, []);
+  }, [getAllPets]);
   let items;
   if (pets !== null) {
     const { data } = pets;
