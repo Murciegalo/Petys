@@ -27,7 +27,7 @@ export const petsReducer = (state = INITIAL_STATE, action) => {
     case GET_ALL_PETS_SUCCESS:
       return {
         ...state,
-        pets: payload.data,
+        pets: payload,
         loading: false,
       };
     case GET_PET_SUCCESS:

@@ -12,9 +12,10 @@ export const getAllPets = () => async (dispatch) => {
   try {
     dispatch({ type: GET_ALL_PETS_STARTS });
     const res = await axios.get('http://localhost:4500/api/v1/pets');
+    console.log('RES', res.data.data);
     dispatch({
       type: GET_ALL_PETS_SUCCESS,
-      payload: res,
+      payload: res.data.data,
     });
   } catch (error) {
     dispatch({

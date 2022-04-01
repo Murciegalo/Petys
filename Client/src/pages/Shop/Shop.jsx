@@ -10,12 +10,8 @@ const Shop = ({ pets, loading, getAllPets }) => {
   useEffect(() => {
     getAllPets();
   }, [getAllPets]);
-  let items;
-  if (pets !== null) {
-    const { data } = pets;
-    items = data;
-  }
-  const render = pets !== null && items.map((el) => <ShopItem key={el.id} el={el} />);
+
+  const render = pets !== null && pets.map((el) => <ShopItem key={el.id} el={el} />);
   return (
     <Cont>
       <WrapperF>
