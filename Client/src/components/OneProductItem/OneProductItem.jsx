@@ -1,6 +1,7 @@
 import React from 'react';
 
-const OneProductItem = () => {
+const OneProductItem = ({ el }) => {
+  console.log(el);
   return <div>OneProductItem</div>;
 };
 

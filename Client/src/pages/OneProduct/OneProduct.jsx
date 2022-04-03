@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import OneProductItem from '../../components/OneProductItem/OneProductItem';
-// import Spinner from '../../components/spinner/Spinner.component';
-// import { getPet } from '../../store/pets/pets.actions';
+import Spinner from '../../components/spinner/Spinner.component';
 
 const OneProduct = (pets) => {
   const { itemId } = useParams();
