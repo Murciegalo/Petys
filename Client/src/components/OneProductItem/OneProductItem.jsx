@@ -8,7 +8,7 @@ import Reviews from '../Reviews/Reviews';
 const OneProductItem = ({ el, id, loading, getAllReviews }) => {
   useEffect(() => {
     getAllReviews(id);
-  }, [id]);
+  }, [id, getAllReviews]);
 
   const dom = loading ? <Spinner /> : <Reviews />;
 

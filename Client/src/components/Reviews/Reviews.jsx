@@ -1,7 +1,22 @@
 import React from 'react';
-
-const Reviews = () => {
-  return <div>Reviews</div>;
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import ReviewItem from '../ReviewItem/ReviewItem';
+const Reviews = ({ reviews }) => {
+  return (
+    <>
+      {reviews.map((el) => (
+        <ReviewItem key={el.id} el={el} />
+      ))}
+    </>
+  );
+};
+Reviews.propTypes = {
+  reviews: PropTypes.array,
 };
 
-export default Reviews;
+const mapStateToProps = (state) => ({
+  reviews: state.reviews.reviews,
+});
+
+export default connect(mapStateToProps, {})(Reviews);
