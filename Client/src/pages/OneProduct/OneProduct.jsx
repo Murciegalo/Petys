@@ -11,7 +11,7 @@ const OneProduct = (pets) => {
   return <OneProductItem el={dom[0]} id={itemId} />;
 };
 OneProduct.propTypes = {
-  pets: PropTypes.object,
+  pets: PropTypes.array,
 };
 
 const mapStateToProps = (state) => ({
