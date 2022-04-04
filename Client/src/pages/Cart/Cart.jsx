@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, TypeBtn } from '../../components/Button/Button';
 import Cartitem from '../../components/CartItem/Cartitem';
-import { products } from '../../data';
+import { products } from '../../utils/data';
 import {
   Cont,
   Header,
