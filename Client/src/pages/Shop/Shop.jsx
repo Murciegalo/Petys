@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getAllPets } from '../../store/pets/pets.actions';
 import ShopItem from '../../components/ShopItem/ShopItem';
@@ -7,9 +7,10 @@ import { Cont, WrapperF, Link, WrapperS } from './Shop.styles';
 import Spinner from '../../components/spinner/Spinner.component';
 
 const Shop = ({ pets, loading, getAllPets }) => {
+  const dispatch = useDispatch();
   useEffect(() => {
-    getAllPets();
-  }, [getAllPets]);
+    dispatch(getAllPets());
+  }, []);
 
   const render = pets !== null && pets.map((el) => <ShopItem key={el.id} el={el} />);
   return (
