@@ -6,16 +6,22 @@ import {
   registerUserSuccess,
   registerUserFailed,
 } from './user.actions';
+const axios = require('axios');
 
-export function* loginUser() {
+export function* loginAsync({ payload }) {
   try {
-  } catch (err) {}
+    const res = yield axios.post('http://localhost:4500/api/v1/user/signin', payload);
+    console.log('LOGIN', res.data.user);
+    yield put(loginUserSuccess(res.data.user));
+  } catch (err) {
+    yield put(loginUserFailed(err));
+  }
 }
 
 export function* onLoginUser() {
-  yield takeLatest(LOGIN_USER_STARTS, loginUser);
+  yield takeLatest(LOGIN_USER_STARTS, loginAsync);
 }
 
 export function* userSaga() {
-  yield all([]);
+  yield all([call(onLoginUser)]);
 }

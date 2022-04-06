@@ -1,23 +1,43 @@
 import {
-  LOGIN_USER_FAILED,
+  LOGIN_USER_STARTS,
   LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAILED,
+  LOGOUT_USER_START,
+  REGISTER_USER_STARTS,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAILED,
 } from './types';
-import dispatch from 'redux';
 
-export const loginUserSuccess = () => {
-  dispatch({ type: LOGIN_USER_SUCCESS });
+export const loginStart = (data) => {
+  return {
+    type: LOGIN_USER_STARTS,
+    payload: data,
+  };
+};
+export const loginUserSuccess = (payload) => {
+  return { type: LOGIN_USER_SUCCESS, payload };
 };
 
-export const loginUserFailed = () => {
-  dispatch({ type: LOGIN_USER_FAILED });
+export const loginUserFailed = (payload) => {
+  return { type: LOGIN_USER_FAILED, payload };
 };
 
-export const registerUserSuccess = () => {
-  dispatch({ type: REGISTER_USER_SUCCESS });
+export const logoutStart = () => {
+  return {
+    type: LOGOUT_USER_START,
+  };
 };
 
-export const registerUserFailed = () => {
-  dispatch({ type: REGISTER_USER_FAILED });
+export const registerStart = () => {
+  return {
+    type: REGISTER_USER_STARTS,
+  };
+};
+
+export const registerUserSuccess = (payload) => {
+  return { type: REGISTER_USER_SUCCESS, payload };
+};
+
+export const registerUserFailed = (payload) => {
+  return { type: REGISTER_USER_FAILED, payload };
 };

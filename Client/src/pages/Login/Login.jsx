@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { Button, TypeBtn } from '../../components/Button/Button';
 import { Cont, Header, Wrapper, Form, Input, Text } from './Login.styles';
+import { useDispatch } from 'react-redux';
+import { loginStart } from '../../redux/user/user.actions';
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
     console.log('Link worked on Submit');
+    dispatch(loginStart({ email, password }));
   };
   return (
     <Cont>
