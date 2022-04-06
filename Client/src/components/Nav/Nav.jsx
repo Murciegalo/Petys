@@ -1,11 +1,26 @@
 import { useState } from 'react';
 import { BsCart4, BsFillPersonFill } from 'react-icons/bs';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { grabAuth, grabUser } from '../../redux/user/user.selector';
 import CartMenu from '../CartMenu/CartMenu';
 import { Cont, Wrapp, Left, Logo, Center, TextItem, Right, IconItem } from './Nav.styles';
 
 const Nav = () => {
   const [toogle, setToogle] = useState(false);
+  const user = useSelector(grabUser);
+  const isAuth = useSelector(grabAuth);
+  const loginIcons =
+    user && isAuth ? (
+      <TextItem Item>
+        <img src={`${user.photo}`} alt="profile" />
+        <Link to="/me">{user.name}</Link>
+      </TextItem>
+    ) : (
+      <IconItem to="/login" color="white">
+        <BsFillPersonFill />
+      </IconItem>
+    );
   return (
     <Cont>
       <Wrapp>
@@ -18,9 +33,7 @@ const Nav = () => {
           </TextItem>
         </Center>
         <Right>
-          <IconItem to="/login" color="white">
-            <BsFillPersonFill />
-          </IconItem>
+          {loginIcons}
           <IconItem to="#" onClick={() => setToogle(!toogle)} color="white">
             <BsCart4 />
           </IconItem>

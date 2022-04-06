@@ -38,12 +38,11 @@ export const Logo = styled(Link)`
 export const Center = styled.div`
   flex: 1;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   color: aliceblue;
 `;
 export const TextItem = styled.span`
   padding: 2%;
-  font-size: 22px;
   &: hover {
     color: ${({ color }) => color};
     font-weight: bold;
@@ -57,21 +56,23 @@ export const TextItem = styled.span`
   }
 `;
 
-export const Right = styled.ul`
+export const Right = styled.div`
   display: flex;
+  align-items: center;
+  flex: 1;
   list-style: none;
-  flex: 0.5;
+  padding-left: 0;
 `;
 export const IconItem = styled(Link)`
   display: flex;
-  margin-left: 20px;
   color: ${({ color }) => color};
-  font-size: 20px;
+  font-size: 25px;
+  margin: 0 10px;
 
   &: hover {
     svg {
       cursor: pointer;
-      transform: scale(1.5);
+      transform: rotate(-30deg);
     }
   }
   a {
