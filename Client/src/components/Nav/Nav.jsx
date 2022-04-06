@@ -12,7 +12,7 @@ const Nav = () => {
   const isAuth = useSelector(grabAuth);
   const loginIcons =
     user && isAuth ? (
-      <TextItem Item>
+      <TextItem>
         <img src={`${user.photo}`} alt="profile" />
         <Link to="/me">{user.name.split(' ')[0]}</Link>
       </TextItem>
@@ -36,6 +36,7 @@ const Nav = () => {
           {loginIcons}
           <IconItem to="#" onClick={() => setToogle(!toogle)} color="white">
             <BsCart4 />
+            <span>0</span>
           </IconItem>
         </Right>
       </Wrapp>

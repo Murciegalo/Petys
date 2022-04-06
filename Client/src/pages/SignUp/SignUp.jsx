@@ -18,7 +18,9 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Link worked on Submit');
+    if (password !== confirmPassword) {
+      throw alert(`Sorry, passwords don't match`);
+    }
     dispatch(registerStart(name, email, password));
   };
 

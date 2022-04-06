@@ -62,17 +62,20 @@ export const Right = styled.div`
   flex: 1;
   list-style: none;
   padding-left: 0;
+  transition: 0.5s easy-in-out;
 `;
 export const IconItem = styled(Link)`
+  position: relative;
   display: flex;
   color: ${({ color }) => color};
   font-size: 25px;
   margin: 0 10px;
+  transition: 0.5s easy-in-out;
 
   &: hover {
     svg {
       cursor: pointer;
-      transform: rotate(-30deg);
+      transform: rotate(-20deg);
     }
   }
   a {
@@ -81,8 +84,9 @@ export const IconItem = styled(Link)`
   }
   span {
     position: absolute;
-    top: -8px;
-    right: -14px;
+    top: -10px;
+    right: -8px;
+    font-size: 16px;
   }
 `;
 export const CartNum = styled.span`
@@ -90,4 +94,5 @@ export const CartNum = styled.span`
   margin-top: -8px;
   font-size: 12px;
   color: aliceblue;
+  transition: 0.5s easy-in-out;
 `;
