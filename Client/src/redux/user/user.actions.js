@@ -1,3 +1,4 @@
+import { createAction } from '../../utils/reducer.utils';
 import {
   LOGIN_USER_STARTS,
   LOGIN_USER_SUCCESS,
@@ -8,12 +9,8 @@ import {
   REGISTER_USER_FAILED,
 } from './types';
 
-export const loginStart = (data) => {
-  return {
-    type: LOGIN_USER_STARTS,
-    payload: data,
-  };
-};
+export const loginStart = (email, password) => createAction(LOGIN_USER_STARTS, { email, password });
+
 export const loginUserSuccess = (payload) => {
   return { type: LOGIN_USER_SUCCESS, payload };
 };

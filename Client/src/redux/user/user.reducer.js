@@ -23,7 +23,11 @@ export const userReducer = (state = INITIAL_STATE, action) => {
     case REGISTER_USER_STARTS:
       return {
         ...state,
+        user: null,
+        isAuth: false,
         loading: true,
+        error: null,
+        profile: null,
       };
     case LOGIN_USER_SUCCESS:
     case REGISTER_USER_SUCCESS:
@@ -32,11 +36,14 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         user: payload,
         isAuth: true,
         loading: false,
+        error: null,
       };
     case LOGIN_USER_FAILED:
     case REGISTER_USER_FAILED:
       return {
         ...state,
+        isAuth: false,
+        user: null,
         error: payload,
         loading: false,
       };

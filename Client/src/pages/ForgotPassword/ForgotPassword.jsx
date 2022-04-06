@@ -1,35 +1,13 @@
 import { useState } from 'react';
-import { Cont, Header, Wrapper, Form, Input, Text } from '../../pages/Login/Login.styles';
-import { Button, TypeBtn } from '../../components/Button/Button';
+import { ResetPassForm } from '../../components/ResetPassForm/ResetPassForm';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('I am working');
+    console.log('to be completed');
   };
-  return (
-    <Cont>
-      <Header>Forgot Password</Header>
-      <Wrapper>
-        <span>Please input your email and we will send you a new password</span>
-        <Form onSubmit={handleSubmit}>
-          <Input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="your_email@example.com"
-            required
-          />
-          <Button type="submit" btnType={TypeBtn.signInUp}>
-            Reset Password
-          </Button>
-        </Form>
-        <Text to="/login">Cancel</Text>
-      </Wrapper>
-    </Cont>
-  );
+  return <ResetPassForm handleSubmit={handleSubmit} email={email} setEmail={setEmail} />;
 };
 
 export default ForgotPassword;

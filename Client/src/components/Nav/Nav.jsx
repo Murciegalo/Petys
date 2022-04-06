@@ -14,7 +14,7 @@ const Nav = () => {
     user && isAuth ? (
       <TextItem Item>
         <img src={`${user.photo}`} alt="profile" />
-        <Link to="/me">{user.name}</Link>
+        <Link to="/me">{user.name.split(' ')[0]}</Link>
       </TextItem>
     ) : (
       <IconItem to="/login" color="white">

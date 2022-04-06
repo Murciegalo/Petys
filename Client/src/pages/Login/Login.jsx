@@ -1,48 +1,37 @@
 import React, { useState } from 'react';
-import { Button, TypeBtn } from '../../components/Button/Button';
-import { Cont, Header, Wrapper, Form, Input, Text } from './Login.styles';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import { loginStart } from '../../redux/user/user.actions';
+import { grabLoading, grabAuth } from '../../redux/user/user.selector';
+import Spinner from '../../components/spinner/Spinner.component';
+import { LoginForm } from '../../components/LoginForm/LoginForm';
 
 const Login = () => {
   const dispatch = useDispatch();
+  const isLoading = useSelector(grabLoading);
+  const isAuth = useSelector(grabAuth);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Link worked on Submit');
-    dispatch(loginStart({ email, password }));
+    dispatch(loginStart(email, password));
   };
-  return (
-    <Cont>
-      <Header>Sign In</Header>
-      <Wrapper>
-        <Form onSubmit={handleLogin}>
-          <Input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@example.com"
-            required
-          />
-          <Input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="••••••••"
-            minLength="8"
-            required
-          />
-          <Button type="submit" btnType={TypeBtn.signInUp}>
-            Sign In
-          </Button>
-          <Text to="/signup">You don't have an account? SIGN UP</Text>
-          <Text to="/forgotPassword">Forgot your password?</Text>
-        </Form>
-      </Wrapper>
-    </Cont>
+
+  const dom = isLoading ? (
+    <Spinner />
+  ) : (
+    <LoginForm
+      handleSubmit={handleSubmit}
+      email={email}
+      password={password}
+      setEmail={setEmail}
+      setPassword={setPassword}
+    />
   );
+  return !isAuth ? dom : <Navigate to="/me" replace={true} />;
 };
 
 export default Login;
