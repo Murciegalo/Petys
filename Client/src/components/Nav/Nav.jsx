@@ -10,7 +10,7 @@ const Nav = () => {
   const [toogle, setToogle] = useState(false);
   const user = useSelector(grabUser);
   const isAuth = useSelector(grabAuth);
-  const loginIcons =
+  const loginIcon =
     user && isAuth ? (
       <TextItem>
         <img src={`${user.photo}`} alt="profile" />
@@ -33,7 +33,7 @@ const Nav = () => {
           </TextItem>
         </Center>
         <Right>
-          {loginIcons}
+          {loginIcon}
           <IconItem to="#" onClick={() => setToogle(!toogle)} color="white">
             <BsCart4 />
             <span>0</span>
