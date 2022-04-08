@@ -5,6 +5,7 @@ const User = require('../Models/UserModel');
 const { catchError } = require('./errorHandler');
 const { sendToken } = require('../utils/tools');
 const sendEmail = require('../utils/email');
+const { findById } = require('../Models/UserModel');
 
 const signToken = (id) =>
   jwt.sign({ id }, process.env.S, {
@@ -59,6 +60,32 @@ exports.logout = (req, res) => {
     httpOnly: true,
   });
   res.status(200).json({ status: 'success' });
+};
+
+exports.isLoggedIn = async (req, res, next) => {
+  if (req.cookies.jwt) {
+    try {
+      // Verify Token
+      const decoded = await promisify(jwt.verify)(
+        req.cookies.jwt,
+        process.env.S
+      );
+      // User exists?
+      const currentUser = await User.findById(decoded.id);
+      if (!currentUser) {
+        return next();
+      }
+      // User exists so I check if password was changed after issue jwt
+      if (currentUser.changedPasswordAfter(decoded.iat)) {
+        return next();
+      }
+      // There is a logged In user
+      res.locals.user = currentUser;
+      return next();
+    } catch (err) {
+      return next();
+    }
+  }
 };
 
 exports.forgotPassword = async (req, res, next) => {
