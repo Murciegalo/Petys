@@ -19,10 +19,10 @@ export const logoutStart = () => createAction(LOGOUT_USER_START);
 
 export const logoutUserSuccess = () => createAction(LOGIN_USER_SUCCESS);
 
-export const logoutUserFailed = (err) => createAction(LOGIN_USER_FAILED, err);
+export const logoutUserFailed = (payload) => createAction(LOGIN_USER_FAILED, payload);
 
 export const registerStart = (inputData) => createAction(REGISTER_USER_STARTS, inputData);
 
 export const registerUserSuccess = (payload) => createAction(REGISTER_USER_SUCCESS, payload);
 
-export const registerUserFailed = (err) => createAction(REGISTER_USER_FAILED, err);
+export const registerUserFailed = (payload) => createAction(REGISTER_USER_FAILED, payload);

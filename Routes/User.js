@@ -17,12 +17,14 @@ const {
   forgotPassword,
   resetPassword,
   updatePassword,
+  logout,
 } = require('../Controllers/auth');
 
 const router = express.Router();
 
 router.post('/signup', signup);
 router.post('/signin', signin);
+router.get('/logout', logout);
 router.post('/forgotPassword', forgotPassword);
 router.patch('/resetPassword/:token', resetPassword);
 

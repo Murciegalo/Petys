@@ -1,15 +1,15 @@
-const { default: mongoose } = require('mongoose');
+import { default as mongoose } from 'mongoose';
 
-exports.db = async () => {
+export async function db() {
   try {
     await mongoose.connect(process.env.DB);
     console.log('DB connected');
   } catch (err) {
     console.log(err);
   }
-};
+}
 
-exports.filterObj = (obj, ...str) => {
+export function filterObj(obj, ...str) {
   const formatBody = {};
   Object.keys(obj).forEach((el) => {
     if (str.includes(el)) {
@@ -17,14 +17,16 @@ exports.filterObj = (obj, ...str) => {
     }
   });
   return formatBody;
-};
+}
 
-exports.sendToken = (token, user, statusCode, res) => {
+export function sendToken(token, user, statusCode, res) {
   const cookieOptions = {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIES_EXPIRES * 24 * 60 * 60 * 1000
     ),
-    httpOnly: true, //prevent cross-site attacks
+    //prevent cross-site attacks
+    // cookie can't be mofified/ deleted or any other action
+    httpOnly: true,
   };
   if (process.env.NODE_ENV == 'production') {
     cookieOptions.secure = true;
@@ -37,7 +39,7 @@ exports.sendToken = (token, user, statusCode, res) => {
     token,
     user,
   });
-};
+}
 
 // priceDiscount: {
 //   type: Number,

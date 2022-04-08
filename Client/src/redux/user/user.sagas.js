@@ -19,7 +19,6 @@ export function* registerAsync({ payload }) {
     yield put(registerUserFailed(err));
   }
 }
-
 export function* onRegisterUser() {
   yield takeLatest(REGISTER_USER_STARTS, registerAsync);
 }
@@ -33,7 +32,6 @@ export function* loginAsync({ payload }) {
     yield put(loginUserFailed(err));
   }
 }
-
 export function* onLoginUser() {
   yield takeLatest(LOGIN_USER_STARTS, loginAsync);
 }
