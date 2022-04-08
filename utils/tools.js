@@ -1,4 +1,4 @@
-import { default as mongoose } from 'mongoose';
+import mongoose from 'mongoose';
 
 export async function db() {
   try {

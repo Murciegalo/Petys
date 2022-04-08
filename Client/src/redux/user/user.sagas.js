@@ -38,9 +38,12 @@ export function* onLoginUser() {
 
 export function* logoutAsync() {
   try {
-    const res = yield axios.post('http://localhost:4500/api/v1/user/logout');
+    const res = yield axios.get('http://localhost:4500/api/v1/user/logout');
     console.log('LOGOUT', res);
-    yield put(logoutUserSuccess());
+    // if (res.status === 'success') {
+    //   location.reload(true); how to reload server ?
+    // }
+    yield put(logoutUserSuccess(res));
   } catch (err) {
     yield put(logoutUserFailed(err));
   }

@@ -21,7 +21,7 @@ const Nav = () => {
         <BsFillPersonFill />
       </IconItem>
     );
-  const logOut = user & isAuth && <TextItem>Logout</TextItem>;
+  const logOut = isAuth && <TextItem>Logout</TextItem>;
   return (
     <Cont>
       <Wrapp>

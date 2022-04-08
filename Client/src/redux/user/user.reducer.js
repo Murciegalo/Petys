@@ -16,6 +16,7 @@ const INITIAL_STATE = {
   loading: false,
   error: null,
   profile: null,
+  msg: '',
 };
 
 export const userReducer = (state = INITIAL_STATE, action) => {
@@ -49,6 +50,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         isAuth: false,
         loading: false,
         error: null,
+        msg: payload,
       };
     case LOGIN_USER_FAILED:
     case REGISTER_USER_FAILED:
