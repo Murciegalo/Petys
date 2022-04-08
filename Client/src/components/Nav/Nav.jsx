@@ -21,6 +21,7 @@ const Nav = () => {
         <BsFillPersonFill />
       </IconItem>
     );
+  const logOut = user & isAuth && <TextItem>Logout</TextItem>;
   return (
     <Cont>
       <Wrapp>
@@ -38,6 +39,7 @@ const Nav = () => {
             <BsCart4 />
             <span>0</span>
           </IconItem>
+          {logOut}
         </Right>
       </Wrapp>
       <CartMenu toogle={toogle} setToogle={setToogle} />

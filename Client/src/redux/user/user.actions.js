@@ -11,30 +11,18 @@ import {
 
 export const loginStart = (email, password) => createAction(LOGIN_USER_STARTS, { email, password });
 
-export const loginUserSuccess = (payload) => {
-  return { type: LOGIN_USER_SUCCESS, payload };
-};
+export const loginUserSuccess = (payload) => createAction(LOGIN_USER_SUCCESS, payload);
 
-export const loginUserFailed = (payload) => {
-  return { type: LOGIN_USER_FAILED, payload };
-};
+export const loginUserFailed = (payload) => createAction(LOGIN_USER_FAILED, payload);
 
-export const logoutStart = () => {
-  return {
-    type: LOGOUT_USER_START,
-  };
-};
+export const logoutStart = () => createAction(LOGOUT_USER_START);
 
-export const registerStart = () => {
-  return {
-    type: REGISTER_USER_STARTS,
-  };
-};
+export const logoutUserSuccess = () => createAction(LOGIN_USER_SUCCESS);
 
-export const registerUserSuccess = (payload) => {
-  return { type: REGISTER_USER_SUCCESS, payload };
-};
+export const logoutUserFailed = (err) => createAction(LOGIN_USER_FAILED, err);
 
-export const registerUserFailed = (payload) => {
-  return { type: REGISTER_USER_FAILED, payload };
-};
+export const registerStart = (inputData) => createAction(REGISTER_USER_STARTS, inputData);
+
+export const registerUserSuccess = (payload) => createAction(REGISTER_USER_SUCCESS, payload);
+
+export const registerUserFailed = (err) => createAction(REGISTER_USER_FAILED, err);
