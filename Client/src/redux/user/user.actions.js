@@ -4,6 +4,8 @@ import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAILED,
   LOGOUT_USER_START,
+  LOGOUT_USER_SUCCESS,
+  LOGOUT_USER_FAILED,
   REGISTER_USER_STARTS,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAILED,
@@ -18,9 +20,9 @@ export const loginUserFailed = (payload) => createAction(LOGIN_USER_FAILED, payl
 
 export const logoutStart = () => createAction(LOGOUT_USER_START);
 
-export const logoutUserSuccess = () => createAction(LOGIN_USER_SUCCESS);
+export const logoutUserSuccess = () => createAction(LOGOUT_USER_SUCCESS);
 
-export const logoutUserFailed = (payload) => createAction(LOGIN_USER_FAILED, payload);
+export const logoutUserFailed = (payload) => createAction(LOGOUT_USER_FAILED, payload);
 
 export const registerStart = (inputData) => createAction(REGISTER_USER_STARTS, inputData);
 

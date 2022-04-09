@@ -49,6 +49,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         user: null,
+        profile: null,
         isAuth: false,
         loading: false,
         error: null,

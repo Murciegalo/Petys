@@ -1,46 +1,37 @@
 import { useState } from 'react';
-import { BsCart4, BsFillPersonFill } from 'react-icons/bs';
-import { useSelector } from 'react-redux';
+import { BsCart4 } from 'react-icons/bs';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { logoutStart } from '../../redux/user/user.actions';
 import { grabAuth, grabUser } from '../../redux/user/user.selector';
 import CartMenu from '../CartMenu/CartMenu';
-import { Cont, Wrapp, Left, Logo, Center, TextItem, Right, IconItem } from './Nav.styles';
+import { LoginIcon } from '../loginIcon/LoginIcon';
+import { Cont, Wrapp, Logo, TextItem, IconItem } from './Nav.styles';
 
 const Nav = () => {
   const [toogle, setToogle] = useState(false);
   const user = useSelector(grabUser);
   const isAuth = useSelector(grabAuth);
-  const loginIcon =
-    user && isAuth ? (
-      <TextItem>
-        <img src={`${user.photo}`} alt="profile" />
-        <Link to="/me">{user.name.split(' ')[0]}</Link>
-      </TextItem>
-    ) : (
-      <IconItem to="/login" color="white">
-        <BsFillPersonFill />
-      </IconItem>
-    );
-  const logOut = isAuth && <TextItem>Logout</TextItem>;
+  const dispatch = useDispatch();
+  const handleLogout = (e) => {
+    e.preventDefault();
+    console.log('Corri');
+    dispatch(logoutStart());
+  };
+  const logOut = isAuth && <TextItem onClick={handleLogout}>Logout</TextItem>;
   return (
     <Cont>
       <Wrapp>
-        <Left>
-          <Logo to="/">PETXys</Logo>
-        </Left>
-        <Center>
-          <TextItem>
-            <Link to="/shop">Shop</Link>
-          </TextItem>
-        </Center>
-        <Right>
-          {loginIcon}
-          <IconItem to="#" onClick={() => setToogle(!toogle)} color="white">
-            <BsCart4 />
-            <span>0</span>
-          </IconItem>
-          {logOut}
-        </Right>
+        <Logo to="/">PETXys</Logo>
+        <LoginIcon user={user} isAuth={isAuth} />
+        <TextItem>
+          <Link to="/shop">Shop</Link>
+        </TextItem>
+        <IconItem to="#" onClick={() => setToogle(!toogle)} color="white">
+          <BsCart4 />
+          <span>0</span>
+        </IconItem>
+        {logOut}
       </Wrapp>
       <CartMenu toogle={toogle} setToogle={setToogle} />
     </Cont>

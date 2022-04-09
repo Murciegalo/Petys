@@ -7,18 +7,15 @@ export const Cont = styled.div`
 export const Wrapp = styled.div`
   height: 100%;
   margin: 0 auto;
-  box-shadow: 0 1px #fff;
   padding: 20px;
   position: relative;
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
+  box-shadow: 0 1px #fff;
+  font-size: 20px;
+  font-weight: 600;
   letter-spacing: 3px;
-  font-size: 18px;
-`;
-export const Left = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
 `;
 
 export const Logo = styled(Link)`
@@ -35,12 +32,6 @@ export const Logo = styled(Link)`
   }
 `;
 
-export const Center = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  color: aliceblue;
-`;
 export const TextItem = styled.span`
   padding: 2%;
   &: hover {
@@ -56,15 +47,6 @@ export const TextItem = styled.span`
   }
 `;
 
-export const Right = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  flex: 1;
-  list-style: none;
-  padding-left: 0;
-  transition: 0.5s easy-in-out;
-`;
 export const IconItem = styled(Link)`
   position: relative;
   display: flex;
@@ -76,7 +58,7 @@ export const IconItem = styled(Link)`
   &: hover {
     svg {
       cursor: pointer;
-      transform: rotate(-20deg);
+      transform: rotate(-10deg);
     }
   }
   a {
