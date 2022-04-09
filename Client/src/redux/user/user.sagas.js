@@ -16,7 +16,7 @@ export function* registerAsync({ payload }) {
     console.log('Regsiter', res.data.user);
     yield put(registerUserSuccess(res.data.user));
   } catch (err) {
-    yield put(registerUserFailed(err));
+    yield put(registerUserFailed(err.response.data));
   }
 }
 export function* onRegisterUser() {
@@ -26,10 +26,9 @@ export function* onRegisterUser() {
 export function* loginAsync({ payload }) {
   try {
     const res = yield axios.post('http://localhost:4500/api/v1/user/signin', payload);
-    console.log('LOGIN', res.data.user);
     yield put(loginUserSuccess(res.data.user));
   } catch (err) {
-    yield put(loginUserFailed(err));
+    yield put(loginUserFailed(err.response.data));
   }
 }
 export function* onLoginUser() {
@@ -45,7 +44,7 @@ export function* logoutAsync() {
     // }
     yield put(logoutUserSuccess(res));
   } catch (err) {
-    yield put(logoutUserFailed(err));
+    yield put(logoutUserFailed(err.response.data));
   }
 }
 

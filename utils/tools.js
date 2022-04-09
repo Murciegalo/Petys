@@ -21,20 +21,18 @@ exports.filterObj = (obj, ...str) => {
 
 exports.sendToken = (token, user, statusCode, res) => {
   const cookieOptions = {
-    expires: new Date(
-      Date.now() + process.env.JWT_COOKIES_EXPIRES * 24 * 60 * 60 * 1000
-    ),
+    expires: new Date(Date.now() + process.env.JWT_COOKIES_EXPIRES * 60 * 60),
     //prevent cross-site attacks
-    // cookie can't be mofified/ deleted or any other action
+    // cookie can't be mofified/ deleted or tampered with
     httpOnly: true,
   };
   if (process.env.NODE_ENV == 'production') {
     cookieOptions.secure = true;
   }
-  //REMOVE pass from response obj
+  //REMOVE password from response obj
   user.password = undefined;
-  res.cookie('jwt', token, cookieOptions);
-  res.status(statusCode).json({
+  // res.cookie('jwt', token, cookieOptions);
+  return res.cookie('jwt', token, cookieOptions).status(statusCode).json({
     status: 'success',
     token,
     user,

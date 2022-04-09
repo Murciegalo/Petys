@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const cookieParser = require('cookie-parser');
 //ROUTERS
 const petRouter = require('./Routes/pets');
 const userRouter = require('./Routes/user');
@@ -24,19 +25,29 @@ const limiter = rateLimit({
   message: 'Plase come back later',
 });
 app.use('/api', limiter);
-// req.body
+
+// req.body parser
 app.use(express.json({ limit: '10kb' }));
+app.use(cookieParser());
 
 // Data sanitization vs NOSQL query injections
 app.use(mongoSanitize());
+
 // Data sanitization vs XSS
 app.use(xss());
+
 // Prevent parameters pollution
 app.use(
   hpp({
     whitelist: ['price', 'supplier'],
   })
 );
+
+//TESTing MIDDLEWARE
+app.use((req, res, next) => {
+  console.log('Cookies', req.cookies);
+  next();
+});
 
 app.use('/api/v1/pets', petRouter);
 app.use('/api/v1/user', userRouter);
