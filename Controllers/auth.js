@@ -5,7 +5,6 @@ const User = require('../Models/UserModel');
 const { catchError } = require('./errorHandler');
 const { sendToken } = require('../utils/tools');
 const sendEmail = require('../utils/email');
-const { findById } = require('../Models/UserModel');
 
 const signToken = (id) =>
   jwt.sign({ id }, process.env.S, {
@@ -42,9 +41,7 @@ exports.signin = async (req, res) => {
     const user = await User.findOne({ email }).select('+password');
 
     if (!user || !(await user.correctPassword(password, user.password))) {
-      return res
-        .status(404)
-        .send({ msg: 'User Not found or Invalid Password!' });
+      return res.status(404).send({ msg: 'Invalid user or password!' });
     }
 
     const token = signToken(user._id);
@@ -62,6 +59,7 @@ exports.logout = (req, res) => {
   res.status(200).json({ status: 'success' });
 };
 
+//CHECK USER SESSION ACTIVE OR NOT
 exports.isLoggedIn = async (req, res, next) => {
   if (req.cookies.jwt) {
     try {

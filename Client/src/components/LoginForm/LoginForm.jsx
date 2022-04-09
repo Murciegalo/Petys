@@ -1,12 +1,18 @@
 import React from 'react';
+import { grabAlert, grabError } from '../../redux/user/user.selector';
 import { Button, TypeBtn } from '../../components/Button/Button';
-import { Cont, Header, Wrapper, Form, Input, Text } from './Form.styles';
+import { Cont, Header, Wrapper, Form, Input, Text, Alert } from './Form.styles';
+import { useSelector } from 'react-redux';
 
 export const LoginForm = ({ handleSubmit, email, setEmail, password, setPassword }) => {
+  const isError = useSelector(grabError);
+  const isAlert = useSelector(grabAlert);
+  const notification = isAlert && <Alert>{isError.msg}</Alert>;
   return (
     <Cont>
       <Header>Sign In</Header>
       <Wrapper>
+        {notification}
         <Form onSubmit={handleSubmit}>
           <Input
             type="email"

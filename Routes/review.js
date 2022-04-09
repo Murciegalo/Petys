@@ -1,5 +1,5 @@
 const express = require('express');
-const { protect, restrictTo } = require('../Controllers/auth');
+const { protect, restrictTo, isLoggedIn } = require('../Controllers/auth');
 const {
   getAllReviews,
   createReview,
@@ -10,6 +10,7 @@ const {
 
 const router = express.Router({ mergeParams: true });
 
+router.use(isLoggedIn);
 router.use(protect);
 
 router.get('/', getAllReviews);

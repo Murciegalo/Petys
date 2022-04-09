@@ -7,6 +7,7 @@ import {
   REGISTER_USER_STARTS,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAILED,
+  REMOVE_ALERT,
 } from './types';
 
 export const loginStart = (email, password) => createAction(LOGIN_USER_STARTS, { email, password });
@@ -26,3 +27,5 @@ export const registerStart = (inputData) => createAction(REGISTER_USER_STARTS, i
 export const registerUserSuccess = (payload) => createAction(REGISTER_USER_SUCCESS, payload);
 
 export const registerUserFailed = (payload) => createAction(REGISTER_USER_FAILED, payload);
+
+export const removeAlert = () => createAction(REMOVE_ALERT);

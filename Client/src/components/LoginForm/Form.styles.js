@@ -59,3 +59,12 @@ export const Text = styled(Link)`
     color: white;
   }
 `;
+
+export const Alert = styled.span`
+  border: 2px solid red;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+  color: white;
+  background: red;
+`;

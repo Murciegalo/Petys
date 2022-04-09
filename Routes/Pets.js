@@ -1,5 +1,5 @@
 const express = require('express');
-const { restrictTo, protect } = require('../Controllers/auth');
+const { restrictTo, protect, isLoggedIn } = require('../Controllers/auth');
 const {
   aliasTopPets,
   getAllPets,
@@ -19,8 +19,8 @@ router.use('/:petId/reviews', reviewRouter);
 //App
 router.get('/', getAllPets);
 
+router.use(isLoggedIn);
 router.use(protect);
-
 router.get('/:id', getPet);
 router.get('/loc/:location', getPetByLocation);
 router.post('/', restrictTo('seller', 'admin'), createPet);

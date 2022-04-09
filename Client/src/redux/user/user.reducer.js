@@ -8,15 +8,16 @@ import {
   LOGOUT_USER_FAILED,
   LOGOUT_USER_START,
   LOGOUT_USER_SUCCESS,
+  REMOVE_ALERT,
 } from './types';
 
 const INITIAL_STATE = {
   user: null,
   isAuth: false,
   loading: false,
-  error: null,
   profile: null,
-  msg: '',
+  error: null,
+  alert: false,
 };
 
 export const userReducer = (state = INITIAL_STATE, action) => {
@@ -31,8 +32,8 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         user: null,
         isAuth: false,
         loading: true,
-        error: null,
         profile: null,
+        error: null,
       };
     case LOGIN_USER_SUCCESS:
     case REGISTER_USER_SUCCESS:
@@ -42,6 +43,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         isAuth: true,
         loading: false,
         error: null,
+        alert: true,
       };
     case LOGOUT_USER_SUCCESS:
       return {
@@ -50,17 +52,23 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         isAuth: false,
         loading: false,
         error: null,
-        msg: payload,
+        alert: true,
       };
     case LOGIN_USER_FAILED:
     case REGISTER_USER_FAILED:
     case LOGOUT_USER_FAILED:
       return {
         ...state,
-        isAuth: false,
         user: null,
-        error: payload,
+        isAuth: false,
         loading: false,
+        error: payload,
+        alert: true,
+      };
+    case REMOVE_ALERT:
+      return {
+        ...state,
+        alert: false,
       };
     default:
       return state;

@@ -10,3 +10,5 @@ export const grabAuth = createSelector([getUser], (el) => el.isAuth);
 export const grabLoading = createSelector([getUser], (el) => el.loading);
 
 export const grabError = createSelector([getUser], (el) => el.error);
+
+export const grabAlert = createSelector([getUser], (el) => el.alert);

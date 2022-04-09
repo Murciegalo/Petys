@@ -5,6 +5,6 @@ import { grabAuth } from '../../redux/user/user.selector';
 
 const PrivateRoute = ({ children }) => {
   const isAuth = useSelector(grabAuth);
-  return isAuth ? children : <Navigate to="/login" />;
+  return isAuth ? children : <Navigate to="/login" replace={true} />;
 };
 export default PrivateRoute;
