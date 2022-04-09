@@ -1,21 +1,10 @@
-// import React from "react";
-// import { Route, Redirect } from "react-router-dom";
-// import PropTypes from 'prop-types'
-// // import {useSelector} from 'react-redux'
+import React from 'react';
+import { Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { grabAuth } from '../../redux/user/user.selector';
 
-
-// const PrivateRoute = ({auth, component: Component, ...rest}) => {
-//   const isAuthenticated = useSelector(state => state.user.isAuth)
-//   return (
-//       <Route {...rest} render={props => (
-//           isAuthenticated ?
-//               <Component {...props} />
-//           : <Redirect to="/login" />
-//       )} />
-//   );
-// };
-
-// PrivateRoute.propTypes = {
-//   component: PropTypes.object, 
-// }
-// export default PrivateRoute;
+const PrivateRoute = ({ children }) => {
+  const isAuth = useSelector(grabAuth);
+  return isAuth ? children : <Navigate to="/login" />;
+};
+export default PrivateRoute;

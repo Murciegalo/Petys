@@ -17,7 +17,6 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Link worked on Submit');
     dispatch(loginStart(email, password));
   };
 

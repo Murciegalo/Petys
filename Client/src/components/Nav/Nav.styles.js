@@ -59,6 +59,7 @@ export const TextItem = styled.span`
 export const Right = styled.div`
   display: flex;
   align-items: center;
+  justify-content: end;
   flex: 1;
   list-style: none;
   padding-left: 0;
