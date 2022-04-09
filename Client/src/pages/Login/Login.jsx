@@ -30,7 +30,8 @@ const Login = () => {
       setPassword={setPassword}
     />
   );
-  return !isAuth ? dom : <Navigate to="/me" replace={true} />;
+  const navigation = !isAuth ? dom : <Navigate to="/me" replace={true} />;
+  return navigation;
 };
 
 export default Login;

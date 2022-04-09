@@ -68,3 +68,12 @@ export const Alert = styled.span`
   color: white;
   background: red;
 `;
+
+export const Success = styled.span`
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+  color: white;
+  background: green;
+`;
