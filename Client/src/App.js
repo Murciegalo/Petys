@@ -24,7 +24,7 @@ function App() {
           <Route path="/forgotPassword" element={<ForgotPassword />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/me" element={<Me />} />
-          <Route path="/shop:itemId" element={<ProductSpecs />} />
+          <Route path="/shop/:itemId" element={<ProductSpecs />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
         <Footer />
