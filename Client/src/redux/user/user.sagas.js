@@ -1,4 +1,4 @@
-import { takeLatest, all, call, put, take } from 'redux-saga/effects';
+import { takeLatest, all, call, put } from 'redux-saga/effects';
 import { LOGIN_USER_STARTS, LOGOUT_USER_START, REGISTER_USER_STARTS } from './types';
 import {
   registerUserSuccess,

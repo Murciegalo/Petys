@@ -1,14 +1,18 @@
 import React from 'react';
-import { grabAlert, grabError } from '../../redux/user/user.selector';
+import { grabAlert, grabError, grabLoading } from '../../redux/user/user.selector';
 import { Button, TypeBtn } from '../../components/Button/Button';
 import { Cont, Header, Wrapper, Form, Input, Text, Alert } from './Form.styles';
 import { useSelector } from 'react-redux';
+import Spinner from '../spinner/Spinner.component';
 
 export const LoginForm = ({ handleSubmit, email, setEmail, password, setPassword }) => {
   const isError = useSelector(grabError);
   const isAlert = useSelector(grabAlert);
-  const notification = isAlert && <Alert>{isError.msg}</Alert>;
-  return (
+  const isLoading = useSelector(grabLoading);
+  const notification = isAlert && isError !== null && <Alert>{isError.msg}</Alert>;
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <Cont>
       <Header>Sign In</Header>
       <Wrapper>

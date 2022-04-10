@@ -1,24 +1,27 @@
 import { useState } from 'react';
-import { BsCart4 } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { BsCart4 } from 'react-icons/bs';
+import { grabAuth, grabLoading, grabUser } from '../../redux/user/user.selector';
 import { logoutStart } from '../../redux/user/user.actions';
-import { grabAuth, grabUser } from '../../redux/user/user.selector';
 import CartMenu from '../CartMenu/CartMenu';
 import { LoginIcon } from '../loginIcon/LoginIcon';
+import { Logout } from '../logout/Logout';
 import { Cont, Wrapp, Logo, TextItem, IconItem } from './Nav.styles';
 
 const Nav = () => {
   const [toogle, setToogle] = useState(false);
   const user = useSelector(grabUser);
   const isAuth = useSelector(grabAuth);
+  const isLoading = useSelector(grabLoading);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const handleLogout = (e) => {
     e.preventDefault();
     console.log('Corri');
     dispatch(logoutStart());
   };
-  const logOut = isAuth && <TextItem onClick={handleLogout}>Logout</TextItem>;
   return (
     <Cont>
       <Wrapp>
@@ -31,7 +34,7 @@ const Nav = () => {
           <BsCart4 />
           <span>0</span>
         </IconItem>
-        {logOut}
+        <Logout handleLogout={handleLogout} isAuth={isAuth} isLoading={isLoading} />
       </Wrapp>
       <CartMenu toogle={toogle} setToogle={setToogle} />
     </Cont>
