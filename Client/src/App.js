@@ -5,7 +5,7 @@ import Nav from './components/Nav/Nav';
 import PrivateRoute from './components/Auth/PrivateRoutes';
 // import Spinner from './components/spinner/Spinner.component';
 // import ErrorBoundary from './components/Error_boundary/Error_boundary';
-import { Error } from './Error/Error';
+import { Error } from './components/Error/Error';
 const Home = lazy(() => import('./pages/Home/Home'));
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
 const Login = lazy(() => import('./pages/Login/Login'));

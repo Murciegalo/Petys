@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, TypeBtn } from '../components/Button/Button';
+import { Button, TypeBtn } from '../Button/Button';
 
 export const Error = () => {
   const navigate = useNavigate();
