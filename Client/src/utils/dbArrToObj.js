@@ -5,6 +5,3 @@ export const convertCollectionsSnapshotToMap = (collections) => {
     return accumulator;
   }, {});
 };
-
-//FORMAT Objs to arr to display in UI
-export const arrTransformer = (data) => Object.entries(data).map((el) => el[1]);

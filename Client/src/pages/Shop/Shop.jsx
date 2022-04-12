@@ -3,18 +3,14 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import ShopItem from '../../components/ShopItem/ShopItem';
 import { getAllPetsStart } from '../../redux/pets/pet.actions';
-import { grabCategories, grabPetCategories } from '../../redux/pets/pet.selector';
 import { Pomeranian } from '../../utils/data';
 import { Cont, WrapperF, Option, WrapperS } from './Shop.styles';
 
 const Shop = () => {
   const dispatch = useDispatch();
-  const categories = useSelector(grabPetCategories);
-  console.log('CATEGORIES', categories);
   useEffect(() => {
     dispatch(getAllPetsStart());
   }, []);
-
   return (
     <Cont>
       <WrapperF>
