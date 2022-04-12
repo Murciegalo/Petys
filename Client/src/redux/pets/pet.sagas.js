@@ -11,7 +11,7 @@ const axios = require('axios');
 export function* getAllPetsAsync() {
   try {
     const res = yield axios.get('http://localhost:4500/api/v1/pets');
-    yield put(getAllPetsSuccess(res));
+    yield put(getAllPetsSuccess(res.data.data));
   } catch (err) {
     yield put(getAllPetsFailed(err.response.data));
   }

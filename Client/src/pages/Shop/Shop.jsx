@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import ShopItem from '../../components/ShopItem/ShopItem';
+import { getAllPetsStart } from '../../redux/pets/pet.actions';
+import { grabCategories, grabPetCategories } from '../../redux/pets/pet.selector';
 import { Pomeranian } from '../../utils/data';
-import { Cont, WrapperF, Link, WrapperS } from './Shop.styles';
+import { Cont, WrapperF, Option, WrapperS } from './Shop.styles';
 
 const Shop = () => {
+  const dispatch = useDispatch();
+  const categories = useSelector(grabPetCategories);
+  console.log('CATEGORIES', categories);
+  useEffect(() => {
+    dispatch(getAllPetsStart());
+  }, []);
+
   return (
     <Cont>
       <WrapperF>
-        <Link>Lulu de Pomerania</Link>
-        <Link>Shih Tzu</Link>
-        <Link>Poodle</Link>
-        <Link>Golden Retriever</Link>
-        <Link>Yorkshire</Link>
-        <Link>Husky Siberiano</Link>
-        <Link>Buldogue francês</Link>
+        <Option to="/shop/luludepomerania">Lulu de Pomerania</Option>
+        <Option to="/shop/luludepomerania">Shih Tzu</Option>
+        <Option to="/shop/luludepomerania">Poodle</Option>
+        <Option to="/shop/luludepomerania">Golden Retriever</Option>
+        <Option to="/shop/luludepomerania">Yorkshire</Option>
+        <Option to="/shop/luludepomerania">Husky Siberiano</Option>
+        <Option to="/shop/luludepomerania">Buldogue francês</Option>
       </WrapperF>
       <WrapperS>
         {Pomeranian.map((el) => (
