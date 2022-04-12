@@ -16,11 +16,11 @@ export const BaseBtn = styled.button`
 export const NavBtn = styled(BaseBtn)`
   margin: 1rem;
   font-size: 1rem;
-  border: 2px solid #000;
+  border: 2px solid #fff;
+  font-size: 24px;
+  color: white;
   :hover {
     background-color: black;
-    border: 2px solid #fff;
-    color: white;
   }
 `;
 
