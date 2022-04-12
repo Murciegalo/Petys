@@ -18,7 +18,7 @@ export const Error = () => {
     <div style={divS}>
       <h2 style={styles}>Hi!, please go back to our home page while we fix this mess!! xD</h2>
       <h3 style={styles}>Thanks</h3>
-      <Button btnType={TypeBtn.nav} onClick={navigate('/')}>
+      <Button btnType={TypeBtn.nav} onClick={() => navigate('/')}>
         Back Home
       </Button>
     </div>
