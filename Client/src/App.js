@@ -25,14 +25,8 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/forgotPassword" element={<ForgotPassword />} />
             <Route path="/shop" element={<Shop />} />
-            <Route
-              path="/shop/:itemId"
-              element={
-                <PrivateRoute>
-                  <ProductSpecs />
-                </PrivateRoute>
-              }
-            />
+            {/* Route to be protected again after implementing logic */}
+            <Route path="/shop/:itemId" element={<ProductSpecs />} />
             <Route
               path="/me"
               element={
