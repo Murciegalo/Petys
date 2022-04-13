@@ -20,32 +20,32 @@ function App() {
   return (
     <>
       <Suspense fallback={<Loading />}>
-        <Nav />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/forgotPassword" element={<ForgotPassword />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route
-            path="/me"
-            element={
-              <PrivateRoute>
-                <Me />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/shop/:itemId"
-            element={
-              <PrivateRoute>
-                <ProductSpecs />
-              </PrivateRoute>
-            }
-          />
-          <Route path="/cart" element={<Cart />} />
-          {/* //Error Rendering */}
-          <Route path="*" element={<Error />} />
+          <Route path="/" element={<Nav />}>
+            <Route index element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/forgotPassword" element={<ForgotPassword />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route
+              path="/me"
+              element={
+                <PrivateRoute>
+                  <Me />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/shop/:itemId"
+              element={
+                <PrivateRoute>
+                  <ProductSpecs />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="*" element={<Error />} />
+          </Route>
         </Routes>
         <Footer />
       </Suspense>
