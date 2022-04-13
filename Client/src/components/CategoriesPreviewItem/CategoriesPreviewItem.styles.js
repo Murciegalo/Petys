@@ -1,13 +1,13 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Cont = styled.div`
-  width: 100%;
+  max-width: 300px;
   display: block;
   height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 
 export const Img = styled.img`
   max-width: 100%;
@@ -15,4 +15,4 @@ export const Img = styled.img`
   border: 4px solid white;
   border-radius: 5px;
   cursor: pointer;
-`
+`;
