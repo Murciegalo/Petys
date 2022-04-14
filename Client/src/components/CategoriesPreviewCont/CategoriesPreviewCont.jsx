@@ -1,6 +1,6 @@
 import React from 'react';
 import CategoryPreview from '../../components/CategoryPreview/CategoryPreview';
-import { Categories } from '../../components/Categories/Categories';
+import { Categories } from '../CategoriesNav/CategoriesNav';
 
 export const CategoriesPreviewCont = ({ data }) => {
   return (
