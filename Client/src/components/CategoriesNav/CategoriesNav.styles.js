@@ -2,18 +2,17 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Cont = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 `;
 
 export const Option = styled(Link)`
   padding: 10px;
   font-size: 15px;
   font-weight: bold;
-  text-decoration: none;
   color: white;
+  text-align: center;
+  text-decoration: none;
   border: 1px solid aliceblue;
   border-radius: 8px;
   box-shadow: none;

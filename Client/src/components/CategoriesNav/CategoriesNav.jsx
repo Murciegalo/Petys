@@ -7,7 +7,11 @@ export const Categories = ({ categories }) => {
     categories !== null &&
     Object.keys(categories).map((el, I) => {
       let text = formatText(el);
-      return <Option to={el}>{text}</Option>;
+      return (
+        <Option key={el} to={el}>
+          {text}
+        </Option>
+      );
     });
   return <Cont>{display}</Cont>;
 };
