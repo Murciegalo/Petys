@@ -15,7 +15,7 @@ export const CategoryCont = () => {
       <Header>{header}</Header>
       <Gri>
         {showCategory.map((el) => (
-          <Card key={el._id} product={el} />
+          <Card key={el._id} product={el} category={category} />
         ))}
       </Gri>
     </Cont>

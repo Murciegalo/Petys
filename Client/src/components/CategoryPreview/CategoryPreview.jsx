@@ -12,7 +12,7 @@ const CategoryPreview = ({ title, products }) => {
         {products
           .filter((_, idx) => idx < 4)
           .map((el) => (
-            <Card key={el._id} product={el} />
+            <Card key={el._id} product={el} category={title} />
           ))}
       </Gri>
     </Cont>

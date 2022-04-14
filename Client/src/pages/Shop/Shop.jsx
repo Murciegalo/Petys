@@ -14,7 +14,7 @@ const Shop = () => {
     dispatch(getAllPetsStart());
     // eslint-disable-next-line
     setShopItems(data);
-  }, []);
+  }, [shopItems]);
   return (
     <Routes>
       <Route index element={<CategoriesPreviewCont data={shopItems} />} />

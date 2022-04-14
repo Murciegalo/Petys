@@ -1,10 +1,8 @@
-import React from 'react'
-import { Cont } from './ProductSpecs.styles'
+import React from 'react';
+import { Cont } from './ProductSpecs.styles';
 
 const ShopItem = () => {
-  return (
-    <Cont>ShopItem</Cont>
-  )
-}
+  return <Cont>SINGLE PRODUCT PAGE</Cont>;
+};
 
-export default ShopItem
+export default ShopItem;
