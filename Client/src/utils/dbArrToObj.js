@@ -12,3 +12,9 @@ export const groupBy = (array, key) => {
     return accumulator;
   }, {});
 };
+
+export const formatText = (text) =>
+  text
+    .split('-')
+    .join(' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase());

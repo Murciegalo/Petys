@@ -1,12 +1,10 @@
 import React from 'react';
-import CategoryPreviewItem from '../CategoryPreviewItem/CategoryPreviewItem';
+import { formatText } from '../../utils/dbArrToObj';
+import Card from '../Card/Card';
 import { Cont, Gri, Header } from './CategoryPreview.styles';
 
 const CategoryPreview = ({ title, products }) => {
-  let text = title
-    .split('-')
-    .join(' ')
-    .replace(/\b\w/g, (c) => c.toUpperCase());
+  let text = formatText(title);
   return (
     <Cont>
       <Header>{text}</Header>
@@ -14,7 +12,7 @@ const CategoryPreview = ({ title, products }) => {
         {products
           .filter((_, idx) => idx < 4)
           .map((el) => (
-            <CategoryPreviewItem key={el._id} product={el} />
+            <Card key={el._id} product={el} />
           ))}
       </Gri>
     </Cont>

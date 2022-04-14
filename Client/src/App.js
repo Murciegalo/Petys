@@ -11,7 +11,7 @@ const ForgotPassword = lazy(() => import('./pages/ForgotPassword/ForgotPassword'
 const Footer = lazy(() => import('./components/Footer/Footer'));
 const Shop = lazy(() => import('./pages/Shop/Shop'));
 const Cart = lazy(() => import('./pages/Cart/Cart'));
-const ProductSpecs = lazy(() => import('./pages/ProductSpecs/ProductSpecs'));
+// const ProductSpecs = lazy(() => import('./pages/ProductSpecs/ProductSpecs'));
 const Me = lazy(() => import('./pages/Me/Me'));
 
 function App() {
