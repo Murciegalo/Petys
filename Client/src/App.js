@@ -26,7 +26,8 @@ function App() {
             <Route path="/forgotPassword" element={<ForgotPassword />} />
             <Route path="/shop/*" element={<Shop />} />
             {/* Route to be protected again after implementing logic */}
-            <Route path="shop/:category/:itemId" element={<ProductSpecs />} />
+            {/* shop will work in production? */}
+            <Route path=":category/:itemId" element={<ProductSpecs />} />
             <Route
               path="/me"
               element={
