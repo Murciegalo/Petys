@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Categories } from '../../components/Categories/Categories';
-import CategoriesPreview from '../../components/CategoriesPreview/CategoriesPreview';
+import { Route, Routes } from 'react-router-dom';
+import { CategoriesPreviewCont } from '../../components/CategoriesPreviewCont/CategoriesPreviewCont';
 import { getAllPetsStart } from '../../redux/pets/pet.actions';
 import { groupItemsByCategory } from '../../redux/pets/pet.selector';
-import { Cont, WrapperS } from './Shop.styles';
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -15,22 +14,10 @@ const Shop = () => {
   }, []);
   console.log('DATA', data);
   return (
-    <>
-      <Cont>
-        <Categories categories={data} />
-      </Cont>
-      <Cont>
-        {Object.keys(data).map((title) => {
-          const products = data[title];
-          return <CategoriesPreview key={title} title={title} products={products} />;
-        })}
-      </Cont>
-      <WrapperS>
-        {/* {Pomeranian.map((el) => (
-          <ShopItem key={el.id} el={el} />
-        ))} */}
-      </WrapperS>
-    </>
+    <Routes>
+      {/* <Categories categories={data} /> */}
+      <Route index element={<CategoriesPreviewCont data={data} />} />
+    </Routes>
   );
 };
 

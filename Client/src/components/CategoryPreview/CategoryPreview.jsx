@@ -1,8 +1,8 @@
 import React from 'react';
-import CategoriesPreviewItem from '../CategoriesPreviewItem/CategoriesPreviewItem';
-import { Cont, Gri, Header } from './CategoriesPreview.styles';
+import CategoryPreviewItem from '../CategoryPreviewItem/CategoryPreviewItem';
+import { Cont, Gri, Header } from './CategoryPreview.styles';
 
-const CategoriesPreview = ({ title, products }) => {
+const CategoryPreview = ({ title, products }) => {
   let text = title
     .split('-')
     .join(' ')
@@ -14,10 +14,10 @@ const CategoriesPreview = ({ title, products }) => {
         {products
           .filter((_, idx) => idx < 4)
           .map((el) => (
-            <CategoriesPreviewItem key={el._id} product={el} />
+            <CategoryPreviewItem key={el._id} product={el} />
           ))}
       </Gri>
     </Cont>
   );
 };
-export default CategoriesPreview;
+export default CategoryPreview;

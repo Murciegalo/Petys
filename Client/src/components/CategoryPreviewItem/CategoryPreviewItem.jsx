@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Cont, Img } from './CategoriesPreviewItem.styles';
+import { Cont, Img } from './CategoryPreviewItem.styles';
 
-const CategoriesPreviewItem = ({ product }) => {
+const CategoryPreviewItem = ({ product }) => {
   return (
     <Cont>
       <Link to={`${product._id}`}>
@@ -12,4 +12,4 @@ const CategoriesPreviewItem = ({ product }) => {
   );
 };
 
-export default CategoriesPreviewItem;
+export default CategoryPreviewItem;
