@@ -15,3 +15,8 @@ export const groupItemsByCategory = createSelector([selectItems], (wholeCollecti
 
 export const grabItemsPerCategory = (urlParam) =>
   createSelector([groupItemsByCategory], (petsCollection) => petsCollection[urlParam]);
+
+export const grabOneItemFromCategory = (urlParam, id) =>
+  createSelector([groupItemsByCategory], (petsCollection) =>
+    petsCollection[urlParam].filter((el) => el._id === id),
+  );
