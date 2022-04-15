@@ -2,6 +2,8 @@ import { createSelector } from 'reselect';
 import { groupBy } from '../../utils/dbArrToObj';
 
 // Input Selector
+const getPetsState = (state) => state.pets;
+
 const getPets = (state) => state.pets.pets;
 
 // Memoized Selectors
@@ -20,3 +22,5 @@ export const grabOneItemFromCategory = (urlParam, id) =>
   createSelector([groupItemsByCategory], (petsCollection) =>
     petsCollection[urlParam].filter((el) => el._id === id),
   );
+
+export const grabIsLoading = createSelector([getPetsState], (el) => el.loading);

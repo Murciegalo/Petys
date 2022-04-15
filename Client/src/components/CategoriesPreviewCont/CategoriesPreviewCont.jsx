@@ -1,9 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import CategoryPreview from '../../components/CategoryPreview/CategoryPreview';
-import { Categories } from '../CategoriesNav/CategoriesNav';
+import { grabIsLoading } from '../../redux/pets/pet.selector';
+import Categories from '../CategoriesNav/CategoriesNav';
+import Spinner from '../Spinner/Spinner.component';
 
 export const CategoriesPreviewCont = ({ data }) => {
-  return (
+  const isLoading = useSelector(grabIsLoading);
+  const display = isLoading ? (
+    <Spinner />
+  ) : (
     <>
       <Categories categories={data} />
       {Object.keys(data).map((title) => {
@@ -12,4 +18,5 @@ export const CategoriesPreviewCont = ({ data }) => {
       })}
     </>
   );
+  return display;
 };

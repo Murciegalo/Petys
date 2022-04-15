@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
-
 export const Cont = styled.div`
   display: block !important;
   padding: 0 20px;
-`
+`;
 
 export const Row = styled.div`
   width: 100%;
@@ -12,15 +11,15 @@ export const Row = styled.div`
   min-width: 727px;
   margin: 0 auto;
   &:before {
-    content: "";
+    content: '';
     display: table;
   }
   &:after {
-    content: "";
+    content: '';
     display: table;
     clear: both;
   }
-`
+`;
 
 export const Left = styled.div`
   width: 38%;
@@ -28,10 +27,10 @@ export const Left = styled.div`
   float: left;
   min-height: 1px;
   position: relative;
-  a{
+  a {
     text-decoration: none;
   }
-`
+`;
 
 export const Header2 = styled.h2`
   display: block !important;
@@ -39,9 +38,10 @@ export const Header2 = styled.h2`
   padding-bottom: 1.5%;
   font-size: 3.8rem;
   font-weight: thin;
+  color: white;
   text-align: center;
   line-height: 5.9rem;
-`
+`;
 
 export const Header4 = styled.h4`
   display: block !important;
@@ -49,22 +49,23 @@ export const Header4 = styled.h4`
   padding-bottom: 5%;
   font-size: 1.8rem;
   font-weight: 100;
+  color: white;
   text-align: center;
-`
+`;
 
 export const Img = styled.img`
   max-width: 100%;
   height: auto;
   border: 4px solid white;
   border-radius: 5px;
-`
+`;
 
 export const Header3 = styled.h3`
   font-size: 1.5rem;
   font-weight: 100;
   text-align: center;
   color: white;
-`
+`;
 
 export const Right = styled.div`
   width: 58%;
@@ -72,7 +73,7 @@ export const Right = styled.div`
   float: left;
   min-height: 1px;
   position: relative;
-`
+`;
 
 export const Col1 = styled.div`
   width: 50%;
@@ -81,10 +82,10 @@ export const Col1 = styled.div`
   min-height: 1px;
   position: relative;
 
-  a{
+  a {
     text-decoration: none !important;
   }
-`
+`;
 export const Col2 = styled.div`
   width: 40%;
   padding-top: 12%;
@@ -92,8 +93,8 @@ export const Col2 = styled.div`
   min-height: 1px;
   position: relative;
   margin-left: 7%;
-  
-  a{
+
+  a {
     text-decoration: none !important;
   }
-`
+`;

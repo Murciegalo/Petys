@@ -10,7 +10,6 @@ export const CategoryCont = () => {
   const { category } = useParams();
   let header = formatText(category);
   const showCategory = useSelector(grabItemsPerCategory(category));
-  console.log('Categories', showCategory);
   return (
     <Cont>
       <Header>{header}</Header>

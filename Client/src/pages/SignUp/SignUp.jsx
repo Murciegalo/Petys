@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { registerStart } from '../../redux/user/user.actions';
 import { grabLoading, grabAuth } from '../../redux/user/user.selector';
-import Spinner from '../../components/spinner/Spinner.component';
+import Spinner from '../../components/Spinner/Spinner.component';
 import { SignUpForm } from '../../components/SignUpForm/SignUpForm';
 
 const SignUp = () => {

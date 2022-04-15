@@ -3,7 +3,7 @@ import { grabAlert, grabError, grabLoading } from '../../redux/user/user.selecto
 import { Button, TypeBtn } from '../../components/Button/Button';
 import { Cont, Header, Wrapper, Form, Input, Text, Alert } from './Form.styles';
 import { useSelector } from 'react-redux';
-import Spinner from '../spinner/Spinner.component';
+import Spinner from '../Spinner/Spinner.component';
 
 export const LoginForm = ({ handleSubmit, email, setEmail, password, setPassword }) => {
   const isError = useSelector(grabError);

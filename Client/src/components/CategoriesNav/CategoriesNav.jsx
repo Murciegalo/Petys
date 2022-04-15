@@ -2,7 +2,7 @@ import React from 'react';
 import { formatText } from '../../utils/dbArrToObj';
 import { Cont, Option } from './CategoriesNav.styles';
 
-export const Categories = ({ categories }) => {
+const Categories = ({ categories }) => {
   const display =
     categories !== null &&
     Object.keys(categories).map((el, I) => {
@@ -15,3 +15,5 @@ export const Categories = ({ categories }) => {
     });
   return <Cont>{display}</Cont>;
 };
+
+export default Categories;

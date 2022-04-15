@@ -57,6 +57,7 @@ export const TextItem = styled.span`
   display: flex;
   margin: 0 auto;
   font-size: 25px;
+  font-weight: lighter;
   &: hover {
     color: ${({ color }) => color};
     font-weight: bold;

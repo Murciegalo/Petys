@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, TypeBtn } from '../Button/Button';
 
-export const Error = () => {
+const Error = () => {
   const navigate = useNavigate();
   const styles = {
     textAlign: 'center',
@@ -24,3 +24,5 @@ export const Error = () => {
     </div>
   );
 };
+
+export default Error;
