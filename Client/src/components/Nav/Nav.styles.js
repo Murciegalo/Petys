@@ -7,15 +7,36 @@ export const Cont = styled.div`
 export const Wrapp = styled.div`
   height: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px 20px 0px;
   position: relative;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  box-shadow: 0 1px #fff;
   font-size: 20px;
   font-weight: 600;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
+`;
+
+export const Top = styled.div`
+  display: flex;
+`;
+export const Bottom = styled.div`
+  display: flex;
+  justify-content: end;
+  padding: 0px 20px 5px;
+  border-bottom: 1px solid white;
+  font-weight: 600;
+  span {
+    padding: 5px;
+    color: white;
+    transition: 1s easy-in-out;
+    :hover {
+      cursor: pointer;
+      font-size: 20px;
+      border-right: 1px solid white;
+      border-bottom: 1px solid white;
+    }
+  }
 `;
 
 export const Logo = styled(Link)`
@@ -33,13 +54,13 @@ export const Logo = styled(Link)`
 `;
 
 export const TextItem = styled.span`
-  padding: 2%;
+  display: flex;
+  margin: 0 auto;
+  font-size: 25px;
   &: hover {
     color: ${({ color }) => color};
     font-weight: bold;
     cursor: pointer;
-    border-bottom: 1px solid aliceblue;
-    border-right: 1px solid aliceblue;
   }
   a {
     text-decoration: none;
@@ -49,10 +70,12 @@ export const TextItem = styled.span`
 
 export const IconItem = styled(Link)`
   position: relative;
-  display: flex;
-  color: ${({ color }) => color};
-  font-size: 25px;
   margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
+  text-decoration: none;
+  color: ${({ color }) => color};
   transition: 0.5s easy-in-out;
 
   &: hover {
@@ -70,6 +93,12 @@ export const IconItem = styled(Link)`
     top: -10px;
     right: -8px;
     font-size: 16px;
+  }
+  svg {
+    margin: 0 auto;
+  }
+  small {
+    font-size: 12px;
   }
 `;
 export const CartNum = styled.span`

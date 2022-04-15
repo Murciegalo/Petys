@@ -12,8 +12,8 @@ const Shop = () => {
   const data = useSelector(groupItemsByCategory);
   useEffect(() => {
     dispatch(getAllPetsStart());
-    // eslint-disable-next-line
     setShopItems(data);
+    // eslint-disable-next-line
   }, []);
   return (
     <Routes>

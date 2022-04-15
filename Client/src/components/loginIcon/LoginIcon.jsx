@@ -1,8 +1,7 @@
 import React from 'react';
-import { BsFillPersonFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { TextItem, IconItem } from '../Nav/Nav.styles';
-
+import { ReactComponent as LoginSvg } from '../Nav/login.svg';
 export const LoginIcon = ({ user, isAuth }) => {
   return user && isAuth ? (
     <TextItem>
@@ -11,7 +10,8 @@ export const LoginIcon = ({ user, isAuth }) => {
     </TextItem>
   ) : (
     <IconItem to="/login" color="white">
-      <BsFillPersonFill />
+      <LoginSvg fill={'white'} />
+      <small>log in</small>
     </IconItem>
   );
 };
