@@ -1,7 +1,8 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { grabOneItemFromCategory } from '../../redux/pets/pet.selector';
+import { getPetReviewsStarts } from '../../redux/reviews/review.actions';
 import {
   Cont,
   Section,
@@ -15,10 +16,15 @@ import {
 } from './SingleProduct.styles';
 
 const SingleProduct = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getPetReviewsStarts());
+  }, []);
+
   const { category, itemId } = useParams();
   const { name, ratingsAvrgSeller, pedigreeM, pedigreeF, description, price, seller, imgs } =
     useSelector(grabOneItemFromCategory(category, itemId))[0];
-  console.log(seller);
+
   return (
     <Cont>
       <Wrap>
