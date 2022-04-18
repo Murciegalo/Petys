@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { grabOneItemFromCategory } from '../../redux/pets/pet.selector';
@@ -18,19 +18,21 @@ const SingleProduct = () => {
   const { category, itemId } = useParams();
   const { name, ratingsAvrgSeller, pedigreeM, pedigreeF, description, price, seller, imgs } =
     useSelector(grabOneItemFromCategory(category, itemId))[0];
-
+  console.log(seller);
   return (
     <Cont>
       <Wrap>
         <GridPics>{imgs.length > 0 && imgs.map((el, I) => <Pic key={I} src={el} />)}</GridPics>
-        {/* <Section>
+        <Section>
           <Title>{name}</Title>
           <Text>{pedigreeF}</Text>
           <Text>{pedigreeM}</Text>
           <Description>{description}</Description>
           <Total>{price}</Total>
-          <Title>{seller}</Title>
-        </Section> */}
+          <Title>Seller</Title>
+          <Title>{seller[0].name}</Title>
+          <Text>{ratingsAvrgSeller}</Text>
+        </Section>
       </Wrap>
     </Cont>
   );
