@@ -31,6 +31,7 @@ const SingleProduct = () => {
           <Total>{price}</Total>
           <Title>Seller</Title>
           <Title>{seller[0].name}</Title>
+          <img src={seller[0].photo} alt="profile" />
           <Text>{ratingsAvrgSeller}</Text>
         </Section>
       </Wrap>
