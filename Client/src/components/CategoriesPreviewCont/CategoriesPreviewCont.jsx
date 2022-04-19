@@ -1,14 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { groupItemsByCategory } from '../../redux/pets/pet.selector';
 import CategoryPreview from '../../components/CategoryPreview/CategoryPreview';
 import { grabIsLoading } from '../../redux/pets/pet.selector';
 import Categories from '../CategoriesNav/CategoriesNav';
 import Spinner from '../Spinner/Spinner.component';
 
-export const CategoriesPreviewCont = ({ data }) => {
+export const CategoriesPreviewCont = () => {
   const isLoading = useSelector(grabIsLoading);
-  // const display =
-  return isLoading ? (
+  const data = useSelector(groupItemsByCategory);
+  const display = isLoading ? (
     <Spinner />
   ) : (
     <>
@@ -19,4 +20,5 @@ export const CategoriesPreviewCont = ({ data }) => {
       })}
     </>
   );
+  return display;
 };
