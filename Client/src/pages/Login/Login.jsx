@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { loginStart, removeAlert } from '../../redux/user/user.actions';
 import { grabAuth } from '../../redux/user/user.selector';

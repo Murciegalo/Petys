@@ -1,4 +1,8 @@
-import { GET_PET_REVIEWS_FAILED, GET_PET_REVIEWS_STARTS, GET_PET_REVIEWS_SUCCESS } from './types';
+import {
+  GET_ALL_PET_REVIEWS_STARTS,
+  GET_ALL_PET_REVIEWS_SUCCESS,
+  GET_ALL_PET_REVIEWS_FAILED,
+} from './types';
 
 const INITIAL_STATE = {
   reviews: null,
@@ -7,22 +11,22 @@ const INITIAL_STATE = {
   alert: false,
 };
 
-export const petReducer = (state = INITIAL_STATE, action) => {
+export const reviewReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case GET_PET_REVIEWS_STARTS:
+    case GET_ALL_PET_REVIEWS_STARTS:
       return {
         ...state,
         loading: true,
       };
-    case GET_PET_REVIEWS_SUCCESS:
+    case GET_ALL_PET_REVIEWS_SUCCESS:
       return {
         ...state,
         reviews: payload,
         loading: false,
       };
-    case GET_PET_REVIEWS_FAILED:
+    case GET_ALL_PET_REVIEWS_FAILED:
       return {
         ...state,
         loading: false,

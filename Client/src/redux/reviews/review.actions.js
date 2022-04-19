@@ -5,7 +5,7 @@ import {
   GET_ALL_PET_REVIEWS_SUCCESS,
 } from './types';
 
-export const getPetReviewsStarts = () => createAction(GET_ALL_PET_REVIEWS_STARTS);
+export const getPetReviewsStarts = (petId) => createAction(GET_ALL_PET_REVIEWS_STARTS, petId);
 
 export const getPetReviewsSuccess = (payload) => createAction(GET_ALL_PET_REVIEWS_SUCCESS, payload);
 

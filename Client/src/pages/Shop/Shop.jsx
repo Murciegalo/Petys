@@ -17,8 +17,8 @@ const Shop = () => {
   }, []);
   return (
     <Routes>
-      <Route index element={<CategoriesPreviewCont data={shopItems} />} />
       <Route path=":category" element={<CategoryCont />} />
+      <Route index element={<CategoriesPreviewCont data={shopItems} />} />
     </Routes>
   );
 };

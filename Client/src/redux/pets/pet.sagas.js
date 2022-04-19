@@ -1,11 +1,6 @@
 import { takeLatest, all, call, put } from 'redux-saga/effects';
-import { GET_ALL_PETS_STARTS, GET_PET_REVIEWS_STARTS } from './types';
-import {
-  getAllPetsSuccess,
-  getAllPetsFailed,
-  getPetReviewsFailed,
-  getPetReviewsSuccess,
-} from './pet.actions';
+import { GET_ALL_PETS_STARTS } from './types';
+import { getAllPetsSuccess, getAllPetsFailed } from './pet.actions';
 import { convertCollectionToObj } from '../../utils/dbArrToObj';
 const axios = require('axios');
 
@@ -15,7 +10,7 @@ export function* getAllPetsAsync() {
     const data = convertCollectionToObj(res.data.data);
     yield put(getAllPetsSuccess(data));
   } catch (err) {
-    yield put(getAllPetsFailed(err.response.data));
+    yield put(getAllPetsFailed(err));
   }
 }
 export function* onGetData() {

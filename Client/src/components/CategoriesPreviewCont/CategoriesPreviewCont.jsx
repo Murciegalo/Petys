@@ -7,7 +7,8 @@ import Spinner from '../Spinner/Spinner.component';
 
 export const CategoriesPreviewCont = ({ data }) => {
   const isLoading = useSelector(grabIsLoading);
-  const display = isLoading ? (
+  // const display =
+  return isLoading ? (
     <Spinner />
   ) : (
     <>
@@ -18,5 +19,4 @@ export const CategoriesPreviewCont = ({ data }) => {
       })}
     </>
   );
-  return display;
 };

@@ -16,12 +16,13 @@ import {
 } from './SingleProduct.styles';
 
 const SingleProduct = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getPetReviewsStarts());
-  }, []);
-
   const { category, itemId } = useParams();
+  // const dispatch = useDispatch();
+  useEffect(() => {
+    console.log('SINGLE PRODUCT PAGE');
+    getPetReviewsStarts(itemId);
+  }, [itemId]);
+
   const { name, ratingsAvrgSeller, pedigreeM, pedigreeF, description, price, seller, imgs } =
     useSelector(grabOneItemFromCategory(category, itemId))[0];
 
