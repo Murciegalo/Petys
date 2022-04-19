@@ -10,7 +10,7 @@ const {
 
 const router = express.Router({ mergeParams: true });
 
-router.use(isLoggedIn);
+// router.use(isLoggedIn); TO BE CONTINUOSLY TESTING
 router.use(protect);
 
 router.get('/', getAllReviews);

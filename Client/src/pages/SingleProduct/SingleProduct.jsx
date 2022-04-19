@@ -19,7 +19,6 @@ const SingleProduct = () => {
   const { category, itemId } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log('SINGLE PRODUCT PAGE');
     dispatch(getPetReviewsStarts(itemId));
   }, [itemId]);
 

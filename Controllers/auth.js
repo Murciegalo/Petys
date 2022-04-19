@@ -82,7 +82,7 @@ exports.isLoggedIn = async (req, res, next) => {
       return next();
     } catch (err) {
       //to be checked
-      return next(err);
+      return next();
     }
   }
 };

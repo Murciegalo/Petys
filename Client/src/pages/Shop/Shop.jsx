@@ -13,7 +13,7 @@ const Shop = () => {
   }, []);
   return (
     <Routes>
-      <Route path="/" element={<CategoriesPreviewCont />} />
+      <Route index element={<CategoriesPreviewCont />} />
       <Route path=":category" element={<CategoryCont />} />
     </Routes>
   );

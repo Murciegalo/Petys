@@ -3,9 +3,9 @@ import { GET_ALL_PET_REVIEWS_STARTS } from './types';
 import { getPetReviewsFailed, getPetReviewsSuccess } from './review.actions';
 const axios = require('axios');
 
-export function* getPetReviewsAsync({ payload }) {
+export function* getPetReviewsAsync(payload) {
   try {
-    const res = yield axios.get(`http://localhost:4500/api/v1/pets/${payload}/reviews`);
+    const res = yield axios.get(`http://localhost:4500/api/v1/pets/${payload.payload}/reviews`);
     yield put(getPetReviewsSuccess(res));
   } catch (err) {
     yield put(getPetReviewsFailed(err));
