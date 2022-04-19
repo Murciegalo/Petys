@@ -5,8 +5,8 @@ import {
 } from './types';
 
 const INITIAL_STATE = {
-  reviews: null,
-  loading: false,
+  rev: null,
+  isLoad: false,
   error: null,
   alert: false,
 };
@@ -18,18 +18,18 @@ export const reviewReducer = (state = INITIAL_STATE, action) => {
     case GET_ALL_PET_REVIEWS_STARTS:
       return {
         ...state,
-        loading: true,
+        isLoad: true,
       };
     case GET_ALL_PET_REVIEWS_SUCCESS:
       return {
         ...state,
-        reviews: payload,
-        loading: false,
+        rev: payload,
+        isLoad: false,
       };
     case GET_ALL_PET_REVIEWS_FAILED:
       return {
         ...state,
-        loading: false,
+        isLoad: false,
         error: payload,
       };
     default:

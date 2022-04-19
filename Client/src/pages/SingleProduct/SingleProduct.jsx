@@ -17,10 +17,10 @@ import {
 
 const SingleProduct = () => {
   const { category, itemId } = useParams();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   useEffect(() => {
     console.log('SINGLE PRODUCT PAGE');
-    getPetReviewsStarts(itemId);
+    dispatch(getPetReviewsStarts(itemId));
   }, [itemId]);
 
   const { name, ratingsAvrgSeller, pedigreeM, pedigreeF, description, price, seller, imgs } =

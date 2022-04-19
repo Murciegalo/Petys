@@ -8,7 +8,7 @@ export function* getPetReviewsAsync({ payload }) {
     const res = yield axios.get(`http://localhost:4500/api/v1/pets/${payload}/reviews`);
     yield put(getPetReviewsSuccess(res));
   } catch (err) {
-    yield put(getPetReviewsFailed(err.response.data));
+    yield put(getPetReviewsFailed(err));
   }
 }
 export function* onGetReviews() {

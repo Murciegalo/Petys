@@ -18,7 +18,8 @@ export const petReducer = (state = INITIAL_STATE, action) => {
       };
     case GET_ALL_PETS_SUCCESS:
       return {
-        ...state,
+        error: null,
+        alert: false,
         pets: payload,
         loading: false,
       };
