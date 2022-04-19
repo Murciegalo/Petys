@@ -5,7 +5,7 @@ const User = require('../Models/UserModel');
 const { catchError } = require('./errorHandler');
 const { sendToken } = require('../utils/tools');
 const sendEmail = require('../utils/email');
-
+const { humanErrors } = require('./errorHandler');
 const signToken = (id) =>
   jwt.sign({ id }, process.env.S, {
     expiresIn: process.env.ET,
@@ -171,9 +171,12 @@ exports.protect = async (req, res, next) => {
       token = req.cookies.jwt;
     }
     if (!token) {
-      return res
-        .status(401)
-        .json({ msg: 'Please sign into your account, thanks' });
+      return humanErrors(
+        res,
+        401,
+        'fail',
+        'Please sign into your account, thanks'
+      );
     }
     const decoded = await promisify(jwt.verify)(token, process.env.S);
 
