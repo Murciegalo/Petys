@@ -7,6 +7,8 @@ export const grabUser = createSelector([getUser], (data) => data.user);
 
 export const grabAuth = createSelector([getUser], (el) => el.isAuth);
 
+export const grabRole = createSelector([getUser], (el) => el.role);
+
 export const grabLoading = createSelector([getUser], (el) => el.loading);
 
 export const grabError = createSelector([getUser], (el) => el.error);
