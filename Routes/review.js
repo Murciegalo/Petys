@@ -10,10 +10,10 @@ const {
 
 const router = express.Router({ mergeParams: true });
 
-// router.use(isLoggedIn); TO BE CONTINUOSLY TESTING
-router.use(protect);
-
+// router.use(isLoggedIn);
 router.get('/', getAllReviews);
+
+router.use(protect);
 router.get('/:id', getReview);
 router.post('/', protect, restrictTo('user'), createReview);
 router.put('/:id', protect, restrictTo('user', 'admin'), updateReview);

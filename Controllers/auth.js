@@ -91,6 +91,7 @@ exports.isLoggedIn = async (req, res, next) => {
       return next();
     }
   }
+  return next();
 };
 
 exports.forgotPassword = async (req, res, next) => {
