@@ -11,9 +11,9 @@ const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword/ForgotPassword'));
 const Unauthorized = lazy(() => import('./pages/Unauthorized/Unauthorized'));
 const Shop = lazy(() => import('./pages/Shop/Shop'));
-const Cart = lazy(() => import('./pages/Cart/Cart'));
 const SingleProduct = lazy(() => import('./pages/SingleProduct/SingleProduct'));
-const Me = lazy(() => import('./pages/Me/Me'));
+const Cart = lazy(() => import('./pages/Cart/Cart'));
+const Home = lazy(() => import('./pages/Home/Home'));
 const Error = lazy(() => import('./pages/Error/Error'));
 
 function App() {
@@ -28,12 +28,12 @@ function App() {
             <Route path="/forgotPassword" element={<ForgotPassword />} />
             <Route path="/unauthorized" element={<Unauthorized />} />
             <Route path="/shop/*" element={<Shop />} />
-
             <Route path=":category/:itemId" element={<SingleProduct />} />
-            <Route element={<PrivateRoute />}>
-              <Route path="/me" element={<Me />} />
-            </Route>
             <Route path="/cart" element={<Cart />} />
+
+            <Route element={<PrivateRoute />}>
+              <Route path="/home" element={<Home />} />
+            </Route>
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>
