@@ -39,7 +39,7 @@ reviewSchema.index({ petReviewed: 1, userReview: 1 }, { unique: true });
 reviewSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'userReview',
-    select: 'name foto',
+    select: 'name photo',
   });
   next();
 });
