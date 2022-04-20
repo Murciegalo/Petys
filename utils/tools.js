@@ -21,7 +21,9 @@ exports.filterObj = (obj, ...str) => {
 
 exports.sendToken = (token, user, statusCode, res) => {
   const cookieOptions = {
-    expires: new Date(Date.now() + process.env.JWT_COOKIES_EXPIRES * 60 * 60),
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIES_EXPIRES * 60 * 60 * 60
+    ),
     //prevent cross-site attacks
     // cookie can't be mofified/deleted/tampered with
     httpOnly: true,

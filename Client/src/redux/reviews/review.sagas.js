@@ -4,17 +4,10 @@ import { getPetReviewsFailed, getPetReviewsSuccess } from './review.actions';
 import axios from '../../api/axios';
 
 export function* getPetReviewsAsync(payload) {
-  // const config = {
-  //   headers: {
-  //     Authorization: `Bearer ${payload.payload.token}`,
-  //     'Content-type': 'application/json',
-  //   },
-  // };
   try {
     const res = yield axios.get(`/pets/${payload.payload.itemId}/reviews`);
-    yield put(getPetReviewsSuccess(res));
+    yield put(getPetReviewsSuccess(res.data));
   } catch (err) {
-    console.log(err);
     yield put(getPetReviewsFailed(err.response.data));
   }
 }

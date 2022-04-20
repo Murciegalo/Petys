@@ -5,7 +5,7 @@ import {
 } from './types';
 
 const INITIAL_STATE = {
-  rev: null,
+  reviews: null,
   isLoad: false,
   error: null,
   alert: false,
@@ -23,8 +23,9 @@ export const reviewReducer = (state = INITIAL_STATE, action) => {
     case GET_ALL_PET_REVIEWS_SUCCESS:
       return {
         ...state,
-        rev: payload,
+        reviews: payload.reviews,
         isLoad: false,
+        error: null,
       };
     case GET_ALL_PET_REVIEWS_FAILED:
       return {
