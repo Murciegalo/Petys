@@ -8,11 +8,10 @@ import {
   logoutUserSuccess,
   logoutUserFailed,
 } from './user.actions';
-const axios = require('axios');
-
+import axios from '../../api/axios';
 export function* registerAsync({ payload }) {
   try {
-    const res = yield axios.post('http://localhost:4500/api/v1/user/signup', payload);
+    const res = yield axios.post('/user/signup', payload);
     console.log('Regsiter', res.data.user);
     yield put(registerUserSuccess(res.data.user));
   } catch (err) {
@@ -25,7 +24,7 @@ export function* onRegisterUser() {
 
 export function* loginAsync({ payload }) {
   try {
-    const res = yield axios.post('http://localhost:4500/api/v1/user/signin', payload);
+    const res = yield axios.post('/user/signin', payload);
     yield put(loginUserSuccess(res.data.user));
   } catch (err) {
     yield put(loginUserFailed(err.response.data));
@@ -37,7 +36,7 @@ export function* onLoginUser() {
 
 export function* logoutAsync() {
   try {
-    const res = yield axios.get('http://localhost:4500/api/v1/user/logout');
+    const res = yield axios.get('/user/logout');
     yield put(logoutUserSuccess(res));
   } catch (err) {
     yield put(logoutUserFailed(err.response.data));

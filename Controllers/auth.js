@@ -175,6 +175,7 @@ exports.protect = async (req, res, next) => {
         res,
         401,
         'fail',
+        'Unauthorized',
         'Please sign into your account, thanks'
       );
     }

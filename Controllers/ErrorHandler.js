@@ -46,9 +46,11 @@ exports.catchError = (err, res, msg) => {
   });
 };
 
-exports.humanErrors = (res, statusCode, status, msg) => {
+exports.humanErrors = (res, statusCode, status, statusText, msg) => {
   return res.status(statusCode).json({
     status,
+    statusCode,
+    statusText,
     msg,
   });
 };
