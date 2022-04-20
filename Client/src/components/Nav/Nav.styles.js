@@ -20,6 +20,7 @@ export const Wrapp = styled.div`
 
 export const Top = styled.div`
   display: flex;
+  transition: 1s ease-in-out;
 `;
 export const Bottom = styled.div`
   display: flex;

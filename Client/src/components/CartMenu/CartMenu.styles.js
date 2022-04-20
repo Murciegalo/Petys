@@ -3,14 +3,15 @@ import styled from 'styled-components';
 
 export const Absol = styled.div`
   position: absolute;
+  top: 5rem;
+  right: -3rem;
   padding: 1.4rem;
   width: calc(18rem + 5%);
   min-width: 20rem;
-  right: 1rem;
   background-color: white;
-  opacity: 0.9;
+  border-radius: 20px;
+  opacity: 0.8;
   z-index: 100;
-  transition: 1s ease-in-out;
   display: ${({ $display }) => !$display && 'none'};
   transform: ${({ $display }) => ($display ? 'translateX(0)' : 'translateX(25rem)')};
 `;
@@ -22,7 +23,8 @@ export const Section = styled.div`
 `;
 export const TextItem = styled.span`
   padding: 2%;
-  font-size: 22px;
+  font-size: 30px;
+  font-weight: 300;
   &: hover {
     color: ${({ color }) => color};
     font-weight: bold;

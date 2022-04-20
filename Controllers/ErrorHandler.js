@@ -23,7 +23,7 @@ exports.catchError = (err, res, msg) => {
     if (err.name === 'JsonWebTokenError') {
       return res.status(401).json({
         status: 'fail',
-        msg: 'Invalid token, please sign in again.',
+        msg: 'Invalid or expired token, please sign in again.',
       });
     }
     if (err.name === 'TokenExpiredError') {
