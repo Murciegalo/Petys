@@ -5,7 +5,7 @@ import PrivateRoute from './components/Auth/PrivateRoutes';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 
-const Layout = lazy(() => import('./pages/Layout/Layout'));
+const Layout = lazy(() => import('./pages/FrontLayout/Layout'));
 const Login = lazy(() => import('./pages/Login/Login'));
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword/ForgotPassword'));

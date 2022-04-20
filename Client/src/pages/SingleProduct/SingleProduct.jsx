@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { grabOneItemFromCategory } from '../../redux/pets/pet.selector';
 import { getPetReviewsStarts } from '../../redux/reviews/review.actions';
+import { grabToken } from '../../redux/user/user.selector';
 import {
   Cont,
   Section,
@@ -18,9 +19,10 @@ import {
 const SingleProduct = () => {
   const { category, itemId } = useParams();
   const dispatch = useDispatch();
+  const token = useSelector(grabToken);
   useEffect(() => {
-    dispatch(getPetReviewsStarts(itemId));
-  }, [itemId]);
+    dispatch(getPetReviewsStarts({ itemId, token }));
+  }, [itemId, token]);
 
   const { name, ratingsAvrgSeller, pedigreeM, pedigreeF, description, price, seller, imgs } =
     useSelector(grabOneItemFromCategory(category, itemId))[0];

@@ -16,6 +16,7 @@ const INITIAL_STATE = {
   role: '',
   profile: null,
   isAuth: false,
+  token: '',
   loading: false,
   error: null,
   alert: false,
@@ -36,8 +37,9 @@ export const userReducer = (state = INITIAL_STATE, action) => {
     case REGISTER_USER_SUCCESS:
       return {
         ...state,
-        user: payload,
-        role: payload?.role,
+        user: payload.user,
+        role: payload.user.role,
+        token: payload.token,
         isAuth: true,
         loading: false,
         error: null,
@@ -53,6 +55,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         user: null,
         role: '',
         profile: null,
+        token: '',
         isAuth: false,
         loading: false,
         error: null,
@@ -64,6 +67,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         user: null,
+        token: '',
         role: '',
         isAuth: false,
         loading: false,

@@ -9,6 +9,6 @@ const PrivateRoute = () => {
   const role = useSelector(grabRole);
   console.log('ROLE', role);
 
-  return isAuth ? Outlet : <Navigate to="/login" state={{ from: location }} replace={true} />;
+  return isAuth ? <Outlet /> : <Navigate to="/login" state={{ from: location }} replace={true} />;
 };
 export default PrivateRoute;
