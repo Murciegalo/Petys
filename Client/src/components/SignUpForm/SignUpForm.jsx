@@ -22,21 +22,21 @@ export const SignUpForm = ({
             type="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Fullname"
+            placeholder="fullname"
             required
           />
           <Input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@example.com"
+            placeholder="email@example.com"
             required
           />
           <Input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="••••••••"
+            placeholder="password"
             minLength="8"
             required
           />
@@ -44,7 +44,7 @@ export const SignUpForm = ({
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            placeholder="you@example.com"
+            placeholder="confirm your password"
             required
           />
           <Button btnType={TypeBtn.signInUp}>Sign Up</Button>

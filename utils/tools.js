@@ -25,13 +25,14 @@ exports.sendToken = (token, user, statusCode, res) => {
     //prevent cross-site attacks
     // cookie can't be mofified/ deleted or tampered with
     httpOnly: true,
+    Secure: true,
   };
   if (process.env.NODE_ENV == 'production') {
     cookieOptions.secure = true;
   }
   //REMOVE password from response obj
   user.password = undefined;
-  // res.cookie('jwt', token, cookieOptions);
+
   return res.cookie('jwt', token, cookieOptions).status(statusCode).json({
     status: 'success',
     token,

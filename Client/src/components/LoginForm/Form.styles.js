@@ -32,7 +32,7 @@ export const Input = styled.input`
   margin-bottom: 1rem;
   padding: 0.5rem 1rem;
   background: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: inherit;
   outline: none;
   border: none;

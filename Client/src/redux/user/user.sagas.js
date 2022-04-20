@@ -9,10 +9,10 @@ import {
   logoutUserFailed,
 } from './user.actions';
 import axios from '../../api/axios';
+
 export function* registerAsync({ payload }) {
   try {
     const res = yield axios.post('/user/signup', payload);
-    console.log('Regsiter', res.data.user);
     yield put(registerUserSuccess(res.data.user));
   } catch (err) {
     yield put(registerUserFailed(err.response.data));

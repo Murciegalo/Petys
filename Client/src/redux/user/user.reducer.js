@@ -13,9 +13,10 @@ import {
 
 const INITIAL_STATE = {
   user: null,
+  role: '',
+  profile: null,
   isAuth: false,
   loading: false,
-  profile: null,
   error: null,
   alert: false,
 };
@@ -26,7 +27,6 @@ export const userReducer = (state = INITIAL_STATE, action) => {
   switch (type) {
     case LOGIN_USER_STARTS:
     case REGISTER_USER_STARTS:
-    case LOGOUT_USER_START:
       return {
         ...state,
         user: null,
@@ -40,20 +40,27 @@ export const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         user: payload,
+        role: payload?.role,
         isAuth: true,
         loading: false,
         error: null,
         alert: true,
       };
+    case LOGOUT_USER_START:
+      return {
+        ...state,
+        loading: true,
+      };
     case LOGOUT_USER_SUCCESS:
       return {
         ...state,
         user: null,
+        role: '',
         profile: null,
         isAuth: false,
         loading: false,
         error: null,
-        alert: true,
+        alert: false,
       };
     case LOGIN_USER_FAILED:
     case REGISTER_USER_FAILED:
@@ -61,10 +68,11 @@ export const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         user: null,
+        role: '',
         isAuth: false,
         loading: false,
         error: payload,
-        alert: true,
+        alert: false,
       };
     case REMOVE_ALERT:
       return {

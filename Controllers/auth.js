@@ -43,7 +43,6 @@ exports.signin = async (req, res) => {
     if (!user || !(await user.correctPassword(password, user.password))) {
       return res.status(404).send({ msg: 'Invalid user or password!' });
     }
-
     const token = signToken(user._id);
     sendToken(token, user, 201, res);
   } catch (err) {
@@ -186,9 +185,13 @@ exports.protect = async (req, res, next) => {
       return res.status(401).json({ msg: "Sorry, user don't exist anymore" });
     }
     if (user.changedPasswordAfter(decoded.iat)) {
-      return res
-        .status(401)
-        .json({ msg: 'Password recently changed, please sign in again' });
+      return humanErrors(
+        res,
+        401,
+        'fail',
+        'Unauthorized',
+        'Password recently changed, please sign in again'
+      );
     }
     req.user = user;
     next();
