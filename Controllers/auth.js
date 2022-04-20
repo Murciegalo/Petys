@@ -41,7 +41,13 @@ exports.signin = async (req, res) => {
     const user = await User.findOne({ email }).select('+password');
 
     if (!user || !(await user.correctPassword(password, user.password))) {
-      return res.status(404).send({ msg: 'Invalid user or password!' });
+      return humanErrors(
+        res,
+        404,
+        'Failed',
+        'Not Found',
+        'Sorry, invalid email or password'
+      );
     }
     const token = signToken(user._id);
     sendToken(token, user, 201, res);

@@ -30,10 +30,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         user: null,
-        isAuth: false,
         loading: true,
-        profile: null,
-        error: null,
       };
     case LOGIN_USER_SUCCESS:
     case REGISTER_USER_SUCCESS:
@@ -44,7 +41,6 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         isAuth: true,
         loading: false,
         error: null,
-        alert: true,
       };
     case LOGOUT_USER_START:
       return {
@@ -72,7 +68,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         isAuth: false,
         loading: false,
         error: payload,
-        alert: false,
+        alert: true,
       };
     case REMOVE_ALERT:
       return {

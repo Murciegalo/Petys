@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { loginStart, removeAlert } from '../../redux/user/user.actions';
+import { loginStart } from '../../redux/user/user.actions';
 import { grabAuth } from '../../redux/user/user.selector';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 
@@ -14,7 +14,8 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginStart(email, password));
-    setTimeout(() => dispatch(removeAlert()), 1000);
+    setEmail('');
+    setPassword('');
   };
 
   const navigation = !isAuth ? (

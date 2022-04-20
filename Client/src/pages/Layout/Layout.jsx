@@ -4,7 +4,7 @@ import GiftBoxes from '../../components/GiftBoxes/GiftBoxes';
 import Stories from '../../components/Storiess/Stories';
 import AboutUs from '../../components/AboutUs/AboutUs';
 
-const Home = () => {
+const Layout = () => {
   return (
     <>
       <FloatCover />
@@ -15,4 +15,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Layout;
