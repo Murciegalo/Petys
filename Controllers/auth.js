@@ -56,6 +56,7 @@ exports.signin = async (req, res) => {
   }
 };
 
+// res.status(200).clearCookies('name')
 exports.logout = (req, res) => {
   res.cookie('jwt', 'log user out', {
     expires: new Date(Date.now() + 10 * 1000),

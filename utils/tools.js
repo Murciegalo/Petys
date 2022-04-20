@@ -25,8 +25,6 @@ exports.sendToken = (token, user, statusCode, res) => {
     //prevent cross-site attacks
     // cookie can't be mofified/deleted/tampered with
     httpOnly: true,
-    sameSite: 'None',
-    secure: true,
   };
   if (process.env.NODE_ENV == 'production') {
     cookieOptions.secure = true;
