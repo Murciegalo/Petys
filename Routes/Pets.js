@@ -19,8 +19,8 @@ router.use('/:petId/reviews', reviewRouter);
 //App
 router.get('/', getAllPets);
 
-router.use(isLoggedIn);
 router.use(protect);
+
 router.get('/:id', getPet);
 router.get('/loc/:location', getPetByLocation);
 router.post('/', restrictTo('seller', 'admin'), createPet);

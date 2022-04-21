@@ -55,19 +55,18 @@ export const Logo = styled(Link)`
   }
 `;
 
-export const TextItem = styled.span`
+export const TextItem = styled(Link)`
   display: flex;
-  margin: 0 auto;
+  align-items: center;
   font-size: 25px;
   font-weight: lighter;
+  text-decoration: none;
+  color: white;
+  padding: 5px;
   &: hover {
-    color: ${({ color }) => color};
-    font-weight: bold;
     cursor: pointer;
-  }
-  a {
-    text-decoration: none;
-    color: white;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
   }
 `;
 
@@ -110,4 +109,9 @@ export const CartNum = styled.span`
   font-size: 12px;
   color: aliceblue;
   transition: 0.5s easy-in-out;
+`;
+
+export const Image = styled.img`
+  padding: 5px;
+  src: ${({ src }) => src};
 `;

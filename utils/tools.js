@@ -21,9 +21,7 @@ exports.filterObj = (obj, ...str) => {
 
 exports.sendToken = (token, user, statusCode, res) => {
   const cookieOptions = {
-    expires: new Date(
-      Date.now() + process.env.JWT_COOKIES_EXPIRES * 60 * 60 * 24
-    ),
+    expires: new Date(Date.now() + parseInt(process.env.JWT_COOKIES_EXPIRES)),
     //prevent cross-site attacks
     // cookie can't be mofified/deleted/tampered with
     httpOnly: true,
@@ -40,18 +38,3 @@ exports.sendToken = (token, user, statusCode, res) => {
     user,
   });
 };
-
-// priceDiscount: {
-//   type: Number,
-//   validate: {
-//     // validator gets applied on NEW doc creation
-//     validator: function (valueInput) {
-//       return valueInput < this.price;
-//     },
-//     message:
-//       'Please, discount price ({VALUE}) must be lower than regular price',
-//   },
-// },
-// petSchema.virtual('totalDiscount').get(function () {
-//   return this.price * this.priceDiscount;
-// });

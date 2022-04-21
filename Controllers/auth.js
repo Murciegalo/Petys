@@ -50,6 +50,7 @@ exports.signin = async (req, res) => {
       );
     }
     const token = signToken(user._id);
+    // req.session.user = user;
     sendToken(token, user, 201, res);
   } catch (err) {
     catchError(err, res);
@@ -66,33 +67,33 @@ exports.logout = (req, res) => {
 };
 
 //CHECK USER SESSION ACTIVE OR NOT
-exports.isLoggedIn = async (req, res, next) => {
-  if (req.cookies.jwt) {
-    try {
-      // Verify Token
-      const decoded = await promisify(jwt.verify)(
-        req.cookies.jwt,
-        process.env.S
-      );
-      // User exists?
-      const currentUser = await User.findById(decoded.id);
-      if (!currentUser) {
-        return next();
-      }
-      // User exists so I check if password was changed after issue jwt
-      if (currentUser.changedPasswordAfter(decoded.iat)) {
-        return next();
-      }
-      // There is a logged In user
-      res.locals.user = currentUser;
-      return next();
-    } catch (err) {
-      //to be checked
-      return next();
-    }
-  }
-  return next();
-};
+// exports.isLoggedIn = async (req, res, next) => {
+//   if (req.cookies.jwt) {
+//     try {
+//       // Verify Token
+//       const decoded = await promisify(jwt.verify)(
+//         req.cookies.jwt,
+//         process.env.S
+//       );
+//       // User exists?
+//       const currentUser = await User.findById(decoded.id);
+//       if (!currentUser) {
+//         return next();
+//       }
+//       // User exists so I check if password was changed after issue jwt
+//       if (currentUser.changedPasswordAfter(decoded.iat)) {
+//         return next();
+//       }
+//       // There is a logged In user
+//       res.locals.user = currentUser;
+//       return next();
+//     } catch (err) {
+//       //to be checked
+//       return next();
+//     }
+//   }
+//   return next();
+// };
 
 exports.forgotPassword = async (req, res, next) => {
   try {

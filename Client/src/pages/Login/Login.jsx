@@ -27,7 +27,7 @@ const Login = () => {
       setPassword={setPassword}
     />
   ) : (
-    <Navigate to="/me" replace={true} />
+    <Navigate to="/home" replace={true} />
   );
   return navigation;
 };

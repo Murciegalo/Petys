@@ -30,7 +30,6 @@ router.post('/forgotPassword', forgotPassword);
 router.patch('/resetPassword/:token', resetPassword);
 
 router.use(protect);
-// router.use(isLoggedIn);
 
 router.get('/me', getMe, getUser);
 router.patch('/updateMe', updateMe);

@@ -10,7 +10,6 @@ const {
 
 const router = express.Router({ mergeParams: true });
 
-// router.use(isLoggedIn);
 router.get('/', getAllReviews);
 
 router.use(protect);

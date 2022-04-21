@@ -46,6 +46,7 @@ app.use(
 //TESTing MIDDLEWARE
 app.use((req, res, next) => {
   console.log('Cookies', req.cookies);
+  console.log('SESSION', req.session);
   next();
 });
 
