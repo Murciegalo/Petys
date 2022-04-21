@@ -7,7 +7,7 @@ export const Cont = styled.div`
   margin: 0px auto;
 `;
 
-export const Wrap = styled.div`
+export const Wrap = styled.section`
   padding-top: 4rem;
   display: grid;
   grid-template-columns: 68% 30%;

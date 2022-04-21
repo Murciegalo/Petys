@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Button, TypeBtn } from '../../components/Button/Button';
 import { grabOneItemFromCategory } from '../../redux/pets/pet.selector';
 import { getPetReviewsStarts } from '../../redux/reviews/review.actions';
 import { grabToken } from '../../redux/user/user.selector';
@@ -17,6 +18,7 @@ import {
 } from './SingleProduct.styles';
 
 const SingleProduct = () => {
+  const navigate = useNavigate();
   const { category, itemId } = useParams();
   const dispatch = useDispatch();
   const token = useSelector(grabToken);
@@ -29,6 +31,9 @@ const SingleProduct = () => {
 
   return (
     <Cont>
+      <Button onClick={() => navigate(-1)} btnType={TypeBtn.signInUp}>
+        Back
+      </Button>
       <Wrap>
         <GridPics>{imgs.length > 0 && imgs.map((el, I) => <Pic key={I} src={el} />)}</GridPics>
         <Section>
