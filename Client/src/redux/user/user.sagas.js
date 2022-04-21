@@ -19,8 +19,8 @@ import axios from '../../api/axios';
 
 export function* activeSessionAsync() {
   try {
-    const res = yield axios.post('/user/isAuth');
-    yield put(activeUserSuccess(res));
+    const res = yield axios.get('/user/isAuth');
+    yield put(activeUserSuccess(res.data));
   } catch (err) {
     yield put(activeUserFailed(err.response.data || err));
   }
@@ -32,9 +32,10 @@ export function* onActiveUserSession() {
 export function* registerAsync({ payload }) {
   try {
     const res = yield axios.post('/user/signup', payload);
+    console.log('RESTING RES', res.data);
     yield put(registerUserSuccess(res.data));
   } catch (err) {
-    yield put(registerUserFailed(err.response.data));
+    yield put(registerUserFailed(err.response.data || err));
   }
 }
 export function* onRegisterUser() {
@@ -46,7 +47,7 @@ export function* loginAsync({ payload }) {
     const res = yield axios.post('/user/signin', payload);
     yield put(loginUserSuccess(res.data));
   } catch (err) {
-    yield put(loginUserFailed(err.response.data));
+    yield put(loginUserFailed(err.response.data || err));
   }
 }
 export function* onLoginUser() {
@@ -58,7 +59,7 @@ export function* logoutAsync() {
     const res = yield axios.get('/user/logout');
     yield put(logoutUserSuccess(res));
   } catch (err) {
-    yield put(logoutUserFailed(err.response.data));
+    yield put(logoutUserFailed(err.response.data || err));
   }
 }
 export function* onLogoutUser() {

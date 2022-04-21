@@ -1,4 +1,6 @@
 exports.catchError = (err, res, msg) => {
+  console.log('ERROR', err);
+  console.log('ERROR', err.name);
   if (process.env.NODE_ENV === 'development') {
     if (err.name === 'CastError') {
       return res.status(404).json({

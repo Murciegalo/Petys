@@ -101,7 +101,7 @@ exports.isLoggedIn = async (req, res, next) => {
         .status(202)
         .json({ auth: true, user: currentUser, token: req.cookies.jwt });
     } catch (err) {
-      catchError(err, res);
+      return catchError(err, res);
     }
   }
   return res

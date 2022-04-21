@@ -29,16 +29,15 @@ router.get('/logout', logout);
 router.post('/forgotPassword', forgotPassword);
 router.patch('/resetPassword/:token', resetPassword);
 
-router.use(protect);
-
 router.get('/isAuth', isLoggedIn);
+router.use(protect);
 
 router.get('/me', getMe, getUser);
 router.patch('/updateMe', updateMe);
 router.delete('/deleteMe', deleteMe);
 router.patch('/updateMyPassword', updatePassword);
 
-router.use(restrictTo('admin'));
+router.use(restrictTo('user'));
 
 router.get('/', getAllUsers);
 router.get('/:id', getUser);

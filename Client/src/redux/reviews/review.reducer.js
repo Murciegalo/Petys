@@ -6,7 +6,7 @@ import {
 
 const INITIAL_STATE = {
   reviews: null,
-  isLoad: false,
+  loading: false,
   error: null,
   alert: false,
 };
@@ -18,19 +18,19 @@ export const reviewReducer = (state = INITIAL_STATE, action) => {
     case GET_ALL_PET_REVIEWS_STARTS:
       return {
         ...state,
-        isLoad: true,
+        loading: true,
       };
     case GET_ALL_PET_REVIEWS_SUCCESS:
       return {
         ...state,
         reviews: payload.reviews,
-        isLoad: false,
+        loading: false,
         error: null,
       };
     case GET_ALL_PET_REVIEWS_FAILED:
       return {
         ...state,
-        isLoad: false,
+        loading: false,
         error: payload,
       };
     default:

@@ -36,5 +36,6 @@ exports.sendToken = (token, user, statusCode, res) => {
     status: 'success',
     token,
     user,
+    auth: true,
   });
 };

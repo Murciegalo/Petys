@@ -40,19 +40,22 @@ export const userReducer = (state = INITIAL_STATE, action) => {
     case ACTIVE_USER_SUCCESS:
       return {
         ...state,
-        isAuth: true,
         loading: false,
+        user: payload.user,
+        role: payload.user.role,
+        token: payload.token,
+        isAuth: payload.auth,
         // TO BE CONTINUED
       };
     case LOGIN_USER_SUCCESS:
     case REGISTER_USER_SUCCESS:
       return {
         ...state,
+        loading: false,
         user: payload.user,
         role: payload.user.role,
         token: payload.token,
-        isAuth: true,
-        loading: false,
+        isAuth: payload.auth,
         error: null,
       };
     case LOGOUT_USER_SUCCESS:

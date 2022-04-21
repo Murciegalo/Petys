@@ -23,6 +23,7 @@ function App() {
   useEffect(() => {
     console.log('CHECK FOR USER SESSION');
     dispatch(activeUserStart());
+    // eslint-disable-next-line
   }, []);
 
   return (
