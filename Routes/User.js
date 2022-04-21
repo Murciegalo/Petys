@@ -11,7 +11,7 @@ const {
 } = require('../Controllers/user');
 const {
   signup,
-  signin,
+  login,
   protect,
   restrictTo,
   forgotPassword,
@@ -24,12 +24,14 @@ const {
 const router = express.Router();
 
 router.post('/signup', signup);
-router.post('/signin', signin);
+router.post('/signin', login);
 router.get('/logout', logout);
 router.post('/forgotPassword', forgotPassword);
 router.patch('/resetPassword/:token', resetPassword);
 
 router.use(protect);
+
+router.get('/isAuth', isLoggedIn);
 
 router.get('/me', getMe, getUser);
 router.patch('/updateMe', updateMe);

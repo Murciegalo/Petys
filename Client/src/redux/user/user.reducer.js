@@ -9,6 +9,9 @@ import {
   LOGOUT_USER_START,
   LOGOUT_USER_SUCCESS,
   REMOVE_ALERT,
+  ACTIVE_USER_STARTS,
+  ACTIVE_USER_SUCCESS,
+  ACTIVE_USER_FAILED,
 } from './types';
 
 const INITIAL_STATE = {
@@ -26,12 +29,20 @@ export const userReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
 
   switch (type) {
+    case ACTIVE_USER_STARTS:
     case LOGIN_USER_STARTS:
     case REGISTER_USER_STARTS:
+    case LOGOUT_USER_START:
       return {
         ...state,
-        user: null,
         loading: true,
+      };
+    case ACTIVE_USER_SUCCESS:
+      return {
+        ...state,
+        isAuth: true,
+        loading: false,
+        // TO BE CONTINUED
       };
     case LOGIN_USER_SUCCESS:
     case REGISTER_USER_SUCCESS:
@@ -43,11 +54,6 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         isAuth: true,
         loading: false,
         error: null,
-      };
-    case LOGOUT_USER_START:
-      return {
-        ...state,
-        loading: true,
       };
     case LOGOUT_USER_SUCCESS:
       return {
@@ -64,6 +70,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
     case LOGIN_USER_FAILED:
     case REGISTER_USER_FAILED:
     case LOGOUT_USER_FAILED:
+    case ACTIVE_USER_FAILED:
       return {
         ...state,
         user: null,
@@ -72,7 +79,6 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         isAuth: false,
         loading: false,
         error: payload,
-        alert: true,
       };
     case REMOVE_ALERT:
       return {

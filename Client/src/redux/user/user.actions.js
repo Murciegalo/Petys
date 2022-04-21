@@ -10,7 +10,16 @@ import {
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAILED,
   REMOVE_ALERT,
+  ACTIVE_USER_SUCCESS,
+  ACTIVE_USER_FAILED,
+  ACTIVE_USER_STARTS,
 } from './types';
+
+export const activeUserStart = () => createAction(ACTIVE_USER_STARTS);
+
+export const activeUserSuccess = (payload) => createAction(ACTIVE_USER_SUCCESS, payload);
+
+export const activeUserFailed = (payload) => createAction(ACTIVE_USER_FAILED, payload);
 
 export const loginStart = (email, password) => createAction(LOGIN_USER_STARTS, { email, password });
 

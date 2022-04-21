@@ -32,7 +32,7 @@ exports.signup = async (req, res) => {
   }
 };
 
-exports.signin = async (req, res) => {
+exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
@@ -67,33 +67,47 @@ exports.logout = (req, res) => {
 };
 
 //CHECK USER SESSION ACTIVE OR NOT
-// exports.isLoggedIn = async (req, res, next) => {
-//   if (req.cookies.jwt) {
-//     try {
-//       // Verify Token
-//       const decoded = await promisify(jwt.verify)(
-//         req.cookies.jwt,
-//         process.env.S
-//       );
-//       // User exists?
-//       const currentUser = await User.findById(decoded.id);
-//       if (!currentUser) {
-//         return next();
-//       }
-//       // User exists so I check if password was changed after issue jwt
-//       if (currentUser.changedPasswordAfter(decoded.iat)) {
-//         return next();
-//       }
-//       // There is a logged In user
-//       res.locals.user = currentUser;
-//       return next();
-//     } catch (err) {
-//       //to be checked
-//       return next();
-//     }
-//   }
-//   return next();
-// };
+exports.isLoggedIn = async (req, res, next) => {
+  if (req.cookies.jwt) {
+    try {
+      // Verify Token
+      const decoded = await promisify(jwt.verify)(
+        req.cookies.jwt,
+        process.env.S
+      );
+      // User exists?
+      const currentUser = await User.findById(decoded.id);
+      if (!currentUser) {
+        return humanErrors(
+          res,
+          404,
+          'Failed',
+          'User Not Found',
+          'Sorry, user does not exists'
+        );
+      }
+      // User exists so I check if password was changed after issue jwt
+      if (currentUser.changedPasswordAfter(decoded.iat)) {
+        return humanErrors(
+          res,
+          404,
+          'Failed',
+          'Not Found',
+          'Your password was changed, please login again'
+        );
+      }
+      res.locals.user = currentUser;
+      return res
+        .status(202)
+        .json({ auth: true, user: currentUser, token: req.cookies.jwt });
+    } catch (err) {
+      catchError(err, res);
+    }
+  }
+  return res
+    .status(401)
+    .json({ auth: false, msg: 'User Not Authenticated, No Active Session' });
+};
 
 exports.forgotPassword = async (req, res, next) => {
   try {

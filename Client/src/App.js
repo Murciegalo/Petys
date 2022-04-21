@@ -1,9 +1,11 @@
-import React, { lazy, Suspense } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Loading from './components/OnLoading/OnLoading';
 import PrivateRoute from './components/Auth/PrivateRoutes';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
+import { activeUserStart } from './redux/user/user.actions';
 
 const Layout = lazy(() => import('./pages/FrontLayout/Layout'));
 const Login = lazy(() => import('./pages/Login/Login'));
@@ -17,6 +19,12 @@ const Home = lazy(() => import('./pages/Home/Home'));
 const Error = lazy(() => import('./pages/Error/Error'));
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log('CHECK FOR USER SESSION');
+    dispatch(activeUserStart());
+  }, []);
+
   return (
     <>
       <Suspense fallback={<Loading />}>

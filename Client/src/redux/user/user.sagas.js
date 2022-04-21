@@ -1,5 +1,10 @@
 import { takeLatest, all, call, put } from 'redux-saga/effects';
-import { LOGIN_USER_STARTS, LOGOUT_USER_START, REGISTER_USER_STARTS } from './types';
+import {
+  ACTIVE_USER_STARTS,
+  LOGIN_USER_STARTS,
+  LOGOUT_USER_START,
+  REGISTER_USER_STARTS,
+} from './types';
 import {
   registerUserSuccess,
   registerUserFailed,
@@ -7,8 +12,22 @@ import {
   loginUserFailed,
   logoutUserSuccess,
   logoutUserFailed,
+  activeUserSuccess,
+  activeUserFailed,
 } from './user.actions';
 import axios from '../../api/axios';
+
+export function* activeSessionAsync() {
+  try {
+    const res = yield axios.post('/user/isAuth');
+    yield put(activeUserSuccess(res));
+  } catch (err) {
+    yield put(activeUserFailed(err.response.data || err));
+  }
+}
+export function* onActiveUserSession() {
+  yield takeLatest(ACTIVE_USER_STARTS, activeSessionAsync);
+}
 
 export function* registerAsync({ payload }) {
   try {
@@ -47,5 +66,10 @@ export function* onLogoutUser() {
 }
 
 export function* userSaga() {
-  yield all([call(onLoginUser), call(onRegisterUser), call(onLogoutUser)]);
+  yield all([
+    call(onActiveUserSession),
+    call(onRegisterUser),
+    call(onLoginUser),
+    call(onLogoutUser),
+  ]);
 }
