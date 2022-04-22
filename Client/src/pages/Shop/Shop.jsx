@@ -12,10 +12,12 @@ const Shop = () => {
     // eslint-disable-next-line
   }, []);
   return (
-    <Routes>
-      <Route index element={<CategoriesPreviewCont />} />
-      <Route path=":category" element={<CategoryCont />} />
-    </Routes>
+    <div style={{ 'background-color': '#f2f7ff' }}>
+      <Routes>
+        <Route index element={<CategoriesPreviewCont />} />
+        <Route path=":category" element={<CategoryCont />} />
+      </Routes>
+    </div>
   );
 };
 
