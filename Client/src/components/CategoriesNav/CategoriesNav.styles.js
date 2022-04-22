@@ -2,6 +2,17 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Cont = styled.div`
+  position: relative;
+  background: linear-gradient(to right, #8ed4e8 0, #8f7be8 100%);
+  background-color: rgba(0, 0, 0, 0);
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-image: linear-gradient(to right, rgb(142, 212, 232) 0px, rgb(143, 123, 232) 100%);
+  background-size: auto;
+  background-origin: padding-box;
+  background-clip: border-box;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 `;

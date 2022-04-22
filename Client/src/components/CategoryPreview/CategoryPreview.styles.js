@@ -4,7 +4,7 @@ export const Cont = styled.div``;
 
 export const Header = styled.h2`
   text-align: center;
-  color: white;
+  color: black;
   font-size: 35px;
   font-weight: 300;
 `;

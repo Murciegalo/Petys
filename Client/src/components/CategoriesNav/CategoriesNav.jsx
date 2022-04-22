@@ -8,7 +8,7 @@ const Categories = ({ categories }) => {
     Object.keys(categories).map((el, I) => {
       let text = formatText(el);
       return (
-        <Option key={el} to={el}>
+        <Option key={I} to={el}>
           {text}
         </Option>
       );
