@@ -6,14 +6,14 @@ const Card = ({ category, product }) => {
   return (
     <Cont class="snip1104">
       <ContImg>
-        <Img src={product.imgCover} alt="sample35" />
-        <Caption>
-          <Link to={`/${category}/${product._id}`}>
+        <Link to={`/${category}/${product._id}`}>
+          <Img src={product.imgCover} alt="sample35" />
+          <Caption>
             <Title>
               Buy <Text> Pet</Text>
             </Title>
-          </Link>
-        </Caption>
+          </Caption>
+        </Link>
       </ContImg>
     </Cont>
   );
