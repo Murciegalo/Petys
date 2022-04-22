@@ -70,11 +70,17 @@ exports.logout = (req, res) => {
 exports.isLoggedIn = async (req, res, next) => {
   if (req.cookies.jwt) {
     try {
+      let decoded;
       // Verify Token
-      const decoded = await promisify(jwt.verify)(
-        req.cookies.jwt,
-        process.env.S
-      );
+      if (await promisify(jwt.verify)(req.cookies.jwt, process.env.S)) {
+        decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.S);
+      } else {
+        res.cookie('jwt', 'log user out', {
+          expires: new Date(Date.now() + 10 * 1000),
+          httpOnly: true,
+        });
+      }
+
       // User exists?
       const currentUser = await User.findById(decoded.id);
       if (!currentUser) {
