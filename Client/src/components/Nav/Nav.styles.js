@@ -2,31 +2,32 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Cont = styled.div`
+  position: relative;
+  width: 100%;
+  min-height: 135px;
   margin: 0 auto;
-  width: 90%;
+  background-color: #8cd0e3;
 `;
 export const Wrapp = styled.div`
-  height: 100%;
-  margin: 0 auto;
-  padding: 10px 20px 0px;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: 50%;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 1px;
+  transform: translateX(-50%);
 `;
 
 export const Top = styled.div`
   display: flex;
+  justify-content: end;
+  padding: 1rem 2rem;
   transition: 1s ease-in-out;
 `;
 export const Bottom = styled.div`
   display: flex;
   justify-content: end;
   padding: 0px 20px 5px;
-  border-bottom: 1px solid white;
   font-weight: 600;
   span {
     padding: 5px;
@@ -58,15 +59,15 @@ export const Logo = styled(Link)`
 export const TextItem = styled(Link)`
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 25px;
   font-weight: lighter;
   text-decoration: none;
   color: white;
   padding: 5px;
   &: hover {
+    color: #f5ea77;
     cursor: pointer;
-    border-bottom: 2px solid #fff;
-    border-right: 2px solid #fff;
   }
 `;
 
@@ -76,14 +77,22 @@ export const IconItem = styled(Link)`
   display: flex;
   flex-direction: column;
   font-size: 25px;
+  color: #fff;
   text-decoration: none;
-  color: ${({ color }) => color};
+  text-align: center;
   transition: 0.5s easy-in-out;
 
   &: hover {
+    color: #f5ea77;
     svg {
       cursor: pointer;
       transform: rotate(-10deg);
+      g {
+        path {
+          fill: #f5ea77;
+          color: #f5ea77;
+        }
+      }
     }
   }
   a {
@@ -98,17 +107,26 @@ export const IconItem = styled(Link)`
   }
   svg {
     margin: 0 auto;
+    g {
+      path {
+        fill: #fff;
+      }
+    }
   }
   small {
     font-size: 12px;
   }
 `;
 export const CartNum = styled.span`
-  margin-left: -1px;
-  margin-top: -8px;
-  font-size: 12px;
-  color: aliceblue;
-  transition: 0.5s easy-in-out;
+  background-color: #f5ea77;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 14px;
+  color: #000;
 `;
 
 export const Image = styled.img`

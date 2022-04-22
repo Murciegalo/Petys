@@ -4,7 +4,7 @@ import { Caption, Cont, ContImg, Img, Text, Title } from './Card.styles';
 
 const Card = ({ category, product }) => {
   return (
-    <Cont class="snip1104">
+    <Cont>
       <ContImg>
         <Link to={`/${category}/${product._id}`}>
           <Img src={product.imgCover} alt="sample35" />

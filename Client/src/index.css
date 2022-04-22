@@ -1,19 +1,12 @@
 body {
-  width: 100%;
-  max-width: 1400px;
-  min-width: 727px;
-  box-sizing: border-box;
-  padding: 0 1rem;
+  max-width: 1600px;
   margin: 0 auto;
-  height: 100vh;
+  width: 100%;
+  height: auto !important;
+  position: relative;
+  background-color: #fff !important;
+  opacity: 1 !important;
+  box-sizing: border-box;
   font-family: 'Archer A', 'Archer B', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
     'Droid Sans', 'Helvetica Neue', sans-serif;
-  letter-spacing: 1px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(45deg, rgb(183, 188, 238) 10%, rgb(221, 185, 230) 100%);
-  background: -moz-linear-gradient(45deg, rgb(158, 163, 203) 10%, rgb(232, 197, 241) 100%);
-  background: -webkit-linear-gradient(45deg, 50%, rgb(241, 210, 210) 100%);
-
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#84FFC9", endColorstr="#AAB2FF", GradientType=1 );
 }

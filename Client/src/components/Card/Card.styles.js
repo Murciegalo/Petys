@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Cont = styled.figure`
+  margin: 0;
   position: relative;
   overflow: hidden;
   width: 100%;

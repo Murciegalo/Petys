@@ -6,7 +6,7 @@ import { logoutStart } from '../../redux/user/user.actions';
 import CartMenu from '../CartMenu/CartMenu';
 import { LoginIcon } from '../loginIcon/LoginIcon';
 import { Logout } from '../logout/Logout';
-import { Cont, Wrapp, Top, Bottom, Logo, IconItem, TextItem } from './Nav.styles';
+import { Cont, Wrapp, Top, Bottom, Logo, IconItem, TextItem, CartNum } from './Nav.styles';
 import { ReactComponent as CartSvg } from './cart.svg';
 const Nav = () => {
   const [toogle, setToogle] = useState(false);
@@ -22,17 +22,18 @@ const Nav = () => {
   return (
     <>
       <Cont>
+        <Top>
+          <LoginIcon user={user} isAuth={isAuth} />
+          <IconItem to="#" onClick={() => setToogle(!toogle)} color="white">
+            <CartSvg />
+            <small>bag</small>
+            <CartNum>1</CartNum>
+          </IconItem>
+          <CartMenu toogle={toogle} setToogle={setToogle} />
+        </Top>
         <Wrapp>
           <Logo to="/">PETXys</Logo>
-          <TextItem to="/shop">Shop</TextItem>
-          <Top>
-            <LoginIcon user={user} isAuth={isAuth} />
-            <IconItem to="#" onClick={() => setToogle(!toogle)} color="white">
-              <CartSvg fill={'white'} />
-              <span>0</span>
-            </IconItem>
-            <CartMenu toogle={toogle} setToogle={setToogle} />
-          </Top>
+          <TextItem to="/shop">/ Shop /</TextItem>
         </Wrapp>
         <Bottom>
           <Logout handleLogout={handleLogout} isAuth={isAuth} isLoading={isLoading} />
