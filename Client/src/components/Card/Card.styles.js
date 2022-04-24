@@ -43,15 +43,15 @@ export const Img = styled.img`
 export const Caption = styled.figcaption`
   position: absolute;
   height: 50px;
-  top: 70%;
-  left: 0;
+  top: 75%;
+  left: 50%;
   bottom: 0;
   right: 0;
+  transform: translateX(-50%);
 `;
 
 export const Title = styled.h2`
   display: none;
-  position: absolute;
   background: #000000;
   width: 100px;
   margin: 0;

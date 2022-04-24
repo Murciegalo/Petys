@@ -15,6 +15,8 @@ import {
   Text,
   Description,
   Total,
+  ContBtn,
+  Btn,
 } from './SingleProduct.styles';
 
 const SingleProduct = () => {
@@ -29,6 +31,9 @@ const SingleProduct = () => {
   const { name, ratingsAvrgSeller, pedigreeM, pedigreeF, description, price, seller, imgs } =
     useSelector(grabOneItemFromCategory(category, itemId))[0];
 
+  const handleAdd = () => {
+    console.log('added');
+  };
   return (
     <Cont>
       <Button onClick={() => navigate(-1)} btnType={TypeBtn.signInUp}>
@@ -48,6 +53,7 @@ const SingleProduct = () => {
           <Text>{ratingsAvrgSeller}</Text>
         </Section>
       </Wrap>
+      <Btn onClick={handleAdd}>Add to Bag</Btn>
     </Cont>
   );
 };

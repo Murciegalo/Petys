@@ -48,3 +48,12 @@ export const Title = styled.h2``;
 export const Text = styled.span``;
 export const Description = styled.p``;
 export const Total = styled.h3``;
+
+export const Btn = styled.button`
+  margin: 0;
+  padding: 12px 10px;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 #73d2e6;
+  max-width: 200px;
+  background: #f5ea77;
+`;
