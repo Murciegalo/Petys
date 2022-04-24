@@ -3,9 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { BsXCircleFill } from 'react-icons/bs';
 import { Absol, Section, TextItem, IconItem, CheckoutList } from './CartMenu.styles';
 import { Button, TypeBtn } from '../Button/Button';
+import { getCartItems } from '../../redux/cart/cart.selector';
+import { useSelector } from 'react-redux';
 
 const CartMenu = ({ toogle, setToogle }) => {
   const navigate = useNavigate();
+  const cart = useSelector(getCartItems);
   const handleCheckout = () => {
     setToogle(false);
     navigate('/cart');

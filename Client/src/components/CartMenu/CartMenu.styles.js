@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Absol = styled.div`
   position: absolute;
   top: 5rem;
-  right: -3rem;
+  right: 0;
   padding: 1.4rem;
   width: calc(18rem + 5%);
   min-width: 20rem;

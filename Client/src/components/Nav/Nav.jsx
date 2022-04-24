@@ -8,11 +8,13 @@ import { LoginIcon } from '../loginIcon/LoginIcon';
 import { Logout } from '../logout/Logout';
 import { Cont, Wrapp, Top, Bottom, Logo, IconItem, TextItem, CartNum } from './Nav.styles';
 import { ReactComponent as CartSvg } from './cart.svg';
+import { getCartItems } from '../../redux/cart/cart.selector';
 const Nav = () => {
   const [toogle, setToogle] = useState(false);
   const user = useSelector(grabUser);
   const isAuth = useSelector(grabAuth);
   const isLoading = useSelector(grabLoading);
+  const cart = useSelector(getCartItems);
   const dispatch = useDispatch();
 
   const handleLogout = (e) => {
@@ -27,7 +29,7 @@ const Nav = () => {
           <IconItem to="#" onClick={() => setToogle(!toogle)} color="white">
             <CartSvg />
             <small>bag</small>
-            <CartNum>1</CartNum>
+            <CartNum>{cart.length}</CartNum>
           </IconItem>
           <CartMenu toogle={toogle} setToogle={setToogle} />
         </Top>
