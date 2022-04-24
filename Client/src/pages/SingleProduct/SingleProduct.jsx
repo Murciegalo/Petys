@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button, TypeBtn } from '../../components/Button/Button';
+import { addItemCart } from '../../redux/cart/cart.actions';
 import { grabOneItemFromCategory } from '../../redux/pets/pet.selector';
 import { getPetReviewsStarts } from '../../redux/reviews/review.actions';
 import { grabToken } from '../../redux/user/user.selector';
@@ -15,7 +16,6 @@ import {
   Text,
   Description,
   Total,
-  ContBtn,
   Btn,
 } from './SingleProduct.styles';
 
@@ -26,13 +26,25 @@ const SingleProduct = () => {
   const token = useSelector(grabToken);
   useEffect(() => {
     dispatch(getPetReviewsStarts({ itemId, token }));
+    // eslint-disable-next-line
   }, [itemId, token]);
 
-  const { name, ratingsAvrgSeller, pedigreeM, pedigreeF, description, price, seller, imgs } =
-    useSelector(grabOneItemFromCategory(category, itemId))[0];
+  const {
+    name,
+    ratingsAvrgSeller,
+    pedigreeM,
+    pedigreeF,
+    description,
+    price,
+    seller,
+    imgs,
+    imgCover,
+  } = useSelector(grabOneItemFromCategory(category, itemId))[0];
 
   const handleAdd = () => {
-    console.log('added');
+    let sellerName = seller[0].name;
+    let photo = seller[0].photo;
+    dispatch(addItemCart({ itemId, name, price, imgCover, sellerName, photo }));
   };
   return (
     <Cont>
