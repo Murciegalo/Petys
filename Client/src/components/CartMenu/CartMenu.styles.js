@@ -6,31 +6,43 @@ export const Absol = styled.div`
   top: 5rem;
   right: 0;
   padding: 1.4rem;
-  width: calc(18rem + 5%);
+  width: calc(20rem + 5%);
   min-width: 20rem;
   background-color: white;
   border-radius: 20px;
-  opacity: 0.8;
   z-index: 100;
   display: ${({ $display }) => !$display && 'none'};
   transform: ${({ $display }) => ($display ? 'translateX(0)' : 'translateX(25rem)')};
 `;
 
 export const Section = styled.div`
+  position: relative;
   display: flex;
+  flex-direction: ${({ $column }) => ($column ? $column : 'row')};
   align-items: center;
   justify-content: ${(props) => props.$justify};
+  padding: 10px 0;
+  ::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #8cd0e3;
+    background: linear-gradient(to right, #8cd0e3 0, #f08ccd 100%);
+  }
 `;
 export const TextItem = styled.span`
-  padding: 2%;
-  font-size: 30px;
+  display: flex;
+  align-items: center;
+  font-size: ${({ size }) => size};
   font-weight: 300;
+  text-transform: uppercase;
   &: hover {
     color: ${({ color }) => color};
-    font-weight: bold;
     cursor: pointer;
-    border-bottom: 1px solid aliceblue;
-    border-right: 1px solid aliceblue;
   }
   a {
     text-decoration: none;
@@ -61,12 +73,6 @@ export const IconItem = styled.li`
   }
 `;
 
-export const CheckoutList = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-`;
 export const Btn = styled(Link)`
   margin: 1rem;
   padding: 0.5rem;
