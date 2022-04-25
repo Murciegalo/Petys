@@ -57,3 +57,13 @@ export const CartBtn = styled(BaseBtn)`
     color: white;
   }
 `;
+
+export const cartMenuItemBtn = styled(BaseBtn)`
+  background: #8cd0e3;
+  background: linear-gradient(to right, #8cd0e3 0, #f08ccd 100%);
+  color: #fff;
+  position: absolute;
+  bottom: 8%;
+  left: 82%;
+  padding: 0.3rem 0.5rem;
+`;

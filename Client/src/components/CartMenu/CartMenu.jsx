@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
 import { Absol, Section, TextItem } from './CartMenu.styles';
@@ -10,11 +10,14 @@ import { CartMenuItem } from '../CartMenuItem/CartMenuItem';
 const CartMenu = ({ toogle, setToogle }) => {
   const navigate = useNavigate();
   const cart = useSelector(getCartItems);
+  const [totalPrice, setTotalPrice] = useState(0);
   const handleCheckout = () => {
     setToogle(false);
     navigate('/cart');
   };
-  const display = cart.length > 0 && cart.map((el) => <CartMenuItem key={el.itemId} el={el} />);
+  const display =
+    cart.length > 0 &&
+    cart.map((el) => <CartMenuItem key={el.itemId} el={el} setTotalPrice={setTotalPrice} />);
   return (
     <Absol $display={toogle}>
       <Section $justify="space-between">
@@ -32,8 +35,8 @@ const CartMenu = ({ toogle, setToogle }) => {
       </Section>
       <Section $column="column">{display}</Section>
       <Section $justify="space-between">
-        <TextItem>TOTAL</TextItem>
-        <TextItem>Money</TextItem>
+        <TextItem>Total:</TextItem>
+        <TextItem>${totalPrice}</TextItem>
       </Section>
       <Section $justify="end">
         <Button btnType={TypeBtn.cart} onClick={handleCheckout}>

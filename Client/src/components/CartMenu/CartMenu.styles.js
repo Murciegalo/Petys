@@ -29,7 +29,7 @@ export const Section = styled.div`
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 1px;
+    height: 2px;
     background: #8cd0e3;
     background: linear-gradient(to right, #8cd0e3 0, #f08ccd 100%);
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BaseBtn, NavBtn, CheckoutBtn, LSBtn, CartBtn } from './Button.styles';
+import { BaseBtn, NavBtn, CheckoutBtn, LSBtn, CartBtn, cartMenuItemBtn } from './Button.styles';
 
 export const TypeBtn = {
   base: 'base',
@@ -7,6 +7,7 @@ export const TypeBtn = {
   checkout: 'checkout',
   signInUp: 'signInUp',
   cart: 'cart',
+  cartMenuItemBtn: 'cartMenuItemBtn',
 };
 
 const getBtn = (btnType = TypeBtn.base) =>
@@ -16,6 +17,7 @@ const getBtn = (btnType = TypeBtn.base) =>
     [TypeBtn.checkout]: CheckoutBtn,
     [TypeBtn.signInUp]: LSBtn,
     [TypeBtn.cart]: CartBtn,
+    [TypeBtn.cartMenuItemBtn]: cartMenuItemBtn,
   }[btnType]);
 
 export const Button = ({ children, btnType, ...otherProps }) => {
