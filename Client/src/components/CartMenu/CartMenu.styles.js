@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Absol = styled.div`
@@ -37,6 +36,7 @@ export const Section = styled.div`
 export const TextItem = styled.span`
   display: flex;
   align-items: center;
+  padding-right: ${({ $padding }) => ($padding ? $padding : '0')};
   font-size: ${({ size }) => size};
   font-weight: 300;
   text-transform: uppercase;
@@ -50,44 +50,11 @@ export const TextItem = styled.span`
   }
 `;
 
-export const IconItem = styled.li`
-  display: flex;
-  margin-left: 20px;
-  color: ${({ color }) => color};
-  font-size: 20px;
-
-  &: hover {
-    svg {
-      cursor: pointer;
-      transform: scale(1.5);
-    }
-  }
-  a {
-    text-decoration: none;
-    color: white;
-  }
-  span {
-    position: absolute;
-    top: -8px;
-    right: -14px;
-  }
-`;
-
-export const Btn = styled(Link)`
-  margin: 1rem;
-  padding: 0.5rem;
-  background: none;
-  font-size: 1rem;
-  font-family: inherit;
-  border: 2px solid #000;
-  border-radius: 5px;
-  transition: 0.2s ease-in-out;
-  text-decoration: none;
-  color: black;
-  :hover {
-    cursor: pointer;
-    background-color: black;
-    border: 2px solid #fff;
-    color: white;
-  }
+export const Flag = styled.p`
+  text-align: center;
+  background: linear-gradient(to right, #8cd0e3 0, #f08ccd 100%);
+  color: #fff;
+  line-height: 25px;
+  font-weight: 400;
+  font-size: 0.8rem;
 `;

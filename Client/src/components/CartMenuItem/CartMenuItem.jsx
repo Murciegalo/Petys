@@ -1,12 +1,17 @@
 import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { removeItemCart } from '../../redux/cart/cart.actions';
 import { Button, TypeBtn } from '../Button/Button';
 import { Cont, ContImg, Img, Desc, Text, Price, Quant } from './CartMenuItem.styles';
 
-export const CartMenuItem = ({ el: { name, price, imgCover }, setTotalPrice }) => {
+export const CartMenuItem = ({ el: { itemId, name, price, imgCover }, setTotalPrice }) => {
+  const dispatch = useDispatch();
   useEffect(() => {
     setTotalPrice((prevState) => prevState + price);
-  }, [price]);
-
+  }, []);
+  const handleDelete = (id) => {
+    dispatch(removeItemCart(id));
+  };
   return (
     <Cont>
       <ContImg>
@@ -17,7 +22,9 @@ export const CartMenuItem = ({ el: { name, price, imgCover }, setTotalPrice }) =
         <Price>${price}</Price>
         <Quant>1</Quant>
       </Desc>
-      <Button btnType={TypeBtn.cartMenuItemBtn}>Remove</Button>
+      <Button onClick={() => handleDelete(itemId)} btnType={TypeBtn.cartMenuItemBtn}>
+        Remove
+      </Button>
     </Cont>
   );
 };
