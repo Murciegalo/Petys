@@ -1,6 +1,6 @@
-import React from 'react'
-import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
-import { 
+import React from 'react';
+import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from 'react-icons/bs';
+import {
   Cont,
   Left,
   Header,
@@ -10,8 +10,8 @@ import {
   Subs,
   Input,
   Btn,
-  TextSubs
-} from './Footer.styles'
+  TextSubs,
+} from './Footer.styles';
 
 const Footer = () => {
   return (
@@ -29,15 +29,16 @@ const Footer = () => {
       <Right>
         <Header>Petxys Shop Newsletter</Header>
         <Subs>
-          <Input placeholder='Your email address'/>
+          <Input placeholder="Your email address" />
           <Btn>Subscribe</Btn>
         </Subs>
-        <TextSubs>Subscribe to our newsletter and be first to hear
-          about new petxys stuff, petxys advice, events..
+        <TextSubs>
+          Subscribe to our newsletter and be first to hear about new petxys stuff, petxys advice,
+          events..
         </TextSubs>
       </Right>
     </Cont>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

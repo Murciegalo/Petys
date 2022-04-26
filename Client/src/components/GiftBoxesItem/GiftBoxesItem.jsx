@@ -1,16 +1,12 @@
-import React from 'react'
-import {
-  Wrapper,
-  Link,
-  Img
-} from './GiftBoxesItem.styles'
+import React from 'react';
+import { Wrapper, Img } from './GiftBoxesItem.styles';
 
-const GiftBoxesItem = ({el}) => {
-  return <Wrapper>
-    <Link>
-      <Img src={el.img} />
-    </Link>
-  </Wrapper>
-}
+const GiftBoxesItem = ({ el: { img } }) => {
+  return (
+    <Wrapper to="#">
+      <Img src={img} />
+    </Wrapper>
+  );
+};
 
-export default GiftBoxesItem
+export default GiftBoxesItem;

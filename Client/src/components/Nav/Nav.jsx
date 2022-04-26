@@ -5,7 +5,7 @@ import { logoutStart } from '../../redux/user/user.actions';
 import CartMenu from '../CartMenu/CartMenu';
 import { LoginIcon } from '../loginIcon/LoginIcon';
 import { Logout } from '../logout/Logout';
-import { Cont, Wrapp, Top, Bottom, Logo, IconItem, TextItem, CartNum, Flag } from './Nav.styles';
+import { Cont, Wrapp, Top, Bottom, Logo, IconItem, TextItem, CartNum } from './Nav.styles';
 import { ReactComponent as CartSvg } from './cart.svg';
 import { setIsCartOpen } from '../../redux/cart/cart.actions';
 import { selectCartCount } from '../../redux/cart/cart.selector';
