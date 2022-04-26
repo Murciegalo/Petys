@@ -25,20 +25,12 @@ export const Top = styled.div`
   transition: 1s ease-in-out;
 `;
 export const Bottom = styled.div`
-  display: flex;
-  justify-content: end;
-  padding: 0px 20px 5px;
+  position: absolute;
+  top: 112px;
+  right: 10px;
   font-weight: 600;
-  span {
-    padding: 5px;
-    color: white;
-    transition: 1s easy-in-out;
-    :hover {
-      cursor: pointer;
-      font-size: 20px;
-      border-right: 1px solid white;
-      border-bottom: 1px solid white;
-    }
+  a {
+    font-size: 17px;
   }
 `;
 
@@ -65,8 +57,11 @@ export const TextItem = styled(Link)`
   font-weight: lighter;
   text-decoration: none;
   color: #fff;
-  padding: 5px;
+  transition: 1s easy-in-out;
+  padding: 5px 15px;
   &: hover {
+    border-right: 1px solid #f5ea77;
+    border-bottom: 1px solid #f5ea77;
     color: #f5ea77;
     cursor: pointer;
   }

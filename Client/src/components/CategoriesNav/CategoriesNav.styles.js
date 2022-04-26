@@ -42,5 +42,6 @@ export const Option = styled(Link)`
       rgba(0, 0, 0, 0.09) 0px -3px 5px;
     cursor: pointer;
     border: none;
+    color: #f5ea77;
   }
 `;

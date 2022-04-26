@@ -42,8 +42,14 @@ export const LSBtn = styled(BaseBtn)`
   font-size: 1.5rem;
   color: black;
   border: 2px solid #fff;
+  background-color: white;
   :hover {
-    background-color: white;
+    font-weight: bold;
+    color: #f5ea77;
+    background: none;
+    border: none;
+    border-bottom: 3px solid #f5ea77;
+    border-right: 3px solid #f5ea77;
   }
 `;
 

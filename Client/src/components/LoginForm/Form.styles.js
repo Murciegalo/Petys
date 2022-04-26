@@ -6,6 +6,7 @@ export const Cont = styled.div`
   max-width: 1140px;
   min-width: 727px;
   margin: 0 auto;
+  color: #fff;
 `;
 
 export const Header = styled.h1`
@@ -49,14 +50,14 @@ export const Input = styled.input`
 export const Text = styled(Link)`
   width: auto;
   margin: 0 auto;
-  color: black;
+  color: #fff;
   font-size: 14px;
   text-decoration: none;
   transition: 0.2s ease-in-out;
   cursor: pointer;
   :hover {
     cursor: pointer;
-    color: white;
+    color: #f5ea77;
   }
 `;
 
