@@ -44,7 +44,7 @@ const SingleProduct = () => {
   const handleAdd = () => {
     let sellerName = seller[0].name;
     let photo = seller[0].photo;
-    dispatch(addItemCart({ itemId, name, price, imgCover, sellerName, photo }));
+    dispatch(addItemCart({ itemId, name, price, imgCover, sellerName, photo, quantity: 1 }));
   };
   return (
     <Cont>

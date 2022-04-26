@@ -14,6 +14,7 @@ const Nav = () => {
   const user = useSelector(grabUser);
   const isAuth = useSelector(grabAuth);
   const count = useSelector(selectCartCount);
+  console.log('COUNT', count);
   const dispatch = useDispatch();
 
   const handleLogout = (e) => {

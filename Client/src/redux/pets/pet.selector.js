@@ -18,7 +18,7 @@ export const grabItemsPerCategory = (urlParam) =>
 
 export const grabOneItemFromCategory = (urlParam, id) =>
   createSelector([groupItemsByCategory], (petsCollection) =>
-    petsCollection[urlParam].filter((el) => el._id === id),
+    petsCollection[urlParam]?.filter((el) => el._id === id),
   );
 
 export const grabIsLoading = createSelector([getPetsState], (el) => el.loading);
