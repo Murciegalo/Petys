@@ -1,28 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
 import { Absol, Flag, Section, TextItem } from './CartMenu.styles';
 import { Button, TypeBtn } from '../Button/Button';
-import { getCartItems } from '../../redux/cart/cart.selector';
-import { useSelector } from 'react-redux';
 import { CartMenuItem } from '../CartMenuItem/CartMenuItem';
+import { setIsCartOpen } from '../../redux/cart/cart.actions';
+import {
+  grabCartItems,
+  grabIsCartOpen,
+  selectCartCount,
+  selectCartTotal,
+} from '../../redux/cart/cart.selector';
 
-const CartMenu = ({ toogle, setToogle }) => {
+const CartMenu = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const cart = useSelector(getCartItems);
-  const [totalPrice, setTotalPrice] = useState(0);
-
+  const isCartOpen = useSelector(grabIsCartOpen);
+  const cartItems = useSelector(grabCartItems);
+  // const cartCount = useSelector(selectCartCount);
+  // const total = useSelector(selectCartTotal);
   const handleCheckout = () => {
-    setToogle(false);
+    dispatch(setIsCartOpen(false));
     navigate('/cart');
   };
   const display =
-    cart.length > 0 &&
-    cart.map((el) => <CartMenuItem key={el.itemId} el={el} setTotalPrice={setTotalPrice} />);
+    cartItems.length > 0 && cartItems.map((el) => <CartMenuItem key={el.itemId} el={el} />);
   return (
-    <Absol $display={toogle}>
+    <Absol $display={isCartOpen}>
       <Section $justify="space-between">
-        <TextItem color={'#455'} size={'12px'} onClick={() => setToogle(!toogle)}>
+        <TextItem color={'#455'} size={'12px'} onClick={() => dispatch(setIsCartOpen(false))}>
           <BsArrowLeftShort /> Keep Shopping
         </TextItem>
         <TextItem color={'#455'} size={'12px'}>
@@ -32,12 +39,12 @@ const CartMenu = ({ toogle, setToogle }) => {
       </Section>
       <Section $column="column">
         <h3 style={{ margin: '2px' }}>Shopping Bag</h3>
-        <p style={{ margin: '2px' }}>({cart.length} items)</p>
+        {/* <p style={{ margin: '2px' }}>({cartCount} items)</p> */}
       </Section>
       <Section $column="column">{display}</Section>
       <Section $justify="end">
         <TextItem $padding="1rem">Total:</TextItem>
-        <TextItem $padding="1rem">${totalPrice}</TextItem>
+        {/* <TextItem $padding="1rem">${total}</TextItem> */}
       </Section>
       <Flag>
         You have earned <b>FREE</b> shipping

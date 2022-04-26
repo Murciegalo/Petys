@@ -4,11 +4,9 @@ import { groupBy } from '../../utils/dbArrToObj';
 // Input Selector
 const getPetsState = (state) => state.pets;
 
-const getPets = (state) => state.pets.pets;
-
 // Memoized Selectors
-export const selectItems = createSelector([getPets], (collections) =>
-  collections ? Object.keys(collections).map((key) => collections[key]) : [],
+export const selectItems = createSelector([getPetsState], (state) =>
+  state.pets ? Object.keys(state.pets).map((key) => state.pets[key]) : [],
 );
 
 export const groupItemsByCategory = createSelector([selectItems], (wholeCollection) =>

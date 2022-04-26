@@ -1,20 +1,19 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
-import { grabAuth, grabLoading, grabUser } from '../../redux/user/user.selector';
+import { grabAuth, grabUser } from '../../redux/user/user.selector';
 import { logoutStart } from '../../redux/user/user.actions';
 import CartMenu from '../CartMenu/CartMenu';
 import { LoginIcon } from '../loginIcon/LoginIcon';
 import { Logout } from '../logout/Logout';
 import { Cont, Wrapp, Top, Bottom, Logo, IconItem, TextItem, CartNum } from './Nav.styles';
 import { ReactComponent as CartSvg } from './cart.svg';
-import { getCartItems } from '../../redux/cart/cart.selector';
+import { setIsCartOpen } from '../../redux/cart/cart.actions';
+import { selectCartCount } from '../../redux/cart/cart.selector';
+
 const Nav = () => {
-  const [toogle, setToogle] = useState(false);
   const user = useSelector(grabUser);
   const isAuth = useSelector(grabAuth);
-  const isLoading = useSelector(grabLoading);
-  const cart = useSelector(getCartItems);
+  // const count = useSelector(selectCartCount);
   const dispatch = useDispatch();
 
   const handleLogout = (e) => {
@@ -26,19 +25,19 @@ const Nav = () => {
       <Cont>
         <Top>
           <LoginIcon user={user} isAuth={isAuth} />
-          <IconItem to="#" onClick={() => setToogle(!toogle)} color="white">
+          <IconItem to="#" onClick={() => dispatch(setIsCartOpen(true))} color="white">
             <CartSvg />
             <small>bag</small>
-            <CartNum>{cart.length}</CartNum>
+            {/* <CartNum>{count}</CartNum> */}
           </IconItem>
-          <CartMenu toogle={toogle} setToogle={setToogle} />
+          <CartMenu />
         </Top>
         <Wrapp>
           <Logo to="/">PETXys</Logo>
           <TextItem to="/shop">/ Shop /</TextItem>
         </Wrapp>
         <Bottom>
-          <Logout handleLogout={handleLogout} isAuth={isAuth} isLoading={isLoading} />
+          <Logout handleLogout={handleLogout} isAuth={isAuth} />
         </Bottom>
       </Cont>
       <Outlet />

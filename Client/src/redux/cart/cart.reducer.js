@@ -1,25 +1,23 @@
-import { ADD_ITEM_TO_CART, REMOVE_ITEM_FROM_CART } from './types';
+import { SET_CART_ITEMS, SET_IS_CART_OPEN } from './types';
 
 const INITIAL_STATE = {
-  cart: [],
-  loading: false,
-  error: null,
-  alert: false,
+  isCartOpen: false,
+  cartItems: [],
 };
 
 export const cartReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case ADD_ITEM_TO_CART:
+    case SET_IS_CART_OPEN:
       return {
         ...state,
-        cart: [...state.cart, payload],
+        isCartOpen: payload,
       };
-    case REMOVE_ITEM_FROM_CART:
+    case SET_CART_ITEMS:
       return {
         ...state,
-        cart: [...state.cart].filter((el) => el.itemId === payload.itemId),
+        cartItems: [...state.cartItems, payload],
       };
     default:
       return state;

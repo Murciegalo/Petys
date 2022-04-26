@@ -1,6 +1,8 @@
 import { createAction } from '../../utils/reducer.utils';
-import { ADD_ITEM_TO_CART, REMOVE_ITEM_FROM_CART } from './types';
+import { REMOVE_ITEM_FROM_CART, SET_CART_ITEMS, SET_IS_CART_OPEN } from './types';
 
-export const addItemCart = (payload) => createAction(ADD_ITEM_TO_CART, payload);
+export const setIsCartOpen = (boolean) => createAction(SET_IS_CART_OPEN, boolean);
+
+export const addItemCart = (payload) => createAction(SET_CART_ITEMS, payload);
 
 export const removeItemCart = (payload) => createAction(REMOVE_ITEM_FROM_CART, payload);

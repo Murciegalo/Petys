@@ -8,5 +8,5 @@ export const rootReducer = combineReducers({
   user: userReducer,
   pets: petReducer,
   review: reviewReducer,
-  cartItems: cartReducer,
+  cart: cartReducer,
 });
