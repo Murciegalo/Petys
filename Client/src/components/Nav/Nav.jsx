@@ -13,7 +13,7 @@ import { selectCartCount } from '../../redux/cart/cart.selector';
 const Nav = () => {
   const user = useSelector(grabUser);
   const isAuth = useSelector(grabAuth);
-  // const count = useSelector(selectCartCount);
+  const count = useSelector(selectCartCount);
   const dispatch = useDispatch();
 
   const handleLogout = (e) => {
@@ -28,7 +28,7 @@ const Nav = () => {
           <IconItem to="#" onClick={() => dispatch(setIsCartOpen(true))} color="white">
             <CartSvg />
             <small>bag</small>
-            {/* <CartNum>{count}</CartNum> */}
+            <CartNum>{count}</CartNum>
           </IconItem>
           <CartMenu />
         </Top>

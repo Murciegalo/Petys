@@ -1,12 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  BsArrowLeftShort,
-  BsArrowRightShort,
-  BsCaretDown,
-  BsExclamationSquare,
-} from 'react-icons/bs';
+import { BsArrowLeftShort, BsCaretDown } from 'react-icons/bs';
 import { Absol, Flag, Section, TextItem } from './CartMenu.styles';
 import { Button, TypeBtn } from '../Button/Button';
 import { CartMenuItem } from '../CartMenuItem/CartMenuItem';
@@ -23,8 +18,8 @@ const CartMenu = () => {
   const navigate = useNavigate();
   const isCartOpen = useSelector(grabIsCartOpen);
   const cartItems = useSelector(grabCartItems);
-  // const cartCount = useSelector(selectCartCount);
-  // const total = useSelector(selectCartTotal);
+  const cartCount = useSelector(selectCartCount);
+  const total = useSelector(selectCartTotal);
   const handleCheckout = () => {
     dispatch(setIsCartOpen(false));
     navigate('/cart');
@@ -43,12 +38,12 @@ const CartMenu = () => {
       </Section>
       <Section $column="column">
         <h3 style={{ margin: '2px' }}>Shopping Bag</h3>
-        {/* <p style={{ margin: '2px' }}>({cartCount} items)</p> */}
+        <p style={{ margin: '2px' }}>({cartCount} items)</p>
       </Section>
       <Section $column="column">{display}</Section>
       <Section $justify="end">
         <TextItem $padding="1rem">Total:</TextItem>
-        {/* <TextItem $padding="1rem">${total}</TextItem> */}
+        <TextItem $padding="1rem">${total}</TextItem>
       </Section>
       <Flag>
         You have earned <b>FREE</b> shipping
