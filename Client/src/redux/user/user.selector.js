@@ -5,6 +5,8 @@ const getUser = (state) => state.user;
 // Memoized Selector
 export const grabUser = createSelector([getUser], (data) => data.user);
 
+export const grabProfile = createSelector([getUser], (el) => el.profile);
+
 export const grabAuth = createSelector([getUser], (el) => el.isAuth);
 
 export const grabRole = createSelector([getUser], (el) => el.role);
