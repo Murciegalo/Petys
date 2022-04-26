@@ -36,7 +36,7 @@ export const Img = styled.img`
   max-width: 100%;
   position: relative;
   opacity: 0.8;
-  border: 1px solid #000;
+  border: 3px solid #fff;
   border-radius: 25px;
 `;
 
