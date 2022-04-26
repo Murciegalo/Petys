@@ -16,5 +16,4 @@ export const Gri = styled.div`
   margin: 1rem;
   padding: 2rem;
   border-radius: 1.2rem;
-  background-color: #fff;
 `;

@@ -8,5 +8,10 @@ body {
   opacity: 1 !important;
   box-sizing: border-box;
   font-family: 'Indie Flower', cursive, sans-serif;
-  /* font-family: 'Archer A', 'Archer B', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', */
+  background-image: linear-gradient(
+    to right,
+    rgb(142, 212, 232) 0px,
+    rgb(142, 230, 235) 50%,
+    rgb(143, 123, 232) 100%
+  );
 }

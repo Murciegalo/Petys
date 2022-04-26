@@ -4,18 +4,18 @@ import styled from 'styled-components';
 export const Cont = styled.div`
   position: relative;
   width: 100%;
-  min-height: 135px;
+  min-height: 150px;
   margin: 0 auto;
-  background-color: #8cd0e3;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #fff;
 `;
 export const Wrapp = styled.div`
-  position: absolute;
-  top: 30%;
-  left: 50%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 1px;
-  transform: translateX(-50%);
 `;
 
 export const Top = styled.div`
@@ -43,9 +43,10 @@ export const Bottom = styled.div`
 `;
 
 export const Logo = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 30px;
   font-weight: bold;
   color: aliceblue;
@@ -60,13 +61,13 @@ export const TextItem = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 25px;
+  font-size: 15px;
   font-weight: lighter;
   text-decoration: none;
-  color: #f5ea77;
+  color: #fff;
   padding: 5px;
   &: hover {
-    color: #fff;
+    color: #f5ea77;
     cursor: pointer;
   }
 `;
@@ -132,4 +133,12 @@ export const CartNum = styled.span`
 export const Image = styled.img`
   padding: 5px;
   src: ${({ src }) => src};
+`;
+
+export const Flag = styled.p`
+  text-align: center;
+  background-color: #fff;
+  line-height: 25px;
+  font-weight: 400;
+  font-size: 0.8rem;
 `;

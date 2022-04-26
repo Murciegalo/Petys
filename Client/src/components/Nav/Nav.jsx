@@ -5,7 +5,7 @@ import { logoutStart } from '../../redux/user/user.actions';
 import CartMenu from '../CartMenu/CartMenu';
 import { LoginIcon } from '../loginIcon/LoginIcon';
 import { Logout } from '../logout/Logout';
-import { Cont, Wrapp, Top, Bottom, Logo, IconItem, TextItem, CartNum } from './Nav.styles';
+import { Cont, Wrapp, Top, Bottom, Logo, IconItem, TextItem, CartNum, Flag } from './Nav.styles';
 import { ReactComponent as CartSvg } from './cart.svg';
 import { setIsCartOpen } from '../../redux/cart/cart.actions';
 import { selectCartCount } from '../../redux/cart/cart.selector';
@@ -35,7 +35,9 @@ const Nav = () => {
         </Top>
         <Wrapp>
           <Logo to="/">PETXys</Logo>
-          <TextItem to="/shop">/ Shop /</TextItem>
+          <TextItem to="/shop">BEST SELLERS</TextItem>
+          <TextItem to="/shop">SHOP ALL</TextItem>
+          <TextItem to="/shop">THIS IS US</TextItem>
         </Wrapp>
         <Bottom>
           <Logout handleLogout={handleLogout} isAuth={isAuth} />
