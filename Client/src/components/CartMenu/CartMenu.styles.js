@@ -48,6 +48,11 @@ export const TextItem = styled.span`
     text-decoration: none;
     color: white;
   }
+  svg {
+    font-size: 18px;
+    margin-right: 0.5rem;
+    stroke-width: 1px;
+  }
 `;
 
 export const Flag = styled.p`

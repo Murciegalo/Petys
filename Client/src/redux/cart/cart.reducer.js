@@ -1,4 +1,4 @@
-import { SET_CART_ITEMS, SET_IS_CART_OPEN } from './types';
+import { REMOVE_ITEM_FROM_CART, SET_CART_ITEMS, SET_IS_CART_OPEN } from './types';
 
 const INITIAL_STATE = {
   isCartOpen: false,
@@ -18,6 +18,11 @@ export const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cartItems: [...state.cartItems, payload],
+      };
+    case REMOVE_ITEM_FROM_CART:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter((el) => el.itemId !== payload),
       };
     default:
       return state;

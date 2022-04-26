@@ -63,10 +63,10 @@ export const TextItem = styled(Link)`
   font-size: 25px;
   font-weight: lighter;
   text-decoration: none;
-  color: white;
+  color: #f5ea77;
   padding: 5px;
   &: hover {
-    color: #f5ea77;
+    color: #fff;
     cursor: pointer;
   }
 `;
@@ -77,19 +77,19 @@ export const IconItem = styled(Link)`
   display: flex;
   flex-direction: column;
   font-size: 25px;
-  color: #fff;
+  color: #f5ea77;
   text-decoration: none;
   text-align: center;
   transition: 0.5s easy-in-out;
 
   &: hover {
-    color: #f5ea77;
+    color: #fff;
     svg {
       cursor: pointer;
       transform: rotate(-10deg);
       g {
         path {
-          fill: #f5ea77;
+          fill: #fff;
           color: #f5ea77;
         }
       }
@@ -109,12 +109,12 @@ export const IconItem = styled(Link)`
     margin: 0 auto;
     g {
       path {
-        fill: #fff;
+        fill: #f5ea77;
       }
     }
   }
   small {
-    font-size: 12px;
+    font-size: 14px;
   }
 `;
 export const CartNum = styled.span`
