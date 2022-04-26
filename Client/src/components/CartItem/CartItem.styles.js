@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Cont = styled.div`
   display: flex;
+  flex-direction: row;
   padding-top: 20px;
 `;
 
@@ -20,6 +21,10 @@ export const Img = styled.img`
   height: auto;
 `;
 
+export const ImgSeller = styled.img`
+  width: 50%;
+  height: auto;
+`;
 export const Desc = styled.div`
   width: 40%;
   text-align: center;
@@ -31,16 +36,8 @@ export const Text = styled.p`
 `;
 
 export const Btn = styled.button`
-  min-width: 23.72881%;
-  margin: 1rem auto;
-  padding: 0.5rem 1rem;
-  background: none;
-  font-size: 1.2rem;
-  font-family: inherit;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  transition: 0.2s ease-in-out;
-
+  width: 2rem;
+  transition: 0.2s ease-in-out
   :hover {
     cursor: pointer;
     background-color: white;

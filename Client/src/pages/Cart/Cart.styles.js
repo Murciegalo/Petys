@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Cont = styled.div`
-  padding: 15px;
-  text-align: end;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
 `;
 
 export const Header = styled.h2`

@@ -1,22 +1,24 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Button, TypeBtn } from '../Button/Button';
-import { Cont, Product, ContImg, Desc, Img, Price, Quant, Text, Total } from './CartItem.styles';
+import { Cont, Product, ContImg, Desc, Img, Price, Quant, Text } from './CartItem.styles';
 
 const Cartitem = ({ el }) => {
+  const dispatch = useDispatch();
+  console.log('EL', el);
   return (
     <Cont>
       <Product>
         <ContImg>
-          <Img src={el.img} />
+          <Img src={el.imgCover} />
         </ContImg>
         <Desc>
-          <Text>{el.desc}</Text>
-          <Button btnType={TypeBtn.cart}>Remove</Button>
+          <Text>{el.sellerName}</Text>
         </Desc>
       </Product>
       <Price>{el.price}</Price>
-      <Quant>{el.units}</Quant>
-      <Total>{el.price}</Total>
+      <Quant>{el.quantity}</Quant>
+      <Button>Remove</Button>
     </Cont>
   );
 };

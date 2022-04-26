@@ -1,7 +1,8 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { grabCartItems, selectCartTotal } from '../../redux/cart/cart.selector';
 import { Button, TypeBtn } from '../../components/Button/Button';
 import Cartitem from '../../components/CartItem/Cartitem';
-import { products } from '../../utils/data';
 import {
   Cont,
   Header,
@@ -14,26 +15,21 @@ import {
 } from './Cart.styles';
 
 const Cart = () => {
+  const cartItems = useSelector(grabCartItems);
   return (
-    <Cont>
+    <>
       <Header>Your Cart</Header>
-      <ProductFeatures>
-        <Product>Product</Product>
-        <List>Price</List>
-        <List>Quantity</List>
-        <List>Total</List>
-      </ProductFeatures>
-      <ProductList>
-        {products.map((el) => (
-          <Cartitem key={el.id} el={el} />
-        ))}
-      </ProductList>
-      <Total>
-        <Text>TOTAL</Text>
-        <Text>300 $</Text>
-      </Total>
-      <Button btnType={TypeBtn.signInUp}>Pay</Button>
-    </Cont>
+      <Cont>
+        <ProductList>
+          {cartItems.map((el) => (
+            <Cartitem key={el.itemId} el={el} />
+          ))}
+        </ProductList>
+        <div>
+          <Button btnType={TypeBtn.signInUp}>Pay</Button>
+        </div>
+      </Cont>
+    </>
   );
 };
 
