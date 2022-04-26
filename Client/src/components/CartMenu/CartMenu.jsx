@@ -1,7 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
+import {
+  BsArrowLeftShort,
+  BsArrowRightShort,
+  BsCaretDown,
+  BsExclamationSquare,
+} from 'react-icons/bs';
 import { Absol, Flag, Section, TextItem } from './CartMenu.styles';
 import { Button, TypeBtn } from '../Button/Button';
 import { CartMenuItem } from '../CartMenuItem/CartMenuItem';
@@ -32,9 +37,8 @@ const CartMenu = () => {
         <TextItem color={'#455'} size={'12px'} onClick={() => dispatch(setIsCartOpen(false))}>
           <BsArrowLeftShort /> Keep Shopping
         </TextItem>
-        <TextItem color={'#455'} size={'12px'}>
-          Checkout
-          <BsArrowRightShort />
+        <TextItem onClick={() => dispatch(setIsCartOpen(false))} color={'#455'} size={'12px'}>
+          <BsCaretDown />
         </TextItem>
       </Section>
       <Section $column="column">
