@@ -16,12 +16,15 @@ export const Product = styled.section`
 `;
 export const ContImg = styled.div`
   width: 60%;
+  margin-right: 1rem;
 `;
 
 export const Img = styled.img`
   width: 100%;
   max-width: 100%;
   height: auto;
+  border: 1px solid #fff;
+  border-radius: 10px;
 `;
 
 export const ImgSeller = styled.img`

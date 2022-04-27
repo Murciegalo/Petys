@@ -1,4 +1,9 @@
-import { REMOVE_ITEM_FROM_CART, SET_CART_ITEMS, SET_IS_CART_OPEN } from './types';
+import {
+  REMOVE_ITEM_FROM_CART,
+  SET_CART_ITEMS,
+  SET_IS_CART_OPEN,
+  SET_IS_SHIPPING_FORM_OPEN,
+} from './types';
 
 const INITIAL_STATE = {
   cartItems: [],
@@ -14,6 +19,11 @@ export const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isCartOpen: payload,
+      };
+    case SET_IS_SHIPPING_FORM_OPEN:
+      return {
+        ...state,
+        isShipFormOpen: payload,
       };
     case SET_CART_ITEMS:
       return {

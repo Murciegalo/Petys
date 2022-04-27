@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { removeItemCart } from '../../redux/cart/cart.actions';
-import { Button, TypeBtn } from '../Button/Button';
+import { TextBtn } from '../../pages/Cart/Cart.styles';
 import { Cont, Product, ContImg, Desc, Img, Price, Quant, Text, Remove } from './CartItem.styles';
 
 const Cartitem = ({ el }) => {
@@ -22,11 +22,9 @@ const Cartitem = ({ el }) => {
         </Desc>
       </Product>
       <Price>$ {el.price}</Price>
-      <Quant>{el.quantity}</Quant>
+      {/* <Quant>{el.quantity}</Quant> */}
       <Remove>
-        <Button btnType={TypeBtn.nav} onClick={handleDelete}>
-          Remove
-        </Button>
+        <TextBtn onClick={handleDelete}>Remove</TextBtn>
       </Remove>
     </Cont>
   );

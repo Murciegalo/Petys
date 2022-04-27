@@ -14,6 +14,7 @@ export const Header = styled.h2`
 
 export const ProductList = styled.section`
   display: flex;
+  flex-direction: column;
 `;
 
 export const Order = styled.section`
@@ -34,6 +35,7 @@ export const Title = styled.h3`
 export const Info = styled.ul`
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid #fff;
 `;
 
 export const InfoItems = styled.li`
@@ -49,7 +51,8 @@ export const TextBtn = styled.button`
   border: 1px solid #fff;
   background: none;
   color: #fff;
-  padding: 0 1rem;
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem;
   border-radius: 5px;
   &:hover {
     cursor: pointer;
