@@ -3,16 +3,19 @@ import styled from 'styled-components';
 export const Cont = styled.div`
   display: flex;
   flex-direction: row;
-  padding-top: 20px;
+  padding: 2rem;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  color: #fff;
 `;
 
-export const Product = styled.div`
-  flex: 2;
+export const Product = styled.section`
+  flex: 4;
   display: flex;
-  justify-content: space-around;
+  align-items: center;
 `;
 export const ContImg = styled.div`
-  width: 30%;
+  width: 60%;
 `;
 
 export const Img = styled.img`
@@ -22,10 +25,13 @@ export const Img = styled.img`
 `;
 
 export const ImgSeller = styled.img`
-  width: 50%;
+  width: 30%;
   height: auto;
+  border-radius: 50%;
+  border: 1px solid #fff;
 `;
-export const Desc = styled.div`
+
+export const Desc = styled.section`
   width: 40%;
   text-align: center;
 `;
@@ -33,6 +39,28 @@ export const Desc = styled.div`
 export const Text = styled.p`
   text-align: center;
   font-size; 1rem;
+  margin-top: 0;
+`;
+
+export const Price = styled.section`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Quant = styled.section`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Remove = styled.section`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Btn = styled.button`
@@ -43,18 +71,6 @@ export const Btn = styled.button`
     background-color: white;
     border: 2px solid #fff;
   }
-`;
-
-export const Price = styled.div`
-  flex: 1;
-  text-align: center;
-  padding-top: 1rem;
-`;
-
-export const Quant = styled.div`
-  flex: 1;
-  text-align: center;
-  padding-top: 1rem;
 `;
 
 export const Total = styled.div`

@@ -1,18 +1,9 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { grabCartItems, selectCartTotal } from '../../redux/cart/cart.selector';
+import { useSelector } from 'react-redux';
+import { grabCartItems } from '../../redux/cart/cart.selector';
 import { Button, TypeBtn } from '../../components/Button/Button';
 import Cartitem from '../../components/CartItem/Cartitem';
-import {
-  Cont,
-  Header,
-  List,
-  Product,
-  ProductFeatures,
-  ProductList,
-  Total,
-  Text,
-} from './Cart.styles';
+import { Cont, Header, ProductList } from './Cart.styles';
 
 const Cart = () => {
   const cartItems = useSelector(grabCartItems);

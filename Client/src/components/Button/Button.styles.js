@@ -15,12 +15,12 @@ export const BaseBtn = styled.button`
 // NAV BTN
 export const NavBtn = styled(BaseBtn)`
   margin: 1rem;
+  border: none;
   font-size: 1rem;
-  border: 2px solid #fff;
-  font-size: 24px;
+  font-size: 16px;
   color: white;
   :hover {
-    background-color: black;
+    color: #f5ea77;
   }
 `;
 

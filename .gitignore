@@ -4,7 +4,7 @@
 .pnp.js
 /config.env
 /data
-
+/Client/src/assets
 # testing
 /coverage
 

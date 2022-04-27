@@ -1,11 +1,15 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { removeItemCart } from '../../redux/cart/cart.actions';
 import { Button, TypeBtn } from '../Button/Button';
-import { Cont, Product, ContImg, Desc, Img, Price, Quant, Text } from './CartItem.styles';
+import { Cont, Product, ContImg, Desc, Img, Price, Quant, Text, Remove } from './CartItem.styles';
 
 const Cartitem = ({ el }) => {
   const dispatch = useDispatch();
-  console.log('EL', el);
+  const handleDelete = (e) => {
+    e.preventDefault();
+    dispatch(removeItemCart(el.itemId));
+  };
   return (
     <Cont>
       <Product>
@@ -13,12 +17,17 @@ const Cartitem = ({ el }) => {
           <Img src={el.imgCover} />
         </ContImg>
         <Desc>
+          <Text>{el.name}</Text>
           <Text>{el.sellerName}</Text>
         </Desc>
       </Product>
-      <Price>{el.price}</Price>
+      <Price>$ {el.price}</Price>
       <Quant>{el.quantity}</Quant>
-      <Button>Remove</Button>
+      <Remove>
+        <Button btnType={TypeBtn.nav} onClick={handleDelete}>
+          Remove
+        </Button>
+      </Remove>
     </Cont>
   );
 };
