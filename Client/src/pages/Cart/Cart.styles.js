@@ -16,7 +16,9 @@ export const ProductList = styled.section`
   display: flex;
 `;
 
-export const Order = styled.section``;
+export const Order = styled.section`
+  text-align: right;
+`;
 
 export const Title = styled.h3`
   color: #ffff;
@@ -53,5 +55,27 @@ export const TextBtn = styled.button`
     cursor: pointer;
     border: 1px solid #f5ea77 !important;
     color: #f5ea77 !important;
+  }
+`;
+
+export const Btn = styled.button`
+  min-width: 20%;
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: #fff;
+  background: none;
+  border: none;
+  border-bottom: 3px solid #fff;
+  border-right: 3px solid #fff;
+  &:hover {
+    cursor: pointer;
+    color: #f5ea77;
+    font-weight: bold;
+    border-bottom: 0px solid #fff;
+    border-right: 0px solid #fff;
+    border-top: 3px solid #f5ea77;
+    border-left: 3px solid #f5ea77;
   }
 `;

@@ -7,6 +7,11 @@ export const grabCartItems = createSelector([selectCartReducer], (cart) => cart.
 
 export const grabIsCartOpen = createSelector([selectCartReducer], (cart) => cart.isCartOpen);
 
+export const grabIsShipFormOpen = createSelector(
+  [selectCartReducer],
+  (cart) => cart.isShipFormOpen,
+);
+
 export const selectCartCount = createSelector([grabCartItems], (cartItems) =>
   cartItems.reduce((acc, cartItem) => (acc = acc + cartItem.quantity), 0),
 );

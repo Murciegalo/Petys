@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { grabCartItems, selectCartCount, selectCartTotal } from '../../redux/cart/cart.selector';
-import { Button, TypeBtn } from '../../components/Button/Button';
+import { grabCartItems, grabIsShipFormOpen, selectCartTotal } from '../../redux/cart/cart.selector';
+// import { Button, TypeBtn } from '../../components/Button/Button';
 import Cartitem from '../../components/CartItem/Cartitem';
 import {
   Cont,
@@ -13,12 +13,16 @@ import {
   Text,
   TextBtn,
   Title,
+  Btn,
 } from './Cart.styles';
+import { ShippingForm } from '../../components/ShippingForm/ShippingForm';
 
 const Cart = () => {
   const cartItems = useSelector(grabCartItems);
-  const cartCount = useSelector(selectCartCount);
+  const isShipFormOpen = useSelector(grabIsShipFormOpen);
   const total = useSelector(selectCartTotal);
+
+  const display = isShipFormOpen && <ShippingForm />;
   return (
     <>
       <Header>Shopping Bag</Header>
@@ -38,13 +42,14 @@ const Cart = () => {
             <InfoItems>
               <Text>Shipping:</Text>
               <TextBtn>Add Info</TextBtn>
+              {display}
             </InfoItems>
             <InfoItems>
               <Text>Grand total:</Text>
               <Text>{}</Text>
             </InfoItems>
           </Info>
-          <Button btnType={TypeBtn.signInUp}>Pay</Button>
+          <Btn>Pay</Btn>
         </Order>
       </Cont>
     </>
