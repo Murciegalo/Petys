@@ -1,8 +1,9 @@
 import { REMOVE_ITEM_FROM_CART, SET_CART_ITEMS, SET_IS_CART_OPEN } from './types';
 
 const INITIAL_STATE = {
-  isCartOpen: false,
   cartItems: [],
+  isCartOpen: false,
+  isShipFormOpen: false,
 };
 
 export const cartReducer = (state = INITIAL_STATE, action) => {
