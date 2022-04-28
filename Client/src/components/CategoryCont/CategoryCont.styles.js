@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-export const Cont = styled.div`
-  text-align: right;
-`;
+export const Cont = styled.div``;
 
 export const Header = styled.h2`
   text-align: center;

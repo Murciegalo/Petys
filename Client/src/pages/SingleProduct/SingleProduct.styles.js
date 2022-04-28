@@ -3,8 +3,11 @@ import styled from 'styled-components';
 export const Cont = styled.div`
   width: 100%;
   box-sizing: border-box;
-  min-width: 0px;
-  margin: 0px auto;
+`;
+
+export const MenuBtns = styled.section`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const Wrap = styled.section`
@@ -19,7 +22,7 @@ export const GridPics = styled.section`
   position: relative;
   margin-bottom: 2rem;
   padding: 1rem;
-  background-color: #fff;
+  background-color: none;
   border-radius: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -31,8 +34,8 @@ export const GridPics = styled.section`
 export const Pic = styled.img`
   max-width: 100%;
   height: auto;
-  border-radius: 5px;
-
+  border-radius: 8px;
+  border: 1px solid #fff;
   :hover {
     cursor: pointer;
   }

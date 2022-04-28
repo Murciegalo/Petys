@@ -17,6 +17,7 @@ import {
   Description,
   Total,
   Btn,
+  MenuBtns,
 } from './SingleProduct.styles';
 
 const SingleProduct = () => {
@@ -48,9 +49,14 @@ const SingleProduct = () => {
   };
   return (
     <Cont>
-      <Button btnType={TypeBtn.nav} onClick={() => navigate(-1)}>
-        Back
-      </Button>
+      <MenuBtns>
+        <Button btnType={TypeBtn.nav} onClick={() => navigate(-1)}>
+          Back
+        </Button>
+        <Button btnType={TypeBtn.nav} onClick={handleAdd}>
+          Add to bag
+        </Button>
+      </MenuBtns>
       <Wrap>
         <GridPics>{imgs.length > 0 && imgs.map((el, I) => <Pic key={I} src={el} />)}</GridPics>
         <Section>
@@ -65,7 +71,6 @@ const SingleProduct = () => {
           <Text>{ratingsAvrgSeller}</Text>
         </Section>
       </Wrap>
-      <Btn onClick={handleAdd}>Add to Bag</Btn>
     </Cont>
   );
 };
