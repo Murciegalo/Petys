@@ -6,6 +6,7 @@ import ProfileNav from '../../components/ProvileNav/ProfileNav';
 import ProfileForm from '../../components/ProfileForm/ProfileForm';
 import PasswordForm from '../../components/ProfilePassForm/PasswordForm';
 import AdminNav from '../../components/AdminNav/AdminNav';
+import { Nav, UserContent, UserView } from './Me.styles';
 
 const Home = () => {
   const loading = useSelector(grabLoading);
@@ -16,17 +17,17 @@ const Home = () => {
     <Spinner />
   ) : (
     <div className="main">
-      <div className="user-view">
-        <nav className="user-view__menu">
+      <UserView>
+        <Nav>
           <ProfileNav />
           {adminNav}
-        </nav>
-        <div className="user-view__content">
+        </Nav>
+        <UserContent>
           <ProfileForm />
           <div className="line">&nbsp;</div>
           <PasswordForm />
-        </div>
-      </div>
+        </UserContent>
+      </UserView>
     </div>
   );
 };

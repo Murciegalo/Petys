@@ -1,40 +1,42 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import Icons from '../../assets/icons.svg'
+import React from 'react';
+import Icons from '../../assets/icons.svg';
+import { Links, List, SideNav } from './ProfileNav.styles';
 
-const ProfileNav = () => <ul className="side-nav">
-  <li className="side-nav--active">
-    <Link to="#">
-      <svg>
-        <use xlinkHref={`${Icons}#icon-settings`} />
-      </svg>
-      Settings
-    </Link>
-  </li>
-  <li>
-    <Link to="/my-tours">
-      <svg>
-        <use xlinkHref={`${Icons}#icon-briefcase`}/>
-      </svg>
-      My bookings
-    </Link>
-  </li>
-  <li>
-    <Link to="#">
-      <svg>
-        <use xlinkHref={`${Icons}#icon-star`}/>
-      </svg>
-      My reviews
-    </Link>
-  </li>
-  <li>
-    <Link to="#">
-      <svg>
-        <use xlinkHref={`${Icons}#icon-credit-card`}/>
-      </svg>
-      Billing
-    </Link>
-  </li>
-</ul>
+const ProfileNav = () => (
+  <SideNav>
+    <List className="side-nav--active">
+      <Links to="#">
+        <svg>
+          <use xlinkHref={`${Icons}#icon-settings`} />
+        </svg>
+        Settings
+      </Links>
+    </List>
+    <List>
+      <Links to="/my-tours">
+        <svg>
+          <use xlinkHref={`${Icons}#icon-briefcase`} />
+        </svg>
+        My bookings
+      </Links>
+    </List>
+    <List>
+      <Links to="#">
+        <svg>
+          <use xlinkHref={`${Icons}#icon-star`} />
+        </svg>
+        My reviews
+      </Links>
+    </List>
+    <List>
+      <Links to="#">
+        <svg>
+          <use xlinkHref={`${Icons}#icon-credit-card`} />
+        </svg>
+        Billing
+      </Links>
+    </List>
+  </SideNav>
+);
 
 export default React.memo(ProfileNav);

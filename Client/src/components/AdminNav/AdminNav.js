@@ -1,44 +1,45 @@
 import React from 'react';
 import Icons from '../../assets/icons.svg';
+import { Links, List, SideNav } from '../ProvileNav/ProfileNav.styles';
+import { Nav, Header } from './AdminNav.styles';
 
-import { Link } from 'react-router-dom';
 const AdminNav = () => (
-  <div className="admin-nav">
-    <h5 className="admin-nav__heading">Admin</h5>
-    <ul className="side-nav">
-      <li>
-        <Link to="#">
+  <Nav>
+    <Header>Admin</Header>
+    <SideNav>
+      <List>
+        <Links to="#">
           <svg>
             <use xlinkHref={`${Icons}#icon-map`} />
           </svg>
           Manage Tours
-        </Link>
-      </li>
-      <li>
-        <Link to="#">
+        </Links>
+      </List>
+      <List>
+        <Links to="#">
           <svg>
             <use xlinkHref={`${Icons}#icon-users`} />
           </svg>
           Manage Users
-        </Link>
-      </li>
-      <li>
-        <Link to="#">
+        </Links>
+      </List>
+      <List>
+        <Links to="#">
           <svg>
             <use xlinkHref={`${Icons}#icon-star`} />
           </svg>
           Manage Reviews
-        </Link>
-      </li>
-      <li>
-        <Link to="#">
+        </Links>
+      </List>
+      <List>
+        <Links to="#">
           <svg>
             <use xlinkHref={`${Icons}#icon-briefcase`} />
           </svg>
           Manage Bookings
-        </Link>
-      </li>
-    </ul>
-  </div>
+        </Links>
+      </List>
+    </SideNav>
+  </Nav>
 );
 export default React.memo(AdminNav);
