@@ -12,7 +12,6 @@ import {
   Formu,
   UserPhoto,
 } from './profileForm.styles.js';
-// import { updateStart } from '../../redux/users/user.action';
 
 const ProfileForm = () => {
   const profile = useSelector(grabProfile);
@@ -37,7 +36,6 @@ const ProfileForm = () => {
         <FormGroup>
           <FormLabel htmlFor="name">Name</FormLabel>
           <FormInput
-            id="name"
             type="text"
             value={name}
             name="name"
@@ -48,7 +46,6 @@ const ProfileForm = () => {
         <FormGroup>
           <FormLabel htmlFor="email">Email address</FormLabel>
           <FormInput
-            id="email"
             type="email"
             value={email}
             name="email"
@@ -63,7 +60,7 @@ const ProfileForm = () => {
             <UserPhoto src={require(`../../assets/users/default.jpg`)} alt="User" />
           )}
           <FormLabel htmlFor="photo">Choose new photo</FormLabel>
-          <FormInputUpload type="file" accept="image/*" id="photo" name="photo" />
+          <FormInputUpload type="file" accept="image/*" name="photo" />
         </FormPhotoUpload>
         <FormGroup>
           <Btn type="submit">Save settings</Btn>

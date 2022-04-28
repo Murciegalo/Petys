@@ -12,7 +12,7 @@ const AdminNav = () => (
           <svg>
             <use xlinkHref={`${Icons}#icon-map`} />
           </svg>
-          Manage Tours
+          Manage Pets
         </Links>
       </List>
       <List>
@@ -36,7 +36,7 @@ const AdminNav = () => (
           <svg>
             <use xlinkHref={`${Icons}#icon-briefcase`} />
           </svg>
-          Manage Bookings
+          Manage Sales
         </Links>
       </List>
     </SideNav>

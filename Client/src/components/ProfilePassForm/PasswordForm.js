@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Btn, FormGroup, FormInput, FormLabel, Formu } from '../ProfileForm/profileForm.styles.js';
 import { Cont } from './passwordForm.styles.js';
 // import { updateStart } from '../../redux/users/user.action';
 
@@ -16,14 +17,10 @@ const PasswordForm = () => {
   return (
     <Cont>
       <h2 className="heading-secondary ma-bt-md">Password change</h2>
-      <form className="form form-user-password" onSubmit={handleSubmit}>
-        <div className="form__group">
-          <label className="form__label" htmlFor="password-current">
-            Current password
-          </label>
-          <input
-            className="form__input"
-            id="password-current"
+      <Formu onSubmit={handleSubmit}>
+        <FormGroup>
+          <FormLabel htmlFor="password-current">Current password</FormLabel>
+          <FormInput
             type="password"
             placeholder="••••••••"
             value={passwordCurrent}
@@ -31,14 +28,10 @@ const PasswordForm = () => {
             required
             minLength="8"
           />
-        </div>
-        <div className="form__group">
-          <label className="form__label" htmlFor="password">
-            New password
-          </label>
-          <input
-            className="form__input"
-            id="password"
+        </FormGroup>
+        <FormGroup>
+          <FormLabel htmlFor="password">New password</FormLabel>
+          <FormInput
             type="password"
             placeholder="••••••••"
             value={password}
@@ -46,14 +39,10 @@ const PasswordForm = () => {
             required
             minLength="8"
           />
-        </div>
-        <div className="form__group ma-bt-lg">
-          <label className="form__label" htmlFor="password-confirm">
-            Confirm password
-          </label>
-          <input
-            className="form__input"
-            id="password-confirm"
+        </FormGroup>
+        <FormGroup>
+          <FormLabel htmlFor="password-confirm">Confirm password</FormLabel>
+          <FormInput
             type="password"
             placeholder="••••••••"
             value={passwordConfirm}
@@ -61,13 +50,11 @@ const PasswordForm = () => {
             required
             minLength="8"
           />
-        </div>
-        <div className="form__group right">
-          <button type="submit" className="btn btn--small btn--green btn--save-password">
-            Save password
-          </button>
-        </div>
-      </form>
+        </FormGroup>
+        <FormGroup>
+          <Btn type="submit">Save password</Btn>
+        </FormGroup>
+      </Formu>
     </Cont>
   );
 };

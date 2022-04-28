@@ -16,19 +16,17 @@ const Home = () => {
   return loading ? (
     <Spinner />
   ) : (
-    <div className="main">
-      <UserView>
-        <Nav>
-          <ProfileNav />
-          {adminNav}
-        </Nav>
-        <UserContent>
-          <ProfileForm />
-          <div className="line">&nbsp;</div>
-          <PasswordForm />
-        </UserContent>
-      </UserView>
-    </div>
+    <UserView>
+      <Nav>
+        <ProfileNav />
+        {adminNav}
+      </Nav>
+      <UserContent>
+        <ProfileForm />
+        <div className="line">&nbsp;</div>
+        <PasswordForm />
+      </UserContent>
+    </UserView>
   );
 };
 

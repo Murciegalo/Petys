@@ -13,14 +13,6 @@ const ProfileNav = () => (
       </Links>
     </List>
     <List>
-      <Links to="/my-tours">
-        <svg>
-          <use xlinkHref={`${Icons}#icon-briefcase`} />
-        </svg>
-        My bookings
-      </Links>
-    </List>
-    <List>
       <Links to="#">
         <svg>
           <use xlinkHref={`${Icons}#icon-star`} />

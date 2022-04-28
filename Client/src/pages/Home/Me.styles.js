@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-export const Cont = styled.div``;
 export const UserView = styled.div`
   background-color: #fff;
   max-width: 120rem;
@@ -26,7 +25,7 @@ export const UserContent = styled.div`
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  padding: 7rem 0;
+  padding: 4rem 0;
 
   .user-view__form-container {
     max-width: 68rem;
