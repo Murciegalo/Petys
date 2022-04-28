@@ -17,9 +17,17 @@ export const List = styled.li`
 `;
 
 export const Links = styled(Link)`
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 1.3rem;
+  text-decoration: none;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 1rem;
+  margin: 2rem 2rem 0rem 2rem;
   svg {
-    height: 1.9rem;
-    width: 1.9rem;
+    height: 2rem;
+    width: 2rem;
     fill: #f7f7f7;
     margin-right: 2rem;
   }

@@ -6,6 +6,10 @@ export const Cont = styled.div`
   padding: 0 8rem;
 `;
 
+export const Header = styled.h2`
+  color: #fff;
+`;
+
 export const Formu = styled.form``;
 
 export const FormGroup = styled.div`
@@ -16,6 +20,7 @@ export const FormLabel = styled.label`
   display: block;
   font-size: 1.2rem;
   font-weight: 700;
+  color: #fff;
   margin-bottom: 0.75rem;
 `;
 
@@ -59,9 +64,23 @@ export const FormInputUpload = styled.input`
 `;
 
 export const Btn = styled.button`
-  background-color: #55c57a;
+  min-width: 20%;
+  padding: 1rem;
   border-radius: 5px;
-  padding: 1.25rem 2rem;
-  font-size: 1rem;
+  font-size: 20px;
+  letter-spacing: 1px;
   color: #fff;
+  background: none;
+  border: none;
+  border-bottom: 3px solid #fff;
+  border-right: 3px solid #fff;
+  &:hover {
+    cursor: pointer;
+    color: #f5ea77;
+    font-weight: bold;
+    border-bottom: 0px solid #fff;
+    border-right: 0px solid #fff;
+    border-top: 3px solid #f5ea77;
+    border-left: 3px solid #f5ea77;
+  }
 `;

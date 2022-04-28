@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Btn, FormGroup, FormInput, FormLabel, Formu } from '../ProfileForm/profileForm.styles.js';
-import { Cont } from './passwordForm.styles.js';
-// import { updateStart } from '../../redux/users/user.action';
+// import { useNavigate } from 'react-router-dom';
+import {
+  Cont,
+  Btn,
+  FormGroup,
+  FormInput,
+  FormLabel,
+  Formu,
+  Header,
+} from '../ProfileForm/profileForm.styles.js';
 
 const PasswordForm = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [passwordCurrent, setPasswordCurrent] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
-    // updateStart(true, { passwordCurrent, password, passwordConfirm });
-    setTimeout(() => navigate('/login'), 1300);
+    // setTimeout(() => navigate('/login'), 1300);
   };
   return (
     <Cont>
-      <h2 className="heading-secondary ma-bt-md">Password change</h2>
+      <Header>Password change</Header>
       <Formu onSubmit={handleSubmit}>
         <FormGroup>
           <FormLabel htmlFor="password-current">Current password</FormLabel>

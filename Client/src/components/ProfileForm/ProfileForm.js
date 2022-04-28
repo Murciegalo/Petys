@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { grabProfile } from '../../redux/user/user.selector';
 import {
-  Btn,
   Cont,
   FormGroup,
   FormInput,
@@ -11,6 +10,8 @@ import {
   FormPhotoUpload,
   Formu,
   UserPhoto,
+  Btn,
+  Header,
 } from './profileForm.styles.js';
 
 const ProfileForm = () => {
@@ -31,7 +32,7 @@ const ProfileForm = () => {
   };
   return (
     <Cont>
-      <h2 className="heading-secondary ma-bt-md">Your account settings</h2>
+      <Header>Your account settings</Header>
       <Formu onSubmit={(e) => handleSubmit(e)}>
         <FormGroup>
           <FormLabel htmlFor="name">Name</FormLabel>
