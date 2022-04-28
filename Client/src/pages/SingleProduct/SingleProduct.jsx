@@ -15,8 +15,6 @@ import {
   Title,
   Text,
   Description,
-  Total,
-  Btn,
   MenuBtns,
   Header,
 } from './SingleProduct.styles';
