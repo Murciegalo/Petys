@@ -48,7 +48,7 @@ const SingleProduct = () => {
   };
   return (
     <Cont>
-      <Button onClick={() => navigate(-1)} btnType={TypeBtn.signInUp}>
+      <Button btnType={TypeBtn.nav} onClick={() => navigate(-1)}>
         Back
       </Button>
       <Wrap>

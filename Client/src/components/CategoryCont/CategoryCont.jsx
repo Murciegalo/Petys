@@ -15,7 +15,7 @@ export const CategoryCont = () => {
   return (
     <Cont>
       <Header>{header}</Header>
-      <Button onClick={() => navigate(-1)} btnType={TypeBtn.signInUp}>
+      <Button btnType={TypeBtn.nav} onClick={() => navigate(-1)}>
         Back
       </Button>
       <Gri>
