@@ -13,7 +13,6 @@ const INITIAL_STATE = {
 
 export const cartReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
-
   switch (type) {
     case SET_IS_CART_OPEN:
       return {
@@ -26,9 +25,13 @@ export const cartReducer = (state = INITIAL_STATE, action) => {
         isShipFormOpen: payload,
       };
     case SET_CART_ITEMS:
+      console.log('REDUCER', payload);
       return {
         ...state,
-        cartItems: [...state.cartItems, payload],
+        cartItems:
+          [...state.cartItems].length > 0
+            ? [...state.cartItems].filter((el) => el.itemId === payload.itemId)
+            : [...state.cartItems, payload],
       };
     case REMOVE_ITEM_FROM_CART:
       return {

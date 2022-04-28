@@ -7,7 +7,6 @@ import { Cont, ContImg, Img, Desc, Text, Price, Quant } from './CartMenuItem.sty
 export const CartMenuItem = ({ el: { itemId, name, price, imgCover } }) => {
   const dispatch = useDispatch();
   const handleDelete = (id) => {
-    console.log('ID', id);
     dispatch(removeItemCart(id));
   };
   return (
