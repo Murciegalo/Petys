@@ -22,7 +22,6 @@ export const GridPics = styled.section`
   position: relative;
   margin-bottom: 2rem;
   padding: 1rem;
-  background-color: none;
   border-radius: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -42,21 +41,24 @@ export const Pic = styled.img`
 `;
 
 export const Section = styled.section`
-  background-color: #fff;
   border-radius: 5px;
   padding: 1rem;
+  color: #fff;
 `;
 
-export const Title = styled.h2``;
-export const Text = styled.span``;
-export const Description = styled.p``;
-export const Total = styled.h3``;
+export const Header = styled.h2`
+  text-align: center;
+`;
 
-export const Btn = styled.button`
-  margin: 0;
-  padding: 12px 10px;
-  text-transform: uppercase;
-  box-shadow: 3px 3px 0 #73d2e6;
-  max-width: 200px;
-  background: #f5ea77;
+export const Text = styled.span`
+  display: block;
+`;
+
+export const Description = styled.p`
+  text-align: center;
+`;
+
+export const Title = styled.h3`
+  border-bottom: 1px solid #fff;
+  padding-bottom: 2rem;
 `;

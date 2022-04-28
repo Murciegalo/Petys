@@ -18,6 +18,7 @@ import {
   Total,
   Btn,
   MenuBtns,
+  Header,
 } from './SingleProduct.styles';
 
 const SingleProduct = () => {
@@ -60,11 +61,11 @@ const SingleProduct = () => {
       <Wrap>
         <GridPics>{imgs.length > 0 && imgs.map((el, I) => <Pic key={I} src={el} />)}</GridPics>
         <Section>
-          <Title>{name}</Title>
+          <Header>{name}</Header>
           <Text>{pedigreeF}</Text>
           <Text>{pedigreeM}</Text>
           <Description>{description}</Description>
-          <Total>{price}</Total>
+          <Text>{price}</Text>
           <Title>Seller</Title>
           <Title>{seller[0].name}</Title>
           <img src={seller[0].photo} alt="profile" />
