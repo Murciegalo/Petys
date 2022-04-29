@@ -25,7 +25,6 @@ export const cartReducer = (state = INITIAL_STATE, action) => {
         isShipFormOpen: payload,
       };
     case SET_CART_ITEMS:
-      console.log('REDUCER', payload);
       return {
         ...state,
         cartItems:

@@ -4,7 +4,7 @@ import { grabLoading, grabRole } from '../../redux/user/user.selector';
 import Spinner from '../../components/Spinner/Spinner.component';
 import ProfileNav from '../../components/ProvileNav/ProfileNav';
 import ProfileForm from '../../components/ProfileForm/ProfileForm';
-import PasswordForm from '../../components/ProfilePassForm/PasswordForm';
+import PasswordForm from '../../components/PasswordForm/PasswordForm';
 import AdminNav from '../../components/AdminNav/AdminNav';
 import { Nav, UserContent, UserView } from './Home.styles';
 
@@ -12,7 +12,7 @@ const Home = () => {
   const loading = useSelector(grabLoading);
   const role = useSelector(grabRole);
   const adminNav = !loading && role === 'admin' && <AdminNav />;
-  return loading ? (
+  const display = loading ? (
     <Spinner />
   ) : (
     <UserView>
@@ -22,11 +22,11 @@ const Home = () => {
       </Nav>
       <UserContent>
         <ProfileForm />
-        <div className="line">&nbsp;</div>
         <PasswordForm />
       </UserContent>
     </UserView>
   );
+  return display;
 };
 
 export default Home;

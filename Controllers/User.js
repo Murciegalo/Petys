@@ -32,6 +32,7 @@ exports.updateMe = async (req, res) => {
     res.status(200).json({
       status: 'success',
       user: updatedUser,
+      auth: true,
     });
   } catch (err) {
     catchError(err, res);

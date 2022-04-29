@@ -4,6 +4,7 @@ import {
   LOGIN_USER_STARTS,
   LOGOUT_USER_START,
   REGISTER_USER_STARTS,
+  UPDATE_USER_STARTS,
 } from './types';
 import {
   registerUserSuccess,
@@ -14,6 +15,8 @@ import {
   logoutUserFailed,
   activeUserSuccess,
   activeUserFailed,
+  updateUserSuccess,
+  updateUserFailed,
 } from './user.actions';
 import axios from '../../api/axios';
 
@@ -54,6 +57,18 @@ export function* onLoginUser() {
   yield takeLatest(LOGIN_USER_STARTS, loginAsync);
 }
 
+export function* updateUserAsync({ payload }) {
+  try {
+    const res = yield axios.patch('/user/updateMe', payload);
+    yield put(updateUserSuccess(res));
+  } catch (err) {
+    yield put(updateUserFailed(err.response.data || err));
+  }
+}
+export function* onUpdateUser() {
+  yield takeLatest(UPDATE_USER_STARTS, updateUserAsync);
+}
+
 export function* logoutAsync() {
   try {
     const res = yield axios.get('/user/logout');
@@ -71,6 +86,7 @@ export function* userSaga() {
     call(onActiveUserSession),
     call(onRegisterUser),
     call(onLoginUser),
+    call(onUpdateUser),
     call(onLogoutUser),
   ]);
 }

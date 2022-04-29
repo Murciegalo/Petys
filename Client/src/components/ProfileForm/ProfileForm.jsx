@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUserStart } from '../../redux/user/user.actions';
 import { grabUser } from '../../redux/user/user.selector';
 import {
   Cont,
@@ -15,6 +16,7 @@ import {
 } from './profileForm.styles.js';
 
 const ProfileForm = () => {
+  const dispatch = useDispatch();
   const user = useSelector(grabUser);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -26,16 +28,16 @@ const ProfileForm = () => {
     }
   }, [user]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(updateUserStart({ name, email }));
+  };
+
   const photo = user?.photo ? (
     <UserPhoto src={require(`../../assets/users/${user.photo}`)} alt="User" />
   ) : (
     <UserPhoto src={require(`../../assets/users/default.jpg`)} alt="User" />
   );
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('submit');
-  };
   return (
     <Cont>
       <Header>Your account settings</Header>

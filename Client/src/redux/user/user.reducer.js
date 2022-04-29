@@ -12,6 +12,9 @@ import {
   ACTIVE_USER_STARTS,
   ACTIVE_USER_SUCCESS,
   ACTIVE_USER_FAILED,
+  UPDATE_USER_STARTS,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_FAILED,
 } from './types';
 
 const INITIAL_STATE = {
@@ -29,6 +32,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
 
   switch (type) {
+    case UPDATE_USER_STARTS:
     case ACTIVE_USER_STARTS:
     case LOGIN_USER_STARTS:
     case REGISTER_USER_STARTS:
@@ -38,15 +42,6 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         loading: true,
       };
     case ACTIVE_USER_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        user: payload.user,
-        role: payload.user.role,
-        token: payload.token,
-        isAuth: payload.auth,
-        // TO BE CONTINUED
-      };
     case LOGIN_USER_SUCCESS:
     case REGISTER_USER_SUCCESS:
       return {
@@ -58,18 +53,26 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         isAuth: payload.auth,
         error: null,
       };
+    case UPDATE_USER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        user: payload.data.user,
+        role: payload.data.user.role,
+        isAuth: payload.data.auth,
+        error: null,
+      };
     case LOGOUT_USER_SUCCESS:
       return {
         ...state,
         user: null,
-        role: '',
-        profile: null,
         token: '',
+        role: '',
         isAuth: false,
         loading: false,
         error: null,
-        alert: false,
       };
+    case UPDATE_USER_FAILED:
     case LOGIN_USER_FAILED:
     case REGISTER_USER_FAILED:
     case LOGOUT_USER_FAILED:
