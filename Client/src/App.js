@@ -39,10 +39,14 @@ function App() {
             <Route path="/shop/*" element={<Shop />} />
             <Route path=":category/:itemId" element={<SingleProduct />} />
             <Route path="/cart" element={<Cart />} />
-
-            <Route element={<PrivateRoute />}>
-              <Route path="/home" element={<Home />} />
-            </Route>
+            <Route
+              path="/home"
+              element={
+                <PrivateRoute>
+                  <Home />
+                </PrivateRoute>
+              }
+            />
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>

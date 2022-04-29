@@ -36,7 +36,7 @@ export const Bottom = styled.div`
 
 export const Logo = styled(Link)`
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
   font-size: 30px;
