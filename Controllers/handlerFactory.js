@@ -55,6 +55,8 @@ exports.createOne = (Model) => async (req, res) => {
 
 exports.getOne = (Model) => async (req, res) => {
   try {
+    console.log('TESTING', req.params.id);
+    console.log('TESTING', req.body);
     const doc = await Model.findById(req.params.id);
     if (doc === null) {
       humanErrors(res, 404, 'fail', 'Sorry, doc not found');

@@ -23,7 +23,7 @@ import axios from '../../api/axios';
 export function* activeSessionAsync() {
   try {
     const res = yield axios.get('/user/isAuth');
-    yield put(activeUserSuccess(res.data));
+    yield put(activeUserSuccess(res?.data));
   } catch (err) {
     yield put(activeUserFailed(err.response.data || err));
   }
@@ -48,7 +48,7 @@ export function* onRegisterUser() {
 export function* loginAsync({ payload }) {
   try {
     const res = yield axios.post('/user/signin', payload);
-    yield put(loginUserSuccess(res.data));
+    yield put(loginUserSuccess(res?.data || res));
   } catch (err) {
     yield put(loginUserFailed(err.response.data || err));
   }
