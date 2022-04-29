@@ -26,6 +26,12 @@ const ProfileForm = () => {
     }
   }, [user]);
 
+  const photo = user?.photo ? (
+    <UserPhoto src={require(`../../assets/users/${user.photo}`)} alt="User" />
+  ) : (
+    <UserPhoto src={require(`../../assets/users/default.jpg`)} alt="User" />
+  );
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('submit');
@@ -55,11 +61,7 @@ const ProfileForm = () => {
           />
         </FormGroup>
         <FormPhotoUpload>
-          {user?.photo ? (
-            <UserPhoto src={require(`../../assets/users/${user.photo}`)} alt="User" />
-          ) : (
-            <UserPhoto src={require(`../../assets/users/default.jpg`)} alt="User" />
-          )}
+          {photo}
           <FormLabel htmlFor="photo">Choose new photo</FormLabel>
           <FormInputUpload type="file" accept="image/*" name="photo" />
         </FormPhotoUpload>
