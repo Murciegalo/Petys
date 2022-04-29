@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Cont = styled.div`
   position: relative;
   width: 100%;
-  min-height: 150px;
+  min-height: 160px;
   margin: 0 auto;
   margin-bottom: 1rem;
   border-bottom: 2px solid #fff;
