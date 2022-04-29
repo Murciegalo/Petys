@@ -20,7 +20,6 @@ router.use('/:petId/reviews', reviewRouter);
 router.get('/', getAllPets);
 
 router.use(protect);
-
 router.get('/:id', getPet);
 router.get('/loc/:location', getPetByLocation);
 router.post('/', restrictTo('seller', 'admin'), createPet);

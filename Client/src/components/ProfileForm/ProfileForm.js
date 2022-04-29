@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { grabProfile } from '../../redux/user/user.selector';
+import { grabUser } from '../../redux/user/user.selector';
 import {
   Cont,
   FormGroup,
@@ -15,16 +15,16 @@ import {
 } from './profileForm.styles.js';
 
 const ProfileForm = () => {
-  const profile = useSelector(grabProfile);
+  const user = useSelector(grabUser);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
   useEffect(() => {
-    if (profile !== null) {
-      setName(profile.name);
-      setEmail(profile.email);
+    if (user !== null) {
+      setName(user.name);
+      setEmail(user.email);
     }
-  }, [profile]);
+  }, [user]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,8 +55,8 @@ const ProfileForm = () => {
           />
         </FormGroup>
         <FormPhotoUpload>
-          {profile?.photo ? (
-            <UserPhoto src={require(`../../assets/users/${profile.photo}`)} alt="User" />
+          {user?.photo ? (
+            <UserPhoto src={require(`../../assets/users/${user.photo}`)} alt="User" />
           ) : (
             <UserPhoto src={require(`../../assets/users/default.jpg`)} alt="User" />
           )}
