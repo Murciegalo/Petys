@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { updateUserPaswordStart } from '../../redux/user/user.actions.js';
 import {
   Cont,
   Btn,
@@ -11,13 +12,13 @@ import {
 } from '../ProfileForm/profileForm.styles.js';
 
 const PasswordForm = () => {
-  // const navigate = useNavigate();
-  const [passwordCurrent, setPasswordCurrent] = useState('');
+  const dispatch = useDispatch();
+  const [currentPassword, setCurrentPassword] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setTimeout(() => navigate('/login'), 1300);
+    dispatch(updateUserPaswordStart({ currentPassword, password, passwordConfirm }));
   };
   return (
     <Cont>
@@ -28,8 +29,8 @@ const PasswordForm = () => {
           <FormInput
             type="password"
             placeholder="••••••••"
-            value={passwordCurrent}
-            onChange={(e) => setPasswordCurrent(e.target.value)}
+            value={currentPassword}
+            onChange={(e) => setCurrentPassword(e.target.value)}
             required
             minLength="8"
           />

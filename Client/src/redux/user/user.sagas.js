@@ -1,10 +1,11 @@
 import { takeLatest, all, call, put } from 'redux-saga/effects';
 import {
-  ACTIVE_USER_STARTS,
-  LOGIN_USER_STARTS,
+  ACTIVE_USER_START,
+  LOGIN_USER_START,
   LOGOUT_USER_START,
-  REGISTER_USER_STARTS,
-  UPDATE_USER_STARTS,
+  REGISTER_USER_START,
+  UPDATE_USER_PASSWORD_START,
+  UPDATE_USER_START,
 } from './types';
 import {
   registerUserSuccess,
@@ -17,6 +18,8 @@ import {
   activeUserFailed,
   updateUserSuccess,
   updateUserFailed,
+  updateUserPaswordSuccess,
+  updateUserPaswordFailed,
 } from './user.actions';
 import axios from '../../api/axios';
 
@@ -29,7 +32,7 @@ export function* activeSessionAsync() {
   }
 }
 export function* onActiveUserSession() {
-  yield takeLatest(ACTIVE_USER_STARTS, activeSessionAsync);
+  yield takeLatest(ACTIVE_USER_START, activeSessionAsync);
 }
 
 export function* registerAsync({ payload }) {
@@ -42,7 +45,7 @@ export function* registerAsync({ payload }) {
   }
 }
 export function* onRegisterUser() {
-  yield takeLatest(REGISTER_USER_STARTS, registerAsync);
+  yield takeLatest(REGISTER_USER_START, registerAsync);
 }
 
 export function* loginAsync({ payload }) {
@@ -54,7 +57,7 @@ export function* loginAsync({ payload }) {
   }
 }
 export function* onLoginUser() {
-  yield takeLatest(LOGIN_USER_STARTS, loginAsync);
+  yield takeLatest(LOGIN_USER_START, loginAsync);
 }
 
 export function* updateUserAsync({ payload }) {
@@ -66,7 +69,20 @@ export function* updateUserAsync({ payload }) {
   }
 }
 export function* onUpdateUser() {
-  yield takeLatest(UPDATE_USER_STARTS, updateUserAsync);
+  yield takeLatest(UPDATE_USER_START, updateUserAsync);
+}
+
+export function* updateUserPasswordAsync({ payload }) {
+  try {
+    const res = yield axios.patch('/user/updateMyPassword', payload);
+    console.log('SAGA RES', res);
+    yield put(updateUserPaswordSuccess(res.data));
+  } catch (err) {
+    yield put(updateUserPaswordFailed(err.response.data || err));
+  }
+}
+export function* onUpdateUserPassword() {
+  yield takeLatest(UPDATE_USER_PASSWORD_START, updateUserPasswordAsync);
 }
 
 export function* logoutAsync() {
@@ -88,5 +104,6 @@ export function* userSaga() {
     call(onLoginUser),
     call(onUpdateUser),
     call(onLogoutUser),
+    call(onUpdateUserPassword),
   ]);
 }
