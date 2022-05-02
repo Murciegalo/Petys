@@ -13,8 +13,18 @@ const {
 
 exports.uploadUserPhoto = upload.single('photo');
 
-exports.resizeUserPhoto = (req, res, nest) => {
+exports.resizeUserPhoto = (req, res, next) => {
   if (!req.file) return next();
+  // Set var filename
+  req.file.filename = `user-${req.user.id}-${Date.now()}.jpeg`;
+
+  sharp(req.file.buffer, { failOnError: false })
+    .resize(500, 500)
+    .toFormat('jpeg')
+    .jpeg({ quality: 90 })
+    .toFile(`Client/src/assets/users/${req.file.filename}`);
+
+  next();
 };
 exports.getMe = async (req, res, next) => {
   req.params.id = req.user.id;
