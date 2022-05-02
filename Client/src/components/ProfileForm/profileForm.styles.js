@@ -17,6 +17,7 @@ export const FormGroup = styled.div`
 `;
 
 export const FormLabel = styled.label`
+  position: relative;
   display: block;
   font-size: 1.2rem;
   font-weight: 700;
@@ -55,12 +56,14 @@ export const UserPhoto = styled.img`
 `;
 
 export const FormInputUpload = styled.input`
-  width: 0.1px;
-  height: 0.1px;
+  position: absolute;
+  left: 0;
+  height: 2rem;
   opacity: 0;
   overflow: hidden;
-  position: absolute;
-  z-index: -1;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export const Btn = styled.button`

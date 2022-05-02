@@ -64,8 +64,10 @@ const ProfileForm = () => {
         </FormGroup>
         <FormPhotoUpload>
           {photo}
-          <FormLabel htmlFor="photo">Choose new photo</FormLabel>
-          <FormInputUpload type="file" accept="image/*" name="photo" />
+          <FormLabel htmlFor="photo">
+            Choose new photo
+            <FormInputUpload type="file" accept="image/*" name="photo" />
+          </FormLabel>
         </FormPhotoUpload>
         <FormGroup>
           <Btn type="submit">Save settings</Btn>
