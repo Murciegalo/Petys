@@ -12,10 +12,10 @@ const {
 
 const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'src/assets/users');
+    cb(null, 'Client/src/assets/users');
   },
   filename: (req, file, cb) => {
-    const ext = req.file.mimetype.split('/')[1];
+    const ext = file.mimetype.split('/')[1];
     cb(null, `user-${req.user.id}-${Date.now()}.${ext}`);
   },
 });
@@ -26,7 +26,6 @@ const multerFilter = (req, file, cb) => {
     cb(new Error('Not an image, Please upload only images'), false);
   }
 };
-
 const upload = multer({
   storage: multerStorage,
   fileFilter: multerFilter,
@@ -50,6 +49,9 @@ exports.updateMe = async (req, res) => {
       );
     }
     const reqBody = filterObj(req.body, 'name', 'email');
+    if (req.file) {
+      reqBody.photo = req.file.filename;
+    }
     const updatedUser = await User.findByIdAndUpdate(req.user.id, reqBody, {
       new: true,
       runValidators: true, //Mongo own validations (proper emails format, name...)
