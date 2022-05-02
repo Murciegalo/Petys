@@ -1,3 +1,4 @@
+const sharp = require('sharp');
 const { catchError, humanErrors } = require('./errorHandler');
 const User = require('../Models/UserModel');
 const { filterObj } = require('../utils/tools');
@@ -12,6 +13,9 @@ const {
 
 exports.uploadUserPhoto = upload.single('photo');
 
+exports.resizeUserPhoto = (req, res, nest) => {
+  if (!req.file) return next();
+};
 exports.getMe = async (req, res, next) => {
   req.params.id = req.user.id;
   next();

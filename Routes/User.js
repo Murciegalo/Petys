@@ -9,6 +9,7 @@ const {
   deleteMe,
   getMe,
   uploadUserPhoto,
+  resizeUserPhoto,
 } = require('../Controllers/user');
 const {
   signup,
@@ -33,7 +34,7 @@ router.patch('/resetPassword/:token', resetPassword);
 router.get('/isAuth', isLoggedIn);
 router.use(protect);
 router.get('/me', getMe, getUser);
-router.patch('/updateMe', uploadUserPhoto, updateMe);
+router.patch('/updateMe', uploadUserPhoto, resizeUserPhoto, updateMe);
 router.delete('/deleteMe', deleteMe);
 router.patch('/updateMyPassword', updatePassword);
 
