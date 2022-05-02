@@ -30,7 +30,11 @@ const ProfileForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateUserStart({ name, email }));
+    const form = new FormData();
+    form.append('name', name);
+    form.append('email', email);
+    form.append('photo', document.getElementById('photo').files[0]);
+    dispatch(updateUserStart(form));
   };
 
   const photo = user?.photo ? (
@@ -64,7 +68,7 @@ const ProfileForm = () => {
         </FormGroup>
         <FormPhotoUpload>
           {photo}
-          <FormInputUpload type="file" accept="image/*" name="photo" />
+          <FormInputUpload type="file" accept="image/*" id="photo" name="photo" />
         </FormPhotoUpload>
         <FormGroup>
           <Btn type="submit">Save settings</Btn>
