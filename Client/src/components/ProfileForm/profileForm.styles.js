@@ -42,6 +42,7 @@ export const FormInput = styled.input`
 `;
 
 export const FormPhotoUpload = styled.div`
+  position: relative;
   margin-bottom: 2.5rem;
   display: flex;
   align-items: center;
@@ -56,14 +57,8 @@ export const UserPhoto = styled.img`
 `;
 
 export const FormInputUpload = styled.input`
-  position: absolute;
-  left: 0;
-  height: 2rem;
-  opacity: 0;
-  overflow: hidden;
-  :hover {
-    cursor: pointer;
-  }
+  font-size: 1rem;
+  color: #fff;
 `;
 
 export const Btn = styled.button`
