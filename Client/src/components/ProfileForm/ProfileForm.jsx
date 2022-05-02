@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserStart } from '../../redux/user/user.actions';
-import { grabUser } from '../../redux/user/user.selector';
+import { grabLoading, grabUser } from '../../redux/user/user.selector';
 import {
   Cont,
   FormGroup,
@@ -18,6 +18,7 @@ import {
 const ProfileForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(grabUser);
+  const isLoading = useSelector(grabLoading);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
@@ -37,11 +38,12 @@ const ProfileForm = () => {
     dispatch(updateUserStart(form));
   };
 
-  const photo = user?.photo ? (
-    <UserPhoto src={require(`../../assets/users/${user.photo}`)} alt="User" />
-  ) : (
-    <UserPhoto src={require(`../../assets/users/default.jpg`)} alt="User" />
-  );
+  const photo =
+    user?.photo && !isLoading ? (
+      <UserPhoto src={require(`../../assets/users/${user.photo}`)} alt="User" />
+    ) : (
+      <UserPhoto src={require(`../../assets/users/default.jpg`)} alt="User" />
+    );
   return (
     <Cont>
       <Header>Your account settings</Header>

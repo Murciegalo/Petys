@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
-import { grabAuth, grabUser } from '../../redux/user/user.selector';
 import { logoutStart } from '../../redux/user/user.actions';
 import CartMenu from '../CartMenu/CartMenu';
 import { LoginIcon } from '../loginIcon/LoginIcon';
@@ -11,8 +10,6 @@ import { setIsCartOpen } from '../../redux/cart/cart.actions';
 import { selectCartCount } from '../../redux/cart/cart.selector';
 
 const Nav = () => {
-  const user = useSelector(grabUser);
-  const isAuth = useSelector(grabAuth);
   const count = useSelector(selectCartCount);
   const dispatch = useDispatch();
 
@@ -24,7 +21,7 @@ const Nav = () => {
     <>
       <Cont>
         <Top>
-          <LoginIcon user={user} isAuth={isAuth} />
+          <LoginIcon />
           <IconItem to="#" onClick={() => dispatch(setIsCartOpen(true))} color="white">
             <CartSvg />
             <small>bag</small>
@@ -39,7 +36,7 @@ const Nav = () => {
           <TextItem to="/shop">THIS IS US</TextItem>
         </Wrapp>
         <Bottom>
-          <Logout handleLogout={handleLogout} isAuth={isAuth} />
+          <Logout handleLogout={handleLogout} />
         </Bottom>
       </Cont>
       <Outlet />
