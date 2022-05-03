@@ -13,19 +13,23 @@ const {
 
 exports.uploadUserPhoto = upload.single('photo');
 
-exports.resizeUserPhoto = (req, res, next) => {
+exports.resizeUserPhoto = async (req, res, next) => {
   if (!req.file) return next();
   // Set var filename
   req.file.filename = `user-${req.user.id}-${Date.now()}.jpeg`;
-
-  sharp(req.file.buffer, { failOnError: false })
-    .resize(500, 500)
-    .toFormat('jpeg')
-    .jpeg({ quality: 90 })
-    .toFile(`Client/src/assets/users/${req.file.filename}`);
-
-  next();
+  try {
+    await sharp(req.file.buffer, { failOnError: false }) //failOnError to be check
+      .resize(500, 500)
+      .toFormat('jpeg')
+      .jpeg({ quality: 90 })
+      .toFile(`Client/src/assets/users/${req.file.filename}`);
+    next();
+  } catch (err) {
+    catchError(err, res);
+    next();
+  }
 };
+
 exports.getMe = async (req, res, next) => {
   req.params.id = req.user.id;
   next();
@@ -42,6 +46,7 @@ exports.updateMe = async (req, res) => {
       );
     }
     const reqBody = filterObj(req.body, 'name', 'email');
+    // Need to see photo var
     if (req.file) {
       reqBody.photo = req.file.filename;
     }

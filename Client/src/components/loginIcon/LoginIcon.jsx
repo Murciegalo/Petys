@@ -8,7 +8,7 @@ export const LoginIcon = () => {
   const isLoading = useSelector(grabLoading);
   const user = useSelector(grabUser);
   let src =
-    user.photo !== null
+    user !== null
       ? require(`../../assets/users/${user.photo}`)
       : require(`../../assets/users/default.jpg`);
 

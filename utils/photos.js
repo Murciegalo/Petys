@@ -22,3 +22,7 @@ exports.upload = multer({
   storage: multerStorage,
   fileFilter: multerFilter,
 });
+
+// upload.singe('photo') for 1 picture                                    req.file
+// upload.array('imgs', 4) for Many Pictures                              req.files
+// upload.fields([{name: 'asdfasdf', maxCount: 3}, ...]) for a Mix        req.files

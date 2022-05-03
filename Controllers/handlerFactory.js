@@ -28,12 +28,12 @@ exports.updateOne = (Model) => async (req, res) => {
       runValidators: true,
     });
 
-    res.status(200).json({
+    return res.status(200).json({
       status: 'success',
       doc,
     });
   } catch (err) {
-    catchError(
+    return catchError(
       err,
       res,
       'Sorry, we could not find that item. Update not completed'
@@ -55,8 +55,6 @@ exports.createOne = (Model) => async (req, res) => {
 
 exports.getOne = (Model) => async (req, res) => {
   try {
-    console.log('TESTING', req.params.id);
-    console.log('TESTING', req.body);
     const doc = await Model.findById(req.params.id);
     if (doc === null) {
       humanErrors(res, 404, 'fail', 'Sorry, doc not found');

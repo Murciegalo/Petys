@@ -9,6 +9,8 @@ const {
   deletePet,
   getPetStats,
   getPetByLocation,
+  uploadPetImgs,
+  resizePetImgs,
 } = require('../Controllers/pet');
 const reviewRouter = require('../Routes/review');
 
@@ -22,8 +24,20 @@ router.get('/', getAllPets);
 router.use(protect);
 router.get('/:id', getPet);
 router.get('/loc/:location', getPetByLocation);
-router.post('/', restrictTo('seller', 'admin'), createPet);
-router.put('/:id', restrictTo('seller', 'admin'), updatePet);
+router.post(
+  '/',
+  restrictTo('seller', 'admin'),
+  uploadPetImgs,
+  resizePetImgs,
+  createPet
+);
+router.put(
+  '/:id',
+  restrictTo('seller', 'admin'),
+  uploadPetImgs,
+  resizePetImgs,
+  updatePet
+);
 router.delete('/:id', restrictTo('seller', 'admin'), deletePet);
 
 // STATS

@@ -1,3 +1,4 @@
+const sharp = require('sharp');
 const Pet = require('../Models/PetModel');
 const {
   fullFilter,
@@ -5,13 +6,55 @@ const {
   fieldsLimiting,
   pagination,
 } = require('../utils/apiFeatures');
+const { upload } = require('../utils/photos');
 const { catchError, humanErrors } = require('./errorHandler');
 const { deleteOne, updateOne, createOne } = require('./handlerFactory');
 
-// MIDDLEWARE
+// MIDDLEWARES
 exports.aliasTopPets = (req, res, next) => {
   req.query.limit = '5';
   req.query.sort = 'price';
+  next();
+};
+
+exports.uploadPetImgs = upload.fields([
+  { name: 'imgCover', maxCount: 1 },
+  { name: 'imgs', maxCount: 4 },
+]);
+
+exports.resizePetImgs = async (req, res, next) => {
+  if (req.files.imgCover) {
+    try {
+      req.body.imgCover = `pet-${req.params.id}-${Date.now()}-cover.jpeg`;
+      await sharp(req.files.imgCover[0].buffer, { failOnError: false }) //failOnError to be check
+        .resize(2000, 1333)
+        .toFormat('jpeg')
+        .jpeg({ quality: 90 })
+        .toFile(`Client/src/assets/pets/${req.body.imgCover}`);
+    } catch (err) {
+      catchError(err, res);
+      next();
+    }
+  }
+  if (req.files.imgs) {
+    try {
+      req.body.imgs = [];
+      await Promise.all(
+        req.files.imgs.map(async (el, I) => {
+          const fileName = `pet-${req.params.id}-${Date.now()}-${I + 1}.jpeg`;
+          await sharp(el.buffer, { failOnError: false }) //failOnError to be check
+            .resize(2000, 1333)
+            .toFormat('jpeg')
+            .jpeg({ quality: 90 })
+            .toFile(`Client/src/assets/pets/${fileName}`);
+          req.body.imgs.push(fileName);
+        })
+      );
+    } catch (err) {
+      catchError(err, res);
+      next();
+    }
+  }
   next();
 };
 
