@@ -33,7 +33,7 @@ exports.updateOne = (Model) => async (req, res) => {
       doc,
     });
   } catch (err) {
-    return catchError(
+    catchError(
       err,
       res,
       'Sorry, we could not find that item. Update not completed'
