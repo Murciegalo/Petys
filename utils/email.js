@@ -1,9 +1,8 @@
 const nodemailer = require('nodemailer');
 const { convert } = require('html-to-text');
 
-// new Email(user, url)
 module.exports = class Email {
-  constructor() {
+  constructor(user, url) {
     this.to = user.email;
     this.name = user.name.split(' ')[0];
     this.url = url;
@@ -30,12 +29,12 @@ module.exports = class Email {
   //Send email
   async send(subject) {
     // 1) Render HTML
-    const htmlW = `<p>Hi ${this.firstName},</p>
-      <p>Welcome to Freaking Tours, we're glad to have you</p> 🎉🙏
+    const htmlW = `<p>Hi ${this.name},</p>
+      <p>Welcome to Petxy Shop, we're glad to have you</p> 🎉🙏
       <a href=${this.url} target='_blank'> Upload user photo</a>
       <p>If you need any help, please don't hesitate to contact us!</p>
     `;
-    const htmlF = `<p>Hi ${this.firstName}</p>
+    const htmlF = `<p>Hi ${this.name}</p>
       <p>Forgot your password? 
       Submit a PATCH request with your new password and passwordConfirm to: ${this.url}.</p>
       <a href=${this.url} target='_blank'> Reset your password</a>
@@ -51,7 +50,7 @@ module.exports = class Email {
       text: convert(htmlW, {
         selectors: [
           // url to be updated
-          { selector: 'a', options: { baseUrl: 'https://example.com' } },
+          { selector: 'a', options: { baseUrl: '/me' } },
           { selector: 'p', format: 'skip' },
         ],
       }),
@@ -71,5 +70,3 @@ module.exports = class Email {
     await this.send('Forgot your password mate? no worries');
   }
 };
-
-module.exports = sendEmail;

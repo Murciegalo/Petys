@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../Models/UserModel');
 const { catchError } = require('./errorHandler');
 const { sendToken } = require('../utils/tools');
-const sendEmail = require('../utils/email');
+const Email = require('../utils/email');
 const { humanErrors } = require('./errorHandler');
 const signToken = (id) =>
   jwt.sign({ id }, process.env.S, {
@@ -26,6 +26,10 @@ exports.signup = async (req, res) => {
       passwordConfirm: req.body.passwordConfirm,
     });
     const token = signToken(newUser._id);
+
+    const url = `${req.protocol}://${req.get('host')}/me`;
+    await new Email(newUser, url).sendWelcome();
+
     sendToken(token, newUser, 201, res);
   } catch (err) {
     catchError(err, res);
@@ -132,14 +136,17 @@ exports.forgotPassword = async (req, res, next) => {
     const resetUrl = `${req.protocol}://${req.get(
       'host'
     )}/api/v1/user/resetPassword/${resetToken}`;
-    const msg = `Forgot your password? Please click on the link to create a new password: ${resetUrl}\n
-    If you didn't request a new password, please ignore this email.`;
+
+    // const msg = `Forgot your password? Please click on the link to create a new password: ${resetUrl}\n
+    // If you didn't request a new password, please ignore this email.`;
+
     try {
-      await sendEmail({
-        email: user.email,
-        subject: 'Forgot Password Request',
-        message: msg,
-      });
+      await new Email(user, resetUrl).sendPasswordReset();
+      // await sendEmail({
+      //   email: user.email,
+      //   subject: 'Forgot Password Request',
+      //   message: msg,
+      // });
 
       res.status(200).json({
         status: 'success',
