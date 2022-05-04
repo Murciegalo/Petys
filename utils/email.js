@@ -36,7 +36,7 @@ module.exports = class Email {
     `;
     const htmlF = `<p>Hi ${this.name}</p>
       <p>Forgot your password? 
-      Submit a PATCH request with your new password and passwordConfirm to: ${this.url}.</p>
+      Please click on the link below to create a new password:</p>
       <a href=${this.url} target='_blank'> Reset your password</a>
       <p> If you didn't request a new password , please ignore this email</p>
     `;

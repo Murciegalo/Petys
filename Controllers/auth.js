@@ -132,21 +132,13 @@ exports.forgotPassword = async (req, res, next) => {
     const resetToken = user.randomTokenResetPassword();
     await user.save({ validateBeforeSave: false });
 
-    // Email token to user
-    const resetUrl = `${req.protocol}://${req.get(
-      'host'
-    )}/api/v1/user/resetPassword/${resetToken}`;
-
-    // const msg = `Forgot your password? Please click on the link to create a new password: ${resetUrl}\n
-    // If you didn't request a new password, please ignore this email.`;
-
     try {
+      // Email token to user
+      const resetUrl = `${req.protocol}://${req.get(
+        'host'
+      )}/api/v1/user/resetPassword/${resetToken}`;
+
       await new Email(user, resetUrl).sendPasswordReset();
-      // await sendEmail({
-      //   email: user.email,
-      //   subject: 'Forgot Password Request',
-      //   message: msg,
-      // });
 
       res.status(200).json({
         status: 'success',
