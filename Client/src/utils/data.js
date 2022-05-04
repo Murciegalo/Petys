@@ -1,3 +1,11 @@
+export const parseJwt = async (token) => {
+  try {
+    return await JSON.parse(Buffer.from(token, 'base64'));
+  } catch (e) {
+    return null;
+  }
+};
+
 export const giftBoxes = [
   {
     id: '1',

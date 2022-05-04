@@ -20,6 +20,7 @@ import {
   updateUserFailed,
   updateUserPaswordSuccess,
   updateUserPaswordFailed,
+  logoutStart,
 } from './user.actions';
 import axios from '../../api/axios';
 
@@ -29,6 +30,7 @@ export function* activeSessionAsync() {
     yield put(activeUserSuccess(res?.data));
   } catch (err) {
     yield put(activeUserFailed(err.response.data || err));
+    yield put(logoutStart());
   }
 }
 export function* onActiveUserSession() {
