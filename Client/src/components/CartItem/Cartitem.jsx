@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { removeItemCart } from '../../redux/cart/cart.actions';
 import { TextBtn } from '../../pages/Cart/Cart.styles';
-import { Cont, Product, ContImg, Desc, Img, Price, Quant, Text, Remove } from './CartItem.styles';
+import { Cont, Product, ContImg, Desc, Img, Price, Text, Remove } from './CartItem.styles';
 
 const Cartitem = ({ el }) => {
   const dispatch = useDispatch();
@@ -22,7 +22,6 @@ const Cartitem = ({ el }) => {
         </Desc>
       </Product>
       <Price>$ {el.price}</Price>
-      {/* <Quant>{el.quantity}</Quant> */}
       <Remove>
         <TextBtn onClick={handleDelete}>Remove</TextBtn>
       </Remove>

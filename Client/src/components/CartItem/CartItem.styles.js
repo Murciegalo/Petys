@@ -52,32 +52,9 @@ export const Price = styled.section`
   align-items: center;
 `;
 
-export const Quant = styled.section`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 export const Remove = styled.section`
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-export const Btn = styled.button`
-  width: 2rem;
-  transition: 0.2s ease-in-out
-  :hover {
-    cursor: pointer;
-    background-color: white;
-    border: 2px solid #fff;
-  }
-`;
-
-export const Total = styled.div`
-  flex: 1;
-  text-align: center;
-  padding-top: 1rem;
 `;
