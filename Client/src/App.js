@@ -1,13 +1,13 @@
 import React, { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import Nav from './components/Nav/Nav';
+import Layout from './components/Layout/Layout';
 import Footer from './components/Footer/Footer';
 import Loading from './components/OnLoading/OnLoading';
 import PrivateRoute from './components/Auth/PrivateRoutes';
 import { activeUserStart } from './redux/user/user.actions';
 
-const Layout = lazy(() => import('./pages/FrontLayout/Layout'));
+const Cover = lazy(() => import('./pages/Cover/Cover'));
 const Login = lazy(() => import('./pages/Login/Login'));
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword/ForgotPassword'));
@@ -29,15 +29,16 @@ function App() {
     <>
       <Suspense fallback={<Loading />}>
         <Routes>
-          <Route path="/" element={<Nav />}>
-            <Route index element={<Layout />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/forgotPassword" element={<ForgotPassword />} />
-            <Route path="/unauthorized" element={<Unauthorized />} />
-            <Route path="/shop/*" element={<Shop />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Cover />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<SignUp />} />
+            <Route path="forgotPassword" element={<ForgotPassword />} />
+            <Route path="unauthorized" element={<Unauthorized />} />
+            <Route path="shop/*" element={<Shop />} />
+            <Route path="cart" element={<Cart />} />
+
             <Route path=":category/:itemId" element={<SingleProduct />} />
-            <Route path="/cart" element={<Cart />} />
             <Route
               path="/home"
               element={
@@ -49,7 +50,6 @@ function App() {
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>
-        <Footer />
       </Suspense>
     </>
   );

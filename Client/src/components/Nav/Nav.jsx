@@ -39,7 +39,6 @@ const Nav = () => {
           <Logout handleLogout={handleLogout} />
         </Bottom>
       </Cont>
-      <Outlet />
     </>
   );
 };
