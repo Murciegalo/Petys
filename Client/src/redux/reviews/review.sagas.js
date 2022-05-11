@@ -5,7 +5,10 @@ import axios from '../../api/axios';
 
 export function* getPetReviewsAsync(payload) {
   try {
-    const res = yield axios.get(`/pets/${payload.payload.itemId}/reviews`);
+    const controller = new AbortController();
+    const res = yield axios.get(`/pets/${payload.payload.itemId}/reviews`, {
+      signal: controller.signal,
+    });
     yield put(getPetReviewsSuccess(res.data));
   } catch (err) {
     yield put(getPetReviewsFailed(err.response.data));

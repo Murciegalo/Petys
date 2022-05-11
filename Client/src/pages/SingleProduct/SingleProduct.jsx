@@ -25,7 +25,13 @@ const SingleProduct = () => {
   const dispatch = useDispatch();
   const token = useSelector(grabToken);
   useEffect(() => {
-    dispatch(getPetReviewsStarts({ itemId, token }));
+    let isMounted = true;
+    const controller = new AbortController();
+    isMounted && dispatch(getPetReviewsStarts({ itemId, token }));
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
     // eslint-disable-next-line
   }, [itemId, token]);
 
