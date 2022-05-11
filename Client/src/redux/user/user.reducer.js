@@ -22,7 +22,7 @@ import {
 
 const INITIAL_STATE = {
   user: null,
-  role: '',
+  role: [],
   profile: null,
   isAuth: false,
   token: '',
@@ -50,7 +50,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         loading: false,
         user: payload.user,
-        role: payload.user.role,
+        role: [payload.user.role],
         token: payload.token,
         isAuth: payload.auth,
       };
@@ -59,7 +59,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         loading: false,
         user: payload.user,
-        role: payload.user.role,
+        role: [payload.user.role],
         token: payload.token,
         isAuth: payload.auth,
       };
@@ -69,7 +69,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         loading: false,
         user: payload.user,
-        role: payload.user.role,
+        role: [payload.user.role],
         token: payload.token,
         isAuth: payload.auth,
         error: null,
@@ -79,7 +79,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         loading: false,
         user: payload.data.user,
-        role: payload.data.user.role,
+        role: [payload.data.user.role],
         isAuth: payload.data.auth,
         error: null,
       };

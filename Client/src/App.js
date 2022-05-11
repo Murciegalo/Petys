@@ -39,14 +39,10 @@ function App() {
             <Route path="cart" element={<Cart />} />
 
             <Route path=":category/:itemId" element={<SingleProduct />} />
-            <Route
-              path="/home"
-              element={
-                <PrivateRoute>
-                  <Home />
-                </PrivateRoute>
-              }
-            />
+
+            <Route element={<PrivateRoute allowedRoles={['user', 'admin', 'seller']} />}>
+              <Route path="/home" element={<Home />} />
+            </Route>
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>
