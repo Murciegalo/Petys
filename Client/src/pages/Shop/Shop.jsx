@@ -8,7 +8,13 @@ import { getAllPetsStart } from '../../redux/pets/pet.actions';
 const Shop = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllPetsStart());
+    let isMounted = true;
+    const controller = new AbortController();
+    isMounted && dispatch(getAllPetsStart());
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
     // eslint-disable-next-line
   }, []);
   return (

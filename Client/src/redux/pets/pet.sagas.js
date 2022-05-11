@@ -6,7 +6,8 @@ import axios from '../../api/axios';
 
 export function* getAllPetsAsync() {
   try {
-    const res = yield axios.get('/pets');
+    const controller = new AbortController();
+    const res = yield axios.get('/pets', { signal: controller.signal });
     const data = convertCollectionToObj(res.data.data);
     yield put(getAllPetsSuccess(data));
   } catch (err) {

@@ -35,9 +35,8 @@ function App() {
             <Route path="forgotPassword" element={<ForgotPassword />} />
             <Route path="unauthorized" element={<Unauthorized />} />
             <Route path="shop/*" element={<Shop />} />
-            <Route path="cart" element={<Cart />} />
-
             <Route path=":category/:itemId" element={<SingleProduct />} />
+            <Route path="cart" element={<Cart />} />
 
             <Route element={<PrivateRoute allowedRoles={['user', 'admin', 'seller']} />}>
               <Route path="/home" element={<Home />} />
