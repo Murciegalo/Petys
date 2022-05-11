@@ -1,12 +1,11 @@
 import React, { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import Layout from './components/Layout/Layout';
-import Footer from './components/Footer/Footer';
 import Loading from './components/OnLoading/OnLoading';
 import PrivateRoute from './components/Auth/PrivateRoutes';
 import { activeUserStart } from './redux/user/user.actions';
 
+const Layout = lazy(() => import('./components/Layout/Layout'));
 const Cover = lazy(() => import('./pages/Cover/Cover'));
 const Login = lazy(() => import('./pages/Login/Login'));
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { loginStart } from '../../redux/user/user.actions';
 import { grabAuth } from '../../redux/user/user.selector';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 
 const Login = () => {
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
   const dispatch = useDispatch();
   const isAuth = useSelector(grabAuth);
   const [email, setEmail] = useState('');
@@ -27,7 +29,7 @@ const Login = () => {
       setPassword={setPassword}
     />
   ) : (
-    <Navigate to="/home" replace={true} />
+    <Navigate to="/home" state={{ from }} replace />
   );
   return navigation;
 };
