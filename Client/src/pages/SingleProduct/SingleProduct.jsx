@@ -5,7 +5,6 @@ import { Button, TypeBtn } from '../../components/Button/Button';
 import { addItemCart } from '../../redux/cart/cart.actions';
 import { grabOneItemFromCategory } from '../../redux/pets/pet.selector';
 import { getPetReviewsStarts } from '../../redux/reviews/review.actions';
-import { grabToken } from '../../redux/user/user.selector';
 import {
   Cont,
   Section,
@@ -32,8 +31,7 @@ const SingleProduct = () => {
       isMounted = false;
       controller.abort();
     };
-    // eslint-disable-next-line
-  }, [itemId]);
+  }, []);
 
   const {
     name,
