@@ -3,10 +3,10 @@ import { GET_ALL_PET_REVIEWS_STARTS } from './types';
 import { getPetReviewsFailed, getPetReviewsSuccess } from './review.actions';
 import axios from '../../api/axios';
 
-export function* getPetReviewsAsync(payload) {
+export function* getPetReviewsAsync({ payload }) {
   try {
     const controller = new AbortController();
-    const res = yield axios.get(`/pets/${payload.payload.itemId}/reviews`, {
+    const res = yield axios.get(`/pets/${payload}/reviews`, {
       signal: controller.signal,
     });
     yield put(getPetReviewsSuccess(res.data));

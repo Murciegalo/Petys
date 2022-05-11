@@ -23,17 +23,17 @@ const SingleProduct = () => {
   const navigate = useNavigate();
   const { category, itemId } = useParams();
   const dispatch = useDispatch();
-  const token = useSelector(grabToken);
+
   useEffect(() => {
     let isMounted = true;
     const controller = new AbortController();
-    isMounted && dispatch(getPetReviewsStarts({ itemId, token }));
+    isMounted && dispatch(getPetReviewsStarts(itemId));
     return () => {
       isMounted = false;
       controller.abort();
     };
     // eslint-disable-next-line
-  }, [itemId, token]);
+  }, [itemId]);
 
   const {
     name,
